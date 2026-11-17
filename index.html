@@ -21,8 +21,8 @@ summary::-webkit-details-marker{display:none}.t{color:var(--mut);font-size:12px;
 .play svg{width:18px;height:18px;fill:#fff}.play[disabled]{background:var(--line)}.play.on{background:var(--acc)}
 .player{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));background:#2b1630;color:#fff;border-radius:16px;padding:10px 12px;display:none;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:5}
 .player img{width:44px;height:44px;border-radius:8px}.player .pi{flex:1;min-width:0}.player .pt{font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.player .pa{font-size:12px;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.prog{height:3px;background:rgba(255,255,255,.2);border-radius:2px;margin-top:6px}.prog i{display:block;height:100%;width:0;background:#f0525f;border-radius:2px}
-.player .play{width:40px;height:40px}.x{background:none;border:0;color:#fff;font-size:20px;opacity:.7;padding:4px}
+.prog{height:6px;cursor:pointer;background:rgba(255,255,255,.2);border-radius:2px;margin-top:6px}.prog i{display:block;height:100%;width:0;background:#f0525f;border-radius:2px}
+.skip{background:rgba(255,255,255,.15);border:0;color:#fff;border-radius:14px;padding:6px 9px;font-size:12px;font-weight:600}.player .play{width:40px;height:40px}.x{background:none;border:0;color:#fff;font-size:20px;opacity:.7;padding:4px}
 .legend{font-size:12.5px;color:var(--mut);padding:0 14px 10px}footer{color:var(--mut);font-size:12px;padding:20px 14px}
 .stg{color:var(--mut);font-weight:400;font-size:13px}</style></head><body>
 <header><img class="logo" src="logo.png" alt="Dreamstate"><h1>Dreamstate SoCal 2026</h1>
@@ -34,7 +34,7 @@ summary::-webkit-details-marker{display:none}.t{color:var(--mut);font-size:12px;
 <div class="tabs"><button class="btn" id="cont">Autoplay next: off</button></div>
 <div class="legend">▶ plays Apple's 30-second preview. <span class="tag r">remix</span>/<span class="tag r">feat</span> means the set artist is the remixer or a featured artist. <span class="tag b">on BTR</span> means the track is already in your BTR AMP library.</div>
 <main id="m"></main>
-<div class="player" id="pl"><img id="pimg" alt=""><div class="pi"><div class="pt" id="pt"></div><div class="pa" id="pa"></div><div class="prog"><i id="pg"></i></div></div><button class="play" id="pp" aria-label="Play or pause"></button><button class="x" id="px" aria-label="Close">✕</button></div>
+<div class="player" id="pl"><img id="pimg" alt=""><div class="pi"><div class="pt" id="pt"></div><div class="pa" id="pa"></div><div class="prog" id="pb"><i id="pg"></i></div></div><button class="play" id="pp" aria-label="Play or pause"></button><button class="skip" id="sk" aria-label="Skip ahead 10 seconds">+10s</button><button class="x" id="px" aria-label="Close">✕</button></div>
 <footer>Previews and artwork provided by Apple Music. Links open Apple Music or Spotify. Stage assignments are based on the published set times. Fan-made page, not affiliated with Dreamstate or Insomniac.</footer>
 <audio id="au" preload="none"></audio>
 <script>
@@ -65,6 +65,8 @@ $('pp').innerHTML=au.paused?PLAY:PAUSE}
 function play(i){const r=R[i];if(!r[9])return;if(i===cur){au.paused?au.play().catch(()=>{}):au.pause();return}
 cur=i;au.src=AU+r[9];au.play().catch(()=>{});$('pl').style.display='flex';$('pt').textContent=r[4];$('pa').textContent=r[3];$('pimg').src=art(r,100)||'';}
 $('m').addEventListener('click',e=>{const b=e.target.closest('.play');if(b)play(+b.dataset.i)});
+$('sk').onclick=()=>{if(au.duration)au.currentTime=Math.min(au.duration-1,au.currentTime+10)};
+$('pb').onclick=e=>{const b=$('pb').getBoundingClientRect();if(au.duration)au.currentTime=(e.clientX-b.left)/b.width*au.duration};
 $('pp').onclick=()=>{if(cur>=0)play(cur)};$('px').onclick=()=>{au.pause();$('pl').style.display='none'};
 au.onplay=au.onpause=sync;au.ontimeupdate=()=>{$('pg').style.width=(au.duration?au.currentTime/au.duration*100:0)+'%'};
 au.onended=()=>{if(!cont){sync();return}let k=vis.indexOf(cur);for(k++;k<vis.length;k++){if(R[vis[k]][9]){play(vis[k]);const el=$('s'+vis[k]);if(el){el.closest('details').open=true}return}}sync()};
