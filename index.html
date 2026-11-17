@@ -4,7 +4,7 @@
 :root{--bg:#fff;--fg:#141414;--mut:#5c5c66;--line:#e4e4ea;--sh:#f4f4f8;--acc:#6b3fd4;--card:#fff}
 body.dark{--bg:#121217;--fg:#ececf1;--mut:#a0a0ad;--line:#2a2a33;--sh:#1c1c24;--acc:#b49cff;--card:#18181f}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.4 -apple-system,system-ui,sans-serif;padding-bottom:calc(80px + env(safe-area-inset-bottom))}
-header{position:relative;padding:calc(16px + env(safe-area-inset-top)) 14px 6px}.obtn{position:absolute;top:calc(16px + env(safe-area-inset-top));right:14px;font-size:12.5px;font-weight:600;text-decoration:none;color:var(--fg);border:1px solid var(--line);background:var(--sh);border-radius:14px;padding:6px 10px}h1{font-size:21px;margin:0 0 4px}.sub{color:var(--mut);font-size:13px}
+header{position:relative;padding:calc(16px + env(safe-area-inset-top)) 14px 6px}.iab{display:none;position:fixed;top:calc(6px + env(safe-area-inset-top));right:8px;z-index:20;align-items:center;gap:8px;max-width:270px;background:#f0525f;color:#fff;font-size:13px;line-height:1.3;padding:9px 10px 9px 12px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.35)}.iab.on{display:flex}.iab .arr{font-size:28px;font-weight:800;line-height:1;animation:bob 1s ease-in-out infinite}.iab button{background:none;border:0;color:#fff;font-size:15px;opacity:.85;padding:2px}@keyframes bob{50%{transform:translate(3px,-4px)}}.obtn{position:absolute;top:calc(16px + env(safe-area-inset-top));right:14px;font-size:12.5px;font-weight:600;text-decoration:none;color:var(--fg);border:1px solid var(--line);background:var(--sh);border-radius:14px;padding:6px 10px}h1{font-size:21px;margin:0 0 4px}.sub{color:var(--mut);font-size:13px}
 .bar{position:sticky;top:0;background:var(--bg);padding:8px 14px;border-bottom:1px solid var(--line);display:flex;gap:8px;z-index:3}
 input{flex:1;min-width:0;padding:9px 10px;border:1px solid var(--line);border-radius:10px;font-size:16px;background:var(--bg);color:var(--fg)}
 button{font:inherit;cursor:pointer}.btn{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--sh);color:var(--fg);font-size:13px}
@@ -34,7 +34,7 @@ summary::-webkit-details-marker{display:none}.t{color:var(--mut);font-size:12px;
 .nrow{display:flex;gap:10px;margin-top:16px}.nrow button{background:rgba(255,255,255,.14);border:0;color:#fff;border-radius:16px;padding:8px 14px;font-size:13px;font-weight:600}.nrow button.on{background:#f0525f}
 .np .lk{margin-top:18px;justify-content:center}
 </style></head><body>
-<header><a class="obtn" id="ob" href="https://dreamstate26.thegameday.zone" target="_blank" rel="noopener">Open in browser ↗</a><img class="logo" src="logo.png" alt="Dreamstate"><h1>Dreamstate SoCal 2026</h1>
+<header><div class="iab" id="iab"><span>Tap <b>•••</b> then <b>Open in browser</b> for the best experience</span><span class="arr">↗</span><button id="iabx" aria-label="Dismiss">✕</button></div><img class="logo" src="logo.png" alt="Dreamstate"><h1>Dreamstate SoCal 2026</h1>
 <p class="desc">Every song in my Apple Music and MP3 libraries by an artist playing Dreamstate SoCal 2026 (Queen Mary Waterfront, Long Beach, Fri 11/20 and Sat 11/21), sorted by set time. Tap ▶ for a 30-second preview, or open the song in Apple Music or Spotify. Filter by day and stage to prep for the sets you're catching.</p>
 <div class="sub"><span id="tot"></span> tracks · <span id="nn"></span> new vs. my BTR AMP library · fan-made, not affiliated with Dreamstate or Insomniac</div></header>
 <div class="bar"><input id="q" placeholder="Search artist or title" autocomplete="off"><button class="btn" id="ex">Expand all</button><button class="btn" id="dm">Dark</button></div>
@@ -101,7 +101,7 @@ $('pimg').onclick=$('pt').onclick=$('pa').onclick=()=>{if(cur>=0){npFill();$('np
 $('npx').onclick=()=>$('np').classList.remove('on');$('npp').onclick=()=>{if(cur>=0)play(cur)};$('nnext').onclick=()=>nextT();$('nprev').onclick=()=>prevT();
 $('nsk').onclick=()=>{if(au.duration)au.currentTime=Math.min(au.duration-1,au.currentTime+10)};
 $('nb').onclick=e=>{const b=$('nb').getBoundingClientRect();if(au.duration)au.currentTime=(e.clientX-b.left)/b.width*au.duration};
-(function(){const ua=navigator.userAgent;if(/Instagram|FBAN|FBAV|Snapchat|TikTok|musical_ly|Line\//i.test(ua)&&/iPhone|iPad/.test(ua))$('ob').href='x-safari-https://dreamstate26.thegameday.zone'})();
+(function(){const ua=navigator.userAgent;if(/Instagram|FBAN|FBAV|Snapchat|TikTok|musical_ly|Line\//i.test(ua))$('iab').classList.add('on')})();$('iabx').onclick=()=>$('iab').classList.remove('on');
 $('npp').innerHTML=PLAY;$('nimg').onerror=function(){this.removeAttribute('src')};
 draw();
 </script></body></html>
