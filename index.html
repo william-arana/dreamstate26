@@ -45,7 +45,7 @@ const PLAY='<svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg>',PAUSE=
 let stg='all',day='all',q='',nw=false,ex=false,cont=false,cur=-1,vis=[];
 const $=id=>document.getElementById(id),au=$('au');
 $('tot').textContent=R.length;$('nn').textContent=R.filter(r=>!r[6]).length;
-try{if(localStorage.getItem('ds26dark')==='1')document.body.classList.add('dark')}catch(e){}
+document.body.classList.add('dark');try{if(localStorage.getItem('ds26dark')==='0')document.body.classList.remove('dark')}catch(e){}
 $('dm').textContent=document.body.classList.contains('dark')?'Light':'Dark';
 function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function sq(r){let t=r[4].replace(/\s*[\(\[](mixed|abgt\d+)[\)\]]/ig,'');return encodeURIComponent(r[3].split(/,| & | x /)[0]+' '+t)}
