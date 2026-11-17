@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>William's Dreamstate Music</title><meta name="robots" content="noindex">
+<title>Dreamstate SoCal 2026 · Playlist</title><meta name="robots" content="noindex">
 <style>
 :root{--bg:#fff;--fg:#141414;--mut:#5c5c66;--line:#e4e4ea;--sh:#f4f4f8;--acc:#6b3fd4;--card:#fff}
 body.dark{--bg:#121217;--fg:#ececf1;--mut:#a0a0ad;--line:#2a2a33;--sh:#1c1c24;--acc:#b49cff;--card:#18181f}
@@ -8,7 +8,7 @@ header{padding:calc(16px + env(safe-area-inset-top)) 14px 6px}h1{font-size:21px;
 .bar{position:sticky;top:0;background:var(--bg);padding:8px 14px;border-bottom:1px solid var(--line);display:flex;gap:8px;z-index:3}
 input{flex:1;min-width:0;padding:9px 10px;border:1px solid var(--line);border-radius:10px;font-size:16px;background:var(--bg);color:var(--fg)}
 button{font:inherit;cursor:pointer}.btn{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--sh);color:var(--fg);font-size:13px}
-.tabs{display:flex;gap:6px;padding:4px 14px;flex-wrap:wrap}.tabs+.tabs{padding-top:2px}.brand{display:flex;align-items:center;gap:4px;font-size:22px;font-weight:700;margin-bottom:8px}.logo{height:46px;width:auto}body.dark .logo{filter:invert(1)}.desc{margin:0 0 6px;font-size:14px;line-height:1.45}.tabs .on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.tabs{display:flex;gap:6px;padding:4px 14px;flex-wrap:wrap}.tabs+.tabs{padding-top:2px}.brand{display:flex;align-items:center;gap:4px;font-size:22px;font-weight:700;margin-bottom:8px}.logo{height:52px;width:auto;display:block;margin-bottom:8px}body.dark .logo{filter:invert(1)}.desc{margin:0 0 6px;font-size:14px;line-height:1.45}.tabs .on{background:var(--acc);color:#fff;border-color:var(--acc)}
 h2{font-size:17px;margin:16px 14px 6px}details{border-top:1px solid var(--line)}summary{padding:11px 14px;display:flex;justify-content:space-between;gap:8px;background:var(--sh);list-style:none}
 summary::-webkit-details-marker{display:none}.t{color:var(--mut);font-size:12px;min-width:54px;display:inline-block}.n{color:var(--mut);font-size:13px}
 .song{display:flex;gap:12px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line)}
@@ -25,11 +25,11 @@ summary::-webkit-details-marker{display:none}.t{color:var(--mut);font-size:12px;
 .player .play{width:40px;height:40px}.x{background:none;border:0;color:#fff;font-size:20px;opacity:.7;padding:4px}
 .legend{font-size:12.5px;color:var(--mut);padding:0 14px 10px}footer{color:var(--mut);font-size:12px;padding:20px 14px}
 .stg{color:var(--mut);font-weight:400;font-size:13px}</style></head><body>
-<header><div class="brand"><span>William's</span><img class="logo" src="logo.png" alt="Dreamstate"><span>Music</span></div>
+<header><img class="logo" src="logo.png" alt="Dreamstate"><h1>Dreamstate SoCal 2026</h1>
 <p class="desc">Every song in my Apple Music library by an artist playing Dreamstate SoCal 2026 (Queen Mary Waterfront, Long Beach, Fri 11/20 and Sat 11/21), sorted by set time. Tap ▶ for a 30-second preview, or open the song in Apple Music or Spotify. Filter by day and stage to prep for the sets you're catching.</p>
 <div class="sub"><span id="tot"></span> tracks · <span id="nn"></span> new vs. my BTR AMP library · fan-made, not affiliated with Dreamstate or Insomniac</div></header>
 <div class="bar"><input id="q" placeholder="Search artist or title" autocomplete="off"><button class="btn" id="ex">Expand all</button><button class="btn" id="dm">Dark</button></div>
-<div class="tabs"><button class="btn on" data-d="all">Both days</button><button class="btn" data-d="Fri">Friday</button><button class="btn" data-d="Sat">Saturday</button><button class="btn" id="nw">New only</button></div>
+<div class="tabs"><button class="btn on" data-d="all">Both days</button><button class="btn" data-d="Fri">Friday</button><button class="btn" data-d="Sat">Saturday</button></div>
 <div class="tabs"><button class="btn on" data-s="all">All</button><button class="btn" data-s="The Dream">Dream</button><button class="btn" data-s="The Sequence">Sequence</button><button class="btn" data-s="The Void">Void</button><button class="btn" data-s="The Vision">Vision</button></div>
 <div class="tabs"><button class="btn" id="cont">Autoplay next: off</button></div>
 <div class="legend">▶ plays Apple's 30-second preview. <span class="tag r">remix</span>/<span class="tag r">feat</span> means the set artist is the remixer or a featured artist. <span class="tag b">on BTR</span> means the track is already in your BTR AMP library.</div>
@@ -71,7 +71,6 @@ au.onended=()=>{if(!cont){sync();return}let k=vis.indexOf(cur);for(k++;k<vis.len
 $('q').oninput=e=>{q=e.target.value.trim().toLowerCase();draw()};
 $('ex').onclick=e=>{ex=!ex;e.target.textContent=ex?'Collapse all':'Expand all';draw()};
 $('dm').onclick=e=>{const d=document.body.classList.toggle('dark');e.target.textContent=d?'Light':'Dark';try{localStorage.setItem('ds26dark',d?'1':'0')}catch(x){}};
-$('nw').onclick=e=>{nw=!nw;e.target.classList.toggle('on',nw);draw()};
 $('cont').onclick=e=>{cont=!cont;e.target.classList.toggle('on',cont);e.target.textContent='Autoplay next: '+(cont?'on':'off')};
 document.querySelectorAll('.tabs [data-d]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs [data-d]').forEach(x=>x.classList.remove('on'));b.classList.add('on');day=b.dataset.d;draw()});
 document.querySelectorAll('.tabs [data-s]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs [data-s]').forEach(x=>x.classList.remove('on'));b.classList.add('on');stg=b.dataset.s;draw()});
