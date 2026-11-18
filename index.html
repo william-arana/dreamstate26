@@ -404,7 +404,7 @@ function drawNN(force){const box=$('onnow');const now=festHour(sday);const last=
   const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>s[0]===st).sort((a,b)=>a[0][1]-b[0][1]),cur=L.find(([s])=>s[1]<=now&&now<s[2]),nxt=L.find(([s])=>s[1]>now);
   const c=cur&&cur[0],x=nxt&&nxt[0],tap=cur?cur[1]:nxt?nxt[1]:'';const left=c?Math.max(1,Math.round((c[2]-now)*60)):0,pc=c?(now-c[1])/(c[2]-c[1])*100:0;
   const lt=left>=60?Math.floor(left/60)+'h '+(left%60)+'m left':left+' min left';
-  return '<button class="nnc" data-i="'+tap+'" style="--sc:'+SC[st]+'"><div class="nns">THE '+st.toUpperCase()+'</div><div class="nna">'+(c?esc(c[3])+star(c):pre?'Doors soon':'Between sets')+'</div><div class="nnl">'+(c?lt:'')+'</div><div class="nnb"><i style="width:'+pc+'%"></i></div><div class="nnx">'+(x?'Next '+hh(x[1])+ap(x[1])+' · <b>'+esc(x[3])+'</b>'+star(x):'Last set of the night')+'</div></button>'}).join('')+'</div></div>'}
+  return '<button class="nnc" data-i="'+tap+'" style="--sc:'+SC[st]+'"><div class="nns">THE '+st.toUpperCase()+'</div><div class="nna">'+(c?esc(c[3])+star(c):pre?'Doors soon':x?'Between sets':'Done for tonight')+'</div><div class="nnl">'+(c?lt:'')+'</div><div class="nnb"><i style="width:'+pc+'%"></i></div><div class="nnx">'+(x?'Next '+hh(x[1])+ap(x[1])+' · <b>'+esc(x[3])+'</b>'+star(x):c?'Last set of the night':'See you next time')+'</div></button>'}).join('')+'</div></div>'}
 $('onnow').addEventListener('click',e=>{const b=e.target.closest('.nnc');if(b&&b.dataset.i!=='')openSet(+b.dataset.i)});
 setInterval(tick,1000);
 
