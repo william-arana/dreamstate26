@@ -231,7 +231,7 @@ Sat:[
 const STG=['Dream','Sequence','Void','Vision'];
 const $=id=>document.getElementById(id),au=$('au');
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
-function art(r,z){return r&&r[10]?IM+r[10]+'/'+z+'x'+z+'bb.jpg':''}
+function art(r,z){return r&&r[10]?(r[10].startsWith('http')?r[10]:IM+r[10]+'/'+z+'x'+z+'bb.jpg'):''}
 function sq(r){let t=r[4].replace(/\s*[\(\[](mixed|abgt\d+)[\)\]]/ig,'');return encodeURIComponent(r[3].split(/,| & | x /)[0]+' '+t)}
 function amU(r){return r[8]?AM+r[8]:AM+'search?term='+sq(r)}
 function spU(r){return r[11]?'https://open.spotify.com/track/'+r[11]:'https://open.spotify.com/search/'+sq(r)}
@@ -340,7 +340,7 @@ function play(i,c){const r=R[i];if(!r||!r[9])return;
  if(i===cur){au.paused?au.play().catch(()=>{}):au.pause();return}
  if(c)ctx=ctxList(c);
  if(cur>=0&&!goingBack){hist.push(cur);if(hist.length>200)hist.shift()}goingBack=false;
- cur=i;played.add(i);au.src=(r[9].startsWith('mp3/')?'':AU)+r[9];au.play().catch(()=>{});ui();ms()}
+ cur=i;played.add(i);au.src=(/^(mp3\/|https?:)/.test(r[9])?'':AU)+r[9];au.play().catch(()=>{});ui();ms()}
 function nextT(auto){
  if(queue.length){play(queue.shift());return true}
  const P=ctx.filter(i=>R[i][9]);
