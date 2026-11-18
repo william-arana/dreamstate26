@@ -150,7 +150,7 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 .nsep{flex:none;align-self:center;width:1.5px;height:20px;border-radius:1px;background:var(--mut);opacity:.45;margin:0 1px}
 .sheet.drag{transition:none}.shbg{position:fixed;inset:0;background:rgba(10,6,24,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:19}.shbg.on{opacity:1;pointer-events:auto}
 .gimp{color:#c04fd0;margin-top:4px}body.dark .gimp{color:#ff9bd8}.gimp:after{background:linear-gradient(90deg,#c04fd0,transparent)}
-.shr{display:flex;gap:8px;margin-top:14px}.shr input{flex:1;min-width:0;font-size:16px}.shh{color:var(--mut);font-size:12.5px;margin-top:6px}
+.shr{display:flex;gap:8px;margin-top:4px}.shr input{flex:1;min-width:0;font-size:16px}.shh{color:var(--mut);font-size:12.5px;margin:6px 0 10px}
 .frh{display:flex;align-items:center;justify-content:space-between;gap:8px}.frh h2{margin:0}.xb2{border:0;background:var(--sh);color:var(--fg);width:32px;height:32px;border-radius:50%;flex:none}
 #frp{border:2px solid transparent;border-radius:16px;padding:12px 14px;background:linear-gradient(var(--sh),var(--sh)) padding-box,linear-gradient(135deg,#7b4dff,#c04fd0,#ff9bd8) border-box}body.dark #frp{background:linear-gradient(#1b1730,#1b1730) padding-box,linear-gradient(135deg,#7b4dff,#c04fd0,#ff9bd8) border-box}
 .frs{color:var(--mut);font-size:13px;margin:2px 0 4px}#fradd{margin-top:10px}.both{color:#e6b800;font-size:12px;font-weight:700}
@@ -176,9 +176,9 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 <div class="tabs" style="padding-top:10px"><button class="btn on" data-sd="Fri">Fri 11/20</button><button class="btn" data-sd="Sat">Sat 11/21</button><span class="grow"></span><button class="btn" id="lt">Live timing</button><button class="btn" id="mine">★ My sets only</button><button class="btn dmb">Light</button></div>
 <div class="grid" id="g"></div>
 <section class="plan" id="frp" hidden><div class="frh"><h2 id="frt"></h2><button class="xb2" id="frx" aria-label="Hide shared plan">✕</button></div><div class="frs" id="frs"></div><div id="frl"></div><button class="btn on" id="fradd">★ Add their sets to my plan</button></section>
-<section class="plan"><h2>My plan · <span id="pd"></span></h2><div id="pl"></div>
+<section class="plan"><h2>My plan · <span id="pd"></span></h2>
 <div class="shr"><input id="shn" maxlength="24" placeholder="Your name (optional)" autocomplete="given-name"><button class="btn on" id="shb">Share my plan</button></div>
-<div class="shh">Sends a link with your starred sets for both days. Friends see your picks next to theirs.</div></section></section>
+<div class="shh">Sends a link with your starred sets for both days. Friends see your picks next to theirs.</div><div id="pl"></div></section></section>
 
 <section class="view" id="v-map">
 <div class="vsub">Queen Mary Waterfront, Long Beach. Tap the map to zoom in, then drag to move around.</div>
