@@ -47,6 +47,9 @@ footer{color:var(--mut);font-size:12px;padding:24px 14px}
 .set .n{position:absolute;bottom:3px;right:5px;font-size:9px;opacity:.85;font-weight:700;color:#fff}
 .set .st{position:absolute;top:0;right:0;padding:3px 5px 8px 8px;font-size:15px;line-height:1;color:rgba(255,255,255,.85)}
 .set.fav{box-shadow:inset 0 0 0 3px #ffd84d}.set.fav .st{color:#ffd84d;text-shadow:0 0 6px rgba(0,0,0,.35)}.set.dim{opacity:.28}
+.set.past{filter:grayscale(1) brightness(.75);opacity:.55}.set.live{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 0 0 2px #fff;z-index:2}.set.live.fav{box-shadow:inset 0 0 0 3px #ffd84d,0 0 0 2px #fff}
+.lv{position:absolute;left:4px;top:3px;font-size:8.5px;font-weight:800;background:#fff;color:#111;border-radius:6px;padding:1px 5px;display:none;white-space:nowrap}.lpb{position:absolute;left:6px;right:6px;bottom:4px;height:4px;border-radius:2px;background:rgba(255,255,255,.3);display:none}.lpb i{display:block;height:100%;width:0;background:#fff;border-radius:2px}.set.live .lv,.set.live .lpb{display:block}.set.live .n{bottom:10px}
+.nowl{position:absolute;left:40px;right:0;height:2px;background:#ff3b5c;z-index:4;box-shadow:0 0 8px #ff3b5c;pointer-events:none;display:none}.nowp{position:absolute;left:0;z-index:5;background:#ff3b5c;color:#fff;font-size:10px;font-weight:800;border-radius:8px;padding:3px 5px;pointer-events:none;display:none;font-variant-numeric:tabular-nums}
 .Dream{background:#2fb3d1}.Sequence{background:#e3962e}.Void{background:#3a6fd8}.Vision{background:#d062d6}
 .plan{margin:22px 14px 0}.plan h2{margin:0 0 8px}.pi{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer}
 .dot{width:10px;height:10px;border-radius:50%;flex:none}.ptt{font-weight:650}.pm{color:var(--mut);font-size:12.5px}.warn{color:#ff7a59;font-size:12px;font-weight:600}.empty{color:var(--mut);font-size:13.5px}
@@ -204,9 +207,9 @@ function drawGrid(){document.querySelectorAll('[data-sd]').forEach(b=>b.classLis
  g+='<div class="axis" style="height:'+H+'px">';for(let t=16;t<=25;t+=.5)g+='<div class="tl" style="top:'+((t-16)*PX)+'px">'+hh(t)+(t%1?'':ap(t))+'</div>';g+='</div>';
  for(const st of STG){g+='<div class="col" style="height:'+H+'px">';
   S[sday].forEach((s,i)=>{if(s[0]!==st)return;const k=skey(sday,s),n=stracks(sday,s).length,f=fav.has(k);
-   g+='<div role="button" tabindex="0" class="set '+st+(f?' fav':'')+(mine&&!f?' dim':'')+'" data-i="'+i+'" style="top:'+((s[1]-16)*PX+2)+'px;height:'+((s[2]-s[1])*PX-4)+'px"><span class="st" role="button" aria-label="Favorite">'+(f?'★':'☆')+'</span><b'+(s[3].length>20?' style="font-size:9.5px"':'')+'>'+esc(s[3])+'</b>'+(s[4]?'<small>'+esc(s[4])+'</small>':'')+'<small>'+range(s)+'</small>'+(n?'<span class="n">♪'+n+'</span>':'')+'</div>'});
+   g+='<div role="button" tabindex="0" class="set '+st+(f?' fav':'')+(mine&&!f?' dim':'')+'" data-i="'+i+'" style="top:'+((s[1]-16)*PX+2)+'px;height:'+((s[2]-s[1])*PX-4)+'px"><span class="st" role="button" aria-label="Favorite">'+(f?'★':'☆')+'</span><b'+(s[3].length>20?' style="font-size:9.5px"':'')+'>'+esc(s[3])+'</b>'+(s[4]?'<small>'+esc(s[4])+'</small>':'')+'<small>'+range(s)+'</small>'+(n?'<span class="n">♪'+n+'</span>':'')+'<span class="lv"></span><span class="lpb"><i></i></span></div>'});
   g+='</div>'}
- $('g').innerHTML=g;drawPlan()}
+ $('g').innerHTML=g+'<div class="nowl" id="nowl"></div><div class="nowp" id="nowp"></div>';drawPlan();tick()}
 function drawPlan(){$('pd').textContent=sday==='Fri'?'Friday':'Saturday';
  const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>fav.has(skey(sday,s))).sort((a,b)=>a[0][1]-b[0][1]);
  if(!L.length){$('pl').innerHTML='<div class="empty">No sets starred yet. Tap ☆ on a set to add it.</div>';return}
@@ -223,6 +226,20 @@ $('sx').onclick=()=>{$('sh').classList.remove('on');openS=null};
 $('sfv').onclick=()=>{togFav(openS);favBtn()};
 document.querySelectorAll('[data-sd]').forEach(b=>b.onclick=()=>{sday=b.dataset.sd;try{history.replaceState(null,'','#settimes-'+sday.toLowerCase())}catch(e){}drawGrid()});
 $('mine').onclick=e=>{mine=!mine;e.target.classList.toggle('on',mine);drawGrid()};
+
+/* ---------- live clock (phone time, Long Beach time zone) ---------- */
+const DD={Fri:'2026-11-20',Sat:'2026-11-21'};let OFF=0;
+try{const t=new URLSearchParams(location.search).get('now');if(t){const z=Date.parse(t+'-08:00');if(!isNaN(z))OFF=z-Date.now()}}catch(e){}
+const LAf=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'});
+function laNow(){const p={};LAf.formatToParts(new Date(Date.now()+OFF)).forEach(x=>p[x.type]=x.value);return{date:p.year+'-'+p.month+'-'+p.day,h:+p.hour,m:+p.minute,s:+p.second}}
+function festHour(d){const n=laNow(),base=DD[d];const t=n.h+n.m/60+n.s/3600;if(n.date===base)return t;
+ const nx=new Date(base+'T12:00:00Z');nx.setUTCDate(nx.getUTCDate()+1);if(n.date===nx.toISOString().slice(0,10)&&n.h<6)return t+24;return n.date<base?-1:99}
+function tick(){if(!$('v-settimes').classList.contains('on'))return;const now=festHour(sday);
+ document.querySelectorAll('#g .set').forEach(b=>{const s=S[sday][+b.dataset.i];const past=s[2]<=now,live=s[1]<=now&&now<s[2];b.classList.toggle('past',past);b.classList.toggle('live',live);
+  if(live){const left=Math.round((s[2]-now)*3600),p=(now-s[1])/(s[2]-s[1]);b.querySelector('.lv').textContent='LIVE · '+fmt(left)+' left';b.querySelector('.lpb i').style.width=(p*100)+'%'}});
+ const L=$('nowl'),P=$('nowp');if(!L)return;const col=document.querySelector('#g .col');
+ if(now>=16&&now<=25&&col){const y=col.offsetTop+(now-16)*PX;L.style.top=y+'px';P.style.top=(y-10)+'px';const n=laNow();P.textContent=((n.h%12)||12)+':'+String(n.m).padStart(2,'0')+':'+String(n.s).padStart(2,'0');L.style.display=P.style.display='block'}else{L.style.display=P.style.display='none'}}
+setInterval(tick,1000);
 
 /* ---------- map ---------- */
 function zm(){const on=$('w').classList.toggle('z');$('zb').textContent=on?'Zoom out':'Zoom in'}$('w').querySelector('img').onclick=zm;$('zb').onclick=zm;
