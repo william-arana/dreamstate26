@@ -167,6 +167,11 @@ body.dark .celm{background:linear-gradient(#17142b,#17142b) padding-box,linear-g
 .celm p{margin:0 0 10px;font-size:14.5px;line-height:1.45}.celm .sig{font-weight:700;margin-top:4px}
 .celb{display:flex;gap:8px;margin-top:14px}.celb a{flex:1;text-align:center;text-decoration:none;font-weight:700;font-size:14px;padding:10px 8px;border-radius:12px;color:#fff;background:linear-gradient(135deg,#3a6fd8,#7b4dff)}.celb a.em{background:transparent;color:inherit;border:1.5px solid rgba(120,120,180,.4)}
 .thxw{text-align:center;margin:-2px 0 12px}.thx{border:0;font:inherit;cursor:pointer;font-size:13.5px;font-weight:700;padding:7px 14px;border-radius:16px;color:#fff;background:linear-gradient(135deg,#2fb3d1,#3a6fd8);box-shadow:0 0 14px rgba(60,140,255,.45)}
+.nn{margin:6px 14px 10px}.nnh{display:flex;justify-content:space-between;align-items:baseline;margin:0 2px 6px}.nnh b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}.nnh span{font-size:12px;color:#ff3b5c;font-weight:800;font-variant-numeric:tabular-nums}
+.nng{display:grid;grid-template-columns:1fr 1fr;gap:8px}.nnc{display:flex;flex-direction:column;justify-content:flex-start;position:relative;border-radius:14px;padding:9px 10px 10px 12px;background:var(--sh);border:1px solid var(--line);overflow:hidden;cursor:pointer;color:var(--fg);text-align:left;font:inherit}body.dark .nnc{background:#1b1730}
+.nnc:before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--sc)}.nns{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--sc)}
+.nna{font-size:14.5px;font-weight:800;line-height:1.2;margin-top:2px}.nnl{font-size:11.5px;color:var(--mut);margin-top:2px;min-height:14px}.nnb{height:3px;border-radius:2px;background:var(--line);margin:6px 0 7px}.nnb i{display:block;height:100%;border-radius:2px;background:var(--sc)}
+.nnx{margin-top:auto;font-size:11.5px;color:var(--mut);border-top:1px dashed var(--line);padding-top:6px}.nnx b{color:var(--fg);font-weight:700}.nnst{color:#e6b800}
 </style></head><body>
 <div class="iab" id="iab"><span>Tap <b>•••</b> then <b>Open in browser</b> for the best experience</span><span class="arr">↗</span><button id="iabx" aria-label="Dismiss">✕</button></div>
 <header><nav class="nav"><a href="#" data-v="playlists">Playlists</a><span class="nsep" aria-hidden="true"></span><a href="#settimes" data-v="settimes">Set Times</a><a href="#map" data-v="map">Map</a><a href="#guide" data-v="guide">How to use</a></nav><div class="thxw" id="thxw" hidden><button class="thx" id="thx">💙 Thank you for coming</button></div>
@@ -186,7 +191,7 @@ body.dark .celm{background:linear-gradient(#17142b,#17142b) padding-box,linear-g
 <section class="view" id="v-settimes">
 <div class="vsub">Tap a set to hear its tracks. Tap ☆ to add it to your plan; your picks stay saved on this phone.</div>
 <div class="tabs" style="padding-top:10px"><button class="btn on" data-sd="Fri">Fri 11/20</button><button class="btn" data-sd="Sat">Sat 11/21</button><span class="grow"></span><button class="btn" id="lt">Live timing</button><button class="btn" id="mine">★ My sets only</button><button class="btn dmb">Light</button></div>
-<div class="grid" id="g"></div>
+<div id="onnow"></div><div class="grid" id="g"></div>
 <section class="plan" id="frp" hidden><div class="frh"><h2 id="frt"></h2><button class="xb2" id="frx" aria-label="Hide shared plan">✕</button></div><div class="frs" id="frs"></div><div id="frl"></div><button class="btn on" id="fradd">★ Add their sets to my plan</button></section>
 <section class="plan"><h2>My plan · <span id="pd"></span></h2>
 <div class="shr"><input id="shn" maxlength="24" placeholder="Your name (optional)" autocomplete="given-name"><button class="btn on" id="shb">Share my plan</button></div>
@@ -321,7 +326,7 @@ function drawGrid(){document.querySelectorAll('[data-sd]').forEach(b=>b.classLis
   S[sday].forEach((s,i)=>{if(s[0]!==st)return;const k=skey(sday,s),n=stracks(sday,s).length,f=fav.has(k);
    g+='<div role="button" tabindex="0" class="set '+st+(f?' fav':'')+(mine&&!f?' dim':'')+'" data-i="'+i+'" style="top:'+((s[1]-16)*PX+2)+'px;height:'+((s[2]-s[1])*PX-4)+'px"><span class="st" role="button" aria-label="Favorite">'+(f?'★':'☆')+'</span><b'+(s[3].length>20?' style="font-size:9.5px"':'')+'>'+esc(s[3])+'</b>'+(s[4]?'<small>'+esc(s[4])+'</small>':'')+'<small>'+range(s)+'</small>'+(n?'<span class="n">♪'+n+'</span>':'')+'<span class="lv"></span><span class="lpb"><i></i></span></div>'});
   g+='</div>'}
- $('g').innerHTML=g+'<div class="nowl" id="nowl"></div><div class="nowp" id="nowp"></div>';if(shared)$('g').querySelectorAll('.set').forEach(b=>{if(shared.keys.includes(skey(sday,S[sday][+b.dataset.i]))){b.classList.add('fr');b.insertAdjacentHTML('beforeend','<span class="frb">👥</span>')}});drawPlan();drawFriend();tick()}
+ $('g').innerHTML=g+'<div class="nowl" id="nowl"></div><div class="nowp" id="nowp"></div>';if(shared)$('g').querySelectorAll('.set').forEach(b=>{if(shared.keys.includes(skey(sday,S[sday][+b.dataset.i]))){b.classList.add('fr');b.insertAdjacentHTML('beforeend','<span class="frb">👥</span>')}});drawPlan();drawFriend();drawNN(1);tick()}
 let planKey=null;
 function drawPlan(){$('pd').textContent=sday==='Fri'?'Friday':'Saturday';
  const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>fav.has(skey(sday,s))).sort((a,b)=>a[0][1]-b[0][1]);planKey=null;
@@ -381,7 +386,7 @@ const LAf=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',year:'
 function laNow(){const p={};LAf.formatToParts(new Date(Date.now()+OFF)).forEach(x=>p[x.type]=x.value);return{date:p.year+'-'+p.month+'-'+p.day,h:+p.hour,m:+p.minute,s:+p.second}}
 function festHour(d){const n=laNow(),base=DD[d];const t=n.h+n.m/60+n.s/3600;if(n.date===base)return t;
  const nx=new Date(base+'T12:00:00Z');nx.setUTCDate(nx.getUTCDate()+1);if(n.date===nx.toISOString().slice(0,10)&&n.h<6)return t+24;return n.date<base?-1:99}
-function tick(){if(!$('v-settimes').classList.contains('on'))return;
+function tick(){if(!$('v-settimes').classList.contains('on'))return;drawNN();
  if(!liveOn||festOver()){document.querySelectorAll('#g .set').forEach(b=>b.classList.remove('past','live'));if($('nowl'))$('nowl').style.display=$('nowp').style.display='none';return}
  const now=festHour(sday);
  if(planKey!==null&&planKey!==sday+S[sday].filter(s=>fav.has(skey(sday,s))&&s[2]<=now).length)drawPlan();
@@ -389,6 +394,18 @@ function tick(){if(!$('v-settimes').classList.contains('on'))return;
   if(live){const left=Math.round((s[2]-now)*3600),p=(now-s[1])/(s[2]-s[1]);b.querySelector('.lv').textContent='LIVE · '+fmt(left)+' left';b.querySelector('.lpb i').style.width=(p*100)+'%'}});
  const L=$('nowl'),P=$('nowp');if(!L)return;const col=document.querySelector('#g .col');
  if(now>=16&&now<=25&&col){const y=col.offsetTop+(now-16)*PX;L.style.top=y+'px';P.style.top=(y-10)+'px';const n=laNow();P.textContent=((n.h%12)||12)+':'+String(n.m).padStart(2,'0')+':'+String(n.s).padStart(2,'0');L.style.display=P.style.display='block'}else{L.style.display=P.style.display='none'}}
+const SC={Dream:'#2fb3d1',Sequence:'#e3962e',Void:'#3a6fd8',Vision:'#d062d6'};let nnKey=null;
+function drawNN(force){const box=$('onnow');const now=festHour(sday);const last=Math.max(...S[sday].map(s=>s[2]));
+ if(!liveOn||festOver()||now<15||now>=last){if(box.innerHTML)box.innerHTML='';nnKey=null;return}
+ const n=laNow(),key=sday+'|'+n.h+':'+n.m+'|'+fav.size;if(!force&&key===nnKey)return;nnKey=key;
+ const clock=((n.h%12)||12)+':'+String(n.m).padStart(2,'0')+(n.h<12?'am':'pm'),star=(s)=>fav.has(skey(sday,s))?' <span class="nnst">★</span>':'';
+ const pre=now<Math.min(...S[sday].map(s=>s[1]));
+ box.innerHTML='<div class="nn"><div class="nnh"><b>'+(pre?'Up first':'On now')+'</b><span>● '+clock+'</span></div><div class="nng">'+STG.map(st=>{
+  const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>s[0]===st).sort((a,b)=>a[0][1]-b[0][1]),cur=L.find(([s])=>s[1]<=now&&now<s[2]),nxt=L.find(([s])=>s[1]>now);
+  const c=cur&&cur[0],x=nxt&&nxt[0],tap=cur?cur[1]:nxt?nxt[1]:'';const left=c?Math.max(1,Math.round((c[2]-now)*60)):0,pc=c?(now-c[1])/(c[2]-c[1])*100:0;
+  const lt=left>=60?Math.floor(left/60)+'h '+(left%60)+'m left':left+' min left';
+  return '<button class="nnc" data-i="'+tap+'" style="--sc:'+SC[st]+'"><div class="nns">THE '+st.toUpperCase()+'</div><div class="nna">'+(c?esc(c[3])+star(c):pre?'Doors soon':'Between sets')+'</div><div class="nnl">'+(c?lt:'')+'</div><div class="nnb"><i style="width:'+pc+'%"></i></div><div class="nnx">'+(x?'Next '+hh(x[1])+ap(x[1])+' · <b>'+esc(x[3])+'</b>'+star(x):'Last set of the night')+'</div></button>'}).join('')+'</div></div>'}
+$('onnow').addEventListener('click',e=>{const b=e.target.closest('.nnc');if(b&&b.dataset.i!=='')openSet(+b.dataset.i)});
 setInterval(tick,1000);
 
 /* ---------- map ---------- */

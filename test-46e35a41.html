@@ -155,9 +155,26 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 #frp{border:2px solid transparent;border-radius:16px;padding:12px 14px;background:linear-gradient(var(--sh),var(--sh)) padding-box,linear-gradient(135deg,#7b4dff,#c04fd0,#ff9bd8) border-box}body.dark #frp{background:linear-gradient(#1b1730,#1b1730) padding-box,linear-gradient(135deg,#7b4dff,#c04fd0,#ff9bd8) border-box}
 .frs{color:var(--mut);font-size:13px;margin:2px 0 4px}#fradd{margin-top:10px}.both{color:#e6b800;font-size:12px;font-weight:700}
 .set.fr{outline:2px dashed rgba(255,255,255,.95);outline-offset:-5px}.set .frb{position:absolute;left:4px;bottom:3px;font-size:10px;line-height:1}
+#cel{position:fixed;inset:0;z-index:80;transition:opacity .35s}#cel.out{opacity:0}
+#celc{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.celbg{position:absolute;inset:0;background:rgba(8,6,24,.42);z-index:1}body:not(.dark) .celbg{background:rgba(40,30,90,.18)}
+.celm{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(88vw,360px);z-index:3;border-radius:20px;padding:22px 20px 18px;border:2px solid transparent;
+ background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#2fb3d1,#3a6fd8,#9a6bff) border-box;box-shadow:0 18px 50px rgba(20,30,90,.35);color:#14111f;animation:celin .45s cubic-bezier(.2,.8,.2,1)}
+body.dark .celm{background:linear-gradient(#17142b,#17142b) padding-box,linear-gradient(135deg,#2fb3d1,#3a6fd8,#9a6bff) border-box;color:#f4f1ff;box-shadow:0 18px 60px rgba(0,0,0,.6),0 0 30px rgba(80,140,255,.25)}
+@keyframes celin{from{opacity:0;transform:translate(-50%,-46%) scale(.96)}}
+.celx{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;border:0;background:rgba(120,120,160,.15);color:inherit;font-size:16px}
+.celm h3{margin:2px 34px 8px 0;font-size:19.5px;white-space:nowrap;background:linear-gradient(90deg,#2f8fd1,#6a5cff);-webkit-background-clip:text;background-clip:text;color:transparent}body.dark .celm h3{background:linear-gradient(90deg,#8fd6ff,#b49cff);-webkit-background-clip:text;background-clip:text}
+.celm p{margin:0 0 10px;font-size:14.5px;line-height:1.45}.celm .sig{font-weight:700;margin-top:4px}
+.celb{display:flex;gap:8px;margin-top:14px}.celb a{flex:1;text-align:center;text-decoration:none;font-weight:700;font-size:14px;padding:10px 8px;border-radius:12px;color:#fff;background:linear-gradient(135deg,#3a6fd8,#7b4dff)}.celb a.em{background:transparent;color:inherit;border:1.5px solid rgba(120,120,180,.4)}
+.thxw{text-align:center;margin:-2px 0 12px}.thx{border:0;font:inherit;cursor:pointer;font-size:13.5px;font-weight:700;padding:7px 14px;border-radius:16px;color:#fff;background:linear-gradient(135deg,#2fb3d1,#3a6fd8);box-shadow:0 0 14px rgba(60,140,255,.45)}
+.nn{margin:6px 14px 10px}.nnh{display:flex;justify-content:space-between;align-items:baseline;margin:0 2px 6px}.nnh b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}.nnh span{font-size:12px;color:#ff3b5c;font-weight:800;font-variant-numeric:tabular-nums}
+.nng{display:grid;grid-template-columns:1fr 1fr;gap:8px}.nnc{display:flex;flex-direction:column;justify-content:flex-start;position:relative;border-radius:14px;padding:9px 10px 10px 12px;background:var(--sh);border:1px solid var(--line);overflow:hidden;cursor:pointer;color:var(--fg);text-align:left;font:inherit}body.dark .nnc{background:#1b1730}
+.nnc:before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--sc)}.nns{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--sc)}
+.nna{font-size:14.5px;font-weight:800;line-height:1.2;margin-top:2px}.nnl{font-size:11.5px;color:var(--mut);margin-top:2px;min-height:14px}.nnb{height:3px;border-radius:2px;background:var(--line);margin:6px 0 7px}.nnb i{display:block;height:100%;border-radius:2px;background:var(--sc)}
+.nnx{margin-top:auto;font-size:11.5px;color:var(--mut);border-top:1px dashed var(--line);padding-top:6px}.nnx b{color:var(--fg);font-weight:700}.nnst{color:#e6b800}
 </style></head><body><div style="position:sticky;top:0;z-index:99;background:#ff3b5c;color:#fff;font:700 13px system-ui;text-align:center;padding:6px calc(8px + env(safe-area-inset-top)) 6px">TEST PAGE · Fri set times moved to tonight (Nov 17→18) · not linked anywhere</div>
 <div class="iab" id="iab"><span>Tap <b>•••</b> then <b>Open in browser</b> for the best experience</span><span class="arr">↗</span><button id="iabx" aria-label="Dismiss">✕</button></div>
-<header><nav class="nav"><a href="#" data-v="playlists">Playlists</a><span class="nsep" aria-hidden="true"></span><a href="#settimes" data-v="settimes">Set Times</a><a href="#map" data-v="map">Map</a><a href="#guide" data-v="guide">How to use</a></nav>
+<header><nav class="nav"><a href="#" data-v="playlists">Playlists</a><span class="nsep" aria-hidden="true"></span><a href="#settimes" data-v="settimes">Set Times</a><a href="#map" data-v="map">Map</a><a href="#guide" data-v="guide">How to use</a></nav><div class="thxw" id="thxw" hidden><button class="thx" id="thx">💙 Thank you for coming</button></div>
 <a href="#" class="logolink" aria-label="Go to Playlists"><img class="logo" src="logo.png" alt="Dreamstate"></a><span class="fmc">Fan-made companion app</span><h1 id="ttl">Dreamstate SoCal 2026</h1></header>
 
 <section class="view" id="v-playlists"><div style="padding:0 14px 6px">
@@ -174,7 +191,7 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 <section class="view" id="v-settimes">
 <div class="vsub">Tap a set to hear its tracks. Tap ☆ to add it to your plan; your picks stay saved on this phone.</div>
 <div class="tabs" style="padding-top:10px"><button class="btn on" data-sd="Fri">Fri 11/20</button><button class="btn" data-sd="Sat">Sat 11/21</button><span class="grow"></span><button class="btn" id="lt">Live timing</button><button class="btn" id="mine">★ My sets only</button><button class="btn dmb">Light</button></div>
-<div class="grid" id="g"></div>
+<div id="onnow"></div><div class="grid" id="g"></div>
 <section class="plan" id="frp" hidden><div class="frh"><h2 id="frt"></h2><button class="xb2" id="frx" aria-label="Hide shared plan">✕</button></div><div class="frs" id="frs"></div><div id="frl"></div><button class="btn on" id="fradd">★ Add their sets to my plan</button></section>
 <section class="plan"><h2>My plan · <span id="pd"></span></h2>
 <div class="shr"><input id="shn" maxlength="24" placeholder="Your name (optional)" autocomplete="given-name"><button class="btn on" id="shb">Share my plan</button></div>
@@ -272,7 +289,7 @@ const TT={playlists:'Dreamstate SoCal 2026',settimes:'Set Times',map:'Festival M
 function route(){let h=location.hash.replace('#','').toLowerCase();let v=h.startsWith('settimes')||h==='fri'||h==='sat'?'settimes':h==='map'?'map':h==='guide'?'guide':'playlists';
  if(h.endsWith('sat'))sday='Sat';else if(h.endsWith('fri'))sday='Fri';else if(!route.v&&liveOn&&festHour('Fri')===99)sday='Sat';
  document.querySelectorAll('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
- $('ttl').textContent=TT[v];document.title=(v==='playlists'?'':TT[v]+' · ')+'Dreamstate SoCal 2026';if(v==='settimes')drawGrid();if(route.v&&route.v!==v)scrollTo(0,0);route.v=v}
+ $('ttl').textContent=TT[v];document.title=(v==='playlists'?'':TT[v]+' · ')+'Dreamstate SoCal 2026';if(v==='settimes')drawGrid();if(route.v&&route.v!==v)scrollTo(0,0);route.v=v;try{localStorage.setItem('ds26testview',v)}catch(e){}}
 window.addEventListener('hashchange',()=>{readShare();route()});
 
 /* ---------- playlists view ---------- */
@@ -309,12 +326,12 @@ function drawGrid(){document.querySelectorAll('[data-sd]').forEach(b=>b.classLis
   S[sday].forEach((s,i)=>{if(s[0]!==st)return;const k=skey(sday,s),n=stracks(sday,s).length,f=fav.has(k);
    g+='<div role="button" tabindex="0" class="set '+st+(f?' fav':'')+(mine&&!f?' dim':'')+'" data-i="'+i+'" style="top:'+((s[1]-16)*PX+2)+'px;height:'+((s[2]-s[1])*PX-4)+'px"><span class="st" role="button" aria-label="Favorite">'+(f?'★':'☆')+'</span><b'+(s[3].length>20?' style="font-size:9.5px"':'')+'>'+esc(s[3])+'</b>'+(s[4]?'<small>'+esc(s[4])+'</small>':'')+'<small>'+range(s)+'</small>'+(n?'<span class="n">♪'+n+'</span>':'')+'<span class="lv"></span><span class="lpb"><i></i></span></div>'});
   g+='</div>'}
- $('g').innerHTML=g+'<div class="nowl" id="nowl"></div><div class="nowp" id="nowp"></div>';if(shared)$('g').querySelectorAll('.set').forEach(b=>{if(shared.keys.includes(skey(sday,S[sday][+b.dataset.i]))){b.classList.add('fr');b.insertAdjacentHTML('beforeend','<span class="frb">👥</span>')}});drawPlan();drawFriend();tick()}
+ $('g').innerHTML=g+'<div class="nowl" id="nowl"></div><div class="nowp" id="nowp"></div>';if(shared)$('g').querySelectorAll('.set').forEach(b=>{if(shared.keys.includes(skey(sday,S[sday][+b.dataset.i]))){b.classList.add('fr');b.insertAdjacentHTML('beforeend','<span class="frb">👥</span>')}});drawPlan();drawFriend();drawNN(1);tick()}
 let planKey=null;
 function drawPlan(){$('pd').textContent=sday==='Fri'?'Friday':'Saturday';
  const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>fav.has(skey(sday,s))).sort((a,b)=>a[0][1]-b[0][1]);planKey=null;
  if(!L.length){$('pl').innerHTML='<div class="empty">No sets starred yet. Tap ☆ on a set to add it.</div>';return}
- const now=liveOn?festHour(sday):-1,U=L.filter(([s])=>s[2]>now),E=L.filter(([s])=>s[2]<=now);planKey=sday+E.length;
+ const now=liveOn&&!festOver()?festHour(sday):-1,U=L.filter(([s])=>s[2]>now),E=L.filter(([s])=>s[2]<=now);planKey=sday+E.length;
  const row=([s,i],live,clash)=>'<div class="pi'+(live?'':' ended')+'" data-i="'+i+'"><span class="dot '+s[0]+'"></span><div><div class="ptt">'+esc(s[3])+'</div><div class="pm">'+range(s)+' · The '+s[0]+(s[4]?' · '+esc(s[4]):'')+'</div>'+(clash?'<div class="warn">Overlaps another set you starred</div>':'')+'</div></div>';
  let h=U.length?U.map((x,j)=>row(x,1,U.some(([o],k)=>k!==j&&o[1]<x[0][2]&&x[0][1]<o[2]))).join(''):'<div class="empty">All your starred sets for today have ended.</div>';
  if(E.length)h+='<div class="peh">Ended · '+E.length+'</div>'+E.map(x=>row(x,0,0)).join('');
@@ -369,14 +386,26 @@ const LAf=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',year:'
 function laNow(){const p={};LAf.formatToParts(new Date(Date.now()+OFF)).forEach(x=>p[x.type]=x.value);return{date:p.year+'-'+p.month+'-'+p.day,h:+p.hour,m:+p.minute,s:+p.second}}
 function festHour(d){const n=laNow(),base=DD[d];const t=n.h+n.m/60+n.s/3600;if(n.date===base)return t;
  const nx=new Date(base+'T12:00:00Z');nx.setUTCDate(nx.getUTCDate()+1);if(n.date===nx.toISOString().slice(0,10)&&n.h<6)return t+24;return n.date<base?-1:99}
-function tick(){if(!$('v-settimes').classList.contains('on'))return;
- if(!liveOn){document.querySelectorAll('#g .set').forEach(b=>b.classList.remove('past','live'));if($('nowl'))$('nowl').style.display=$('nowp').style.display='none';return}
+function tick(){if(!$('v-settimes').classList.contains('on'))return;drawNN();
+ if(!liveOn||festOver()){document.querySelectorAll('#g .set').forEach(b=>b.classList.remove('past','live'));if($('nowl'))$('nowl').style.display=$('nowp').style.display='none';return}
  const now=festHour(sday);
  if(planKey!==null&&planKey!==sday+S[sday].filter(s=>fav.has(skey(sday,s))&&s[2]<=now).length)drawPlan();
  document.querySelectorAll('#g .set').forEach(b=>{const s=S[sday][+b.dataset.i];const past=s[2]<=now,live=s[1]<=now&&now<s[2];b.classList.toggle('past',past);b.classList.toggle('live',live);
   if(live){const left=Math.round((s[2]-now)*3600),p=(now-s[1])/(s[2]-s[1]);b.querySelector('.lv').textContent='LIVE · '+fmt(left)+' left';b.querySelector('.lpb i').style.width=(p*100)+'%'}});
  const L=$('nowl'),P=$('nowp');if(!L)return;const col=document.querySelector('#g .col');
  if(now>=16&&now<=25&&col){const y=col.offsetTop+(now-16)*PX;L.style.top=y+'px';P.style.top=(y-10)+'px';const n=laNow();P.textContent=((n.h%12)||12)+':'+String(n.m).padStart(2,'0')+':'+String(n.s).padStart(2,'0');L.style.display=P.style.display='block'}else{L.style.display=P.style.display='none'}}
+const SC={Dream:'#2fb3d1',Sequence:'#e3962e',Void:'#3a6fd8',Vision:'#d062d6'};let nnKey=null;
+function drawNN(force){const box=$('onnow');const now=festHour(sday);const last=Math.max(...S[sday].map(s=>s[2]));
+ if(!liveOn||festOver()||now<15||now>=last){if(box.innerHTML)box.innerHTML='';nnKey=null;return}
+ const n=laNow(),key=sday+'|'+n.h+':'+n.m+'|'+fav.size;if(!force&&key===nnKey)return;nnKey=key;
+ const clock=((n.h%12)||12)+':'+String(n.m).padStart(2,'0')+(n.h<12?'am':'pm'),star=(s)=>fav.has(skey(sday,s))?' <span class="nnst">★</span>':'';
+ const pre=now<Math.min(...S[sday].map(s=>s[1]));
+ box.innerHTML='<div class="nn"><div class="nnh"><b>'+(pre?'Up first':'On now')+'</b><span>● '+clock+'</span></div><div class="nng">'+STG.map(st=>{
+  const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>s[0]===st).sort((a,b)=>a[0][1]-b[0][1]),cur=L.find(([s])=>s[1]<=now&&now<s[2]),nxt=L.find(([s])=>s[1]>now);
+  const c=cur&&cur[0],x=nxt&&nxt[0],tap=cur?cur[1]:nxt?nxt[1]:'';const left=c?Math.max(1,Math.round((c[2]-now)*60)):0,pc=c?(now-c[1])/(c[2]-c[1])*100:0;
+  const lt=left>=60?Math.floor(left/60)+'h '+(left%60)+'m left':left+' min left';
+  return '<button class="nnc" data-i="'+tap+'" style="--sc:'+SC[st]+'"><div class="nns">THE '+st.toUpperCase()+'</div><div class="nna">'+(c?esc(c[3])+star(c):pre?'Doors soon':'Between sets')+'</div><div class="nnl">'+(c?lt:'')+'</div><div class="nnb"><i style="width:'+pc+'%"></i></div><div class="nnx">'+(x?'Next '+hh(x[1])+ap(x[1])+' · <b>'+esc(x[3])+'</b>'+star(x):'Last set of the night')+'</div></button>'}).join('')+'</div></div>'}
+$('onnow').addEventListener('click',e=>{const b=e.target.closest('.nnc');if(b&&b.dataset.i!=='')openSet(+b.dataset.i)});
 setInterval(tick,1000);
 
 /* ---------- map ---------- */
@@ -454,6 +483,44 @@ $('qv').addEventListener('click',e=>{const rm=e.target.closest('[data-rm]');if(r
 document.querySelectorAll('.play#bpp,#mpp').forEach(b=>b.innerHTML=I.play);
 
 /* ---------- start ---------- */
-draw();readShare();route();
+/* ---------- after-the-event thank you ---------- */
+const festOver=()=>{const h=festHour('Sat');return h===99||h>=25.5};
+function celebrate(mode,msg){
+ if(document.getElementById('cel'))return;
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const wrap=document.createElement('div');wrap.id='cel';
+ wrap.innerHTML='<canvas id="celc"></canvas><div class="celbg"></div><div class="celm" role="dialog" aria-modal="true" aria-labelledby="celt"><button class="celx" aria-label="Close">✕</button>'+msg+'</div>';
+ document.body.appendChild(wrap);
+ const cv=wrap.querySelector('canvas'),cx=cv.getContext('2d');let W,H,run=!reduce,raf;
+ const fit=()=>{const d=devicePixelRatio||1;W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0)};fit();addEventListener('resize',fit);
+ const dark=document.body.classList.contains('dark');
+ const BL=dark?['#2fb3d1','#3a6fd8','#6f9bff','#9fd4ff','#c9e6ff','#4d7cff']:['#1e88b8','#2f5fd0','#3a6fd8','#1fa2c9','#5b7fe8','#2448a8'];
+ const P=[];const rnd=(a,b)=>a+Math.random()*(b-a);
+ function confetto(y){return{x:rnd(0,W),y:y??rnd(-H,0),w:rnd(5,9),h:rnd(8,15),vy:rnd(45,85),sw:rnd(.6,1.6),ph:rnd(0,6.3),rot:rnd(0,6.3),vr:rnd(-3,3),c:BL[Math.random()*BL.length|0]}}
+ if(mode==='confetti')for(let i=0;i<Math.round(W*H/3200);i++)P.push(confetto(rnd(-H*.6,H)));
+ let nextBurst=0;
+ function burst(t){const x=rnd(W*.15,W*.85),y=Math.random()<.6?rnd(H*.08,H*.26):rnd(H*.76,H*.9),c=BL[Math.random()*BL.length|0],c2=BL[Math.random()*BL.length|0],n=46;
+  for(let i=0;i<n;i++){const a=i/n*6.283+rnd(-.05,.05),v=rnd(70,140);P.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:0,max:rnd(1.3,1.9),c:i%3?c:c2})}
+  nextBurst=t+rnd(.6,1.1)}
+ let last=performance.now()/1000;
+ function frame(ms){const t=ms/1000,dt=Math.min(.05,t-last);last=t;cx.clearRect(0,0,W,H);
+  if(mode==='confetti'){P.forEach(p=>{p.y+=p.vy*dt;p.ph+=dt*p.sw;p.x+=Math.sin(p.ph)*22*dt;p.rot+=p.vr*dt;if(p.y>H+20)Object.assign(p,confetto(-20));
+    cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);cx.scale(1,Math.cos(p.ph*2.2));cx.fillStyle=p.c;cx.globalAlpha=.9;cx.fillRect(-p.w/2,-p.h/2,p.w,p.h);cx.restore()})}
+  else{if(t>=nextBurst)burst(t);cx.globalCompositeOperation=dark?'lighter':'source-over';
+   for(let i=P.length-1;i>=0;i--){const p=P[i];p.life+=dt;if(p.life>p.max){P.splice(i,1);continue}
+    p.vx*=1-1.6*dt;p.vy=p.vy*(1-1.6*dt)+38*dt;p.x+=p.vx*dt;p.y+=p.vy*dt;const a=1-p.life/p.max;
+    cx.globalAlpha=a;cx.fillStyle=p.c;cx.beginPath();cx.arc(p.x,p.y,2.2,0,6.283);cx.fill();cx.globalAlpha=a*.25;cx.beginPath();cx.arc(p.x,p.y,5,0,6.283);cx.fill()}
+   cx.globalAlpha=1;cx.globalCompositeOperation='source-over'}
+  if(run)raf=requestAnimationFrame(frame)}
+ if(run)raf=requestAnimationFrame(frame);
+ const close=()=>{run=false;cancelAnimationFrame(raf);wrap.classList.add('out');setTimeout(()=>wrap.remove(),350);try{localStorage.setItem('ds26testthanks','1')}catch(e){}};
+ wrap.querySelector('.celx').onclick=close;wrap.querySelector('.celbg').onclick=close;
+}
+const THX="<h3>Thank you, Dreamstate \ud83d\udc99</h3><p>Hope you had an amazing weekend! Thanks so much for using this companion, I built it for fun and it means a lot that you did.</p><p>I made this as a fan, so I’d love to hear from you. Message me on Instagram or by email if it helped, if something was missing, or if you want one for another event.</p><p class=\"sig\">\u2013 Bill</p><div class=\"celb\"><a href=\"https://www.instagram.com/williamarana_/\" target=\"_blank\" rel=\"noopener\">Instagram</a><a class=\"em\" href=\"mailto:william@thegameday.zone\">Email me</a></div>";
+$('thx').onclick=()=>celebrate('confetti',THX);
+function thxCheck(){if(!festOver())return;$('thxw').hidden=false;let seen=false;try{seen=localStorage.getItem('ds26testthanks')==='1'}catch(e){}if(!seen&&!thxCheck.done){thxCheck.done=1;setTimeout(()=>celebrate('confetti',THX),600)}}
+setInterval(thxCheck,30000);
+if(!location.hash||location.hash==='#'){let last=null;try{last=localStorage.getItem('ds26testview')}catch(e){}const t=last||'guide';if(t!=='playlists'){try{history.replaceState(null,'',location.pathname+location.search+'#'+t)}catch(e){}}}
+draw();readShare();route();thxCheck();
 if('serviceWorker' in navigator&&location.protocol==='https:'){navigator.serviceWorker.register('sw.js').catch(()=>{})}
 </script></body></html>
