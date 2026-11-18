@@ -284,7 +284,7 @@ const TT={playlists:'Dreamstate SoCal 2026',settimes:'Set Times',map:'Festival M
 function route(){let h=location.hash.replace('#','').toLowerCase();let v=h.startsWith('settimes')||h==='fri'||h==='sat'?'settimes':h==='map'?'map':h==='guide'?'guide':'playlists';
  if(h.endsWith('sat'))sday='Sat';else if(h.endsWith('fri'))sday='Fri';else if(!route.v&&liveOn&&festHour('Fri')===99)sday='Sat';
  document.querySelectorAll('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
- $('ttl').textContent=TT[v];document.title=(v==='playlists'?'':TT[v]+' · ')+'Dreamstate SoCal 2026';if(v==='settimes')drawGrid();if(route.v&&route.v!==v)scrollTo(0,0);route.v=v}
+ $('ttl').textContent=TT[v];document.title=(v==='playlists'?'':TT[v]+' · ')+'Dreamstate SoCal 2026';if(v==='settimes')drawGrid();if(route.v&&route.v!==v)scrollTo(0,0);route.v=v;try{localStorage.setItem('ds26view',v)}catch(e){}}
 window.addEventListener('hashchange',()=>{readShare();route()});
 
 /* ---------- playlists view ---------- */
@@ -503,6 +503,7 @@ const THX="<h3>Thank you, Dreamstate \ud83d\udc99</h3><p>Hope you had an amazing
 $('thx').onclick=()=>celebrate('confetti',THX);
 function thxCheck(){if(!festOver())return;$('thxw').hidden=false;let seen=false;try{seen=localStorage.getItem('ds26thanks')==='1'}catch(e){}if(!seen&&!thxCheck.done){thxCheck.done=1;setTimeout(()=>celebrate('confetti',THX),600)}}
 setInterval(thxCheck,30000);
+if(!location.hash||location.hash==='#'){let last=null;try{last=localStorage.getItem('ds26view')}catch(e){}const t=last||'guide';if(t!=='playlists'){try{history.replaceState(null,'',location.pathname+location.search+'#'+t)}catch(e){}}}
 draw();readShare();route();thxCheck();
 if('serviceWorker' in navigator&&location.protocol==='https:'){navigator.serviceWorker.register('sw.js').catch(()=>{})}
 </script><script data-goatcounter="https://dreamstate26.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
