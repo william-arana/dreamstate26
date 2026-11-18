@@ -18,11 +18,11 @@ h1{font-size:21px;margin:0 0 4px}.sub{color:var(--mut);font-size:13px}
 .axis,.col{margin-top:8px}.col{position:relative;background:repeating-linear-gradient(to bottom,var(--grid) 0 1px,transparent 1px 78px);border-bottom:1px solid var(--grid)}.axis{position:relative}
 .tl{position:absolute;right:4px;font-size:10px;color:var(--mut);transform:translateY(-50%);white-space:nowrap}
 .hl{position:absolute;left:44px;right:0;border-top:1px solid var(--grid)}
-.set{position:absolute;left:0;right:0;border-radius:8px;padding:4px 3px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;cursor:pointer;border:0;font:inherit;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.set{position:absolute;left:0;right:0;border-radius:8px;padding:14px 3px 6px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;cursor:pointer;border:0;font:inherit;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
 .set b{font-size:11px;line-height:1.15;font-weight:800;text-transform:uppercase;word-break:break-word}.set small{font-size:9.5px;opacity:.9;margin-top:2px;font-weight:600}
 .set .n{position:absolute;bottom:3px;right:5px;font-size:9px;opacity:.85;font-weight:700}
-.set .st{position:absolute;top:2px;right:4px;font-size:13px;display:none}
-.set.fav{box-shadow:inset 0 0 0 3px #ffd84d}.set.fav .st{display:block}
+.set .st{position:absolute;top:0;right:0;padding:3px 5px 8px 8px;font-size:15px;line-height:1;color:rgba(255,255,255,.85)}
+.set.fav{box-shadow:inset 0 0 0 3px #ffd84d}.set.fav .st{color:#ffd84d;text-shadow:0 0 6px rgba(0,0,0,.35)}
 .set.dim{opacity:.28}
 .Dream{background:#2fb3d1}.Sequence{background:#e3962e}.Void{background:#3a6fd8}.Vision{background:#d062d6}
 .plan{margin:22px 14px 0}.plan h2{font-size:17px;margin:0 0 8px}.pi{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer}
@@ -96,7 +96,7 @@ function draw(){
  g+=ax;
  for(const st of STG){g+='<div class="col" style="height:'+H+'px">';
   S[day].forEach((s,i)=>{if(s[0]!==st)return;const k=key(day,s),n=tracks(day,s).length,f=fav.has(k);
-   g+='<button class="set '+st+(f?' fav':'')+(mine&&!f?' dim':'')+'" data-i="'+i+'" style="top:'+((s[1]-16)*PX+2)+'px;height:'+((s[2]-s[1])*PX-4)+'px"><span class="st">★</span><b>'+esc(s[3])+'</b>'+(s[4]?'<small>'+esc(s[4])+'</small>':'')+'<small>'+range(s)+'</small>'+(n?'<span class="n">♪'+n+'</span>':'')+'</button>'});
+   g+='<button class="set '+st+(f?' fav':'')+(mine&&!f?' dim':'')+'" data-i="'+i+'" style="top:'+((s[1]-16)*PX+2)+'px;height:'+((s[2]-s[1])*PX-4)+'px"><span class="st" role="button" aria-label="Favorite">'+(f?'★':'☆')+'</span><b>'+esc(s[3])+'</b>'+(s[4]?'<small>'+esc(s[4])+'</small>':'')+'<small>'+range(s)+'</small>'+(n?'<span class="n">♪'+n+'</span>':'')+'</button>'});
   g+='</div>'}
  $('g').innerHTML=g;
  plan()}
@@ -115,7 +115,7 @@ function play(i){const r=R[i];if(!r[9])return;if(i===cur){au.paused?au.play().ca
  if('mediaSession' in navigator){try{navigator.mediaSession.metadata=new MediaMetadata({title:r[4],artist:r[3],album:'Dreamstate SoCal 2026 · '+r[2],artwork:r[10]?[{src:art(r,512),sizes:'512x512',type:'image/jpeg'}]:[]})}catch(e){}}}
 function sync(){document.querySelectorAll('.song .play').forEach(b=>{const on=+b.dataset.t===cur&&!au.paused;b.classList.toggle('on',on);b.innerHTML=on?PAUSE:PLAY});$('mpp').textContent=au.paused?'▶':'⏸'}
 au.onplay=au.onpause=au.onended=sync;
-$('g').addEventListener('click',e=>{const b=e.target.closest('.set');if(b)openSet(+b.dataset.i)});
+$('g').addEventListener('click',e=>{const b=e.target.closest('.set');if(!b)return;if(e.target.closest('.st')){const k=key(day,S[day][+b.dataset.i]);fav.has(k)?fav.delete(k):fav.add(k);save();draw();return}openSet(+b.dataset.i)});
 $('pl').addEventListener('click',e=>{const b=e.target.closest('.pi');if(b)openSet(+b.dataset.i)});
 $('sl').addEventListener('click',e=>{const b=e.target.closest('.play');if(b)play(+b.dataset.t)});
 $('sx').onclick=()=>{$('sh').classList.remove('on');open=null};
