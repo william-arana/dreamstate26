@@ -135,7 +135,7 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 .toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:#fff;color:#111;font-weight:600;font-size:13.5px;padding:9px 14px;border-radius:20px;opacity:0;transition:.2s;z-index:50;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.3)}.toast.on{opacity:1;transform:translateX(-50%)}
 /* how-to-use guide */
 .gd{padding:4px 14px 20px}.glead{color:var(--mut);font-size:14px;margin:0 0 14px}
-.gfl{display:flex;align-items:center;gap:6px;margin:0 0 6px;font-size:12.5px;font-weight:600}.gfl span{flex:1;text-align:center;padding:8px 2px;border-radius:12px;background:var(--sh);border:1px solid var(--line)}.gfl i{font-style:normal;color:var(--acc);font-weight:800}
+.gfl{display:flex;align-items:center;gap:6px;margin:18px 0 6px;font-size:12.5px;font-weight:600}.gfl span{flex:1;text-align:center;padding:8px 2px;border-radius:12px;background:var(--sh);border:1px solid var(--line)}.gfl i{font-style:normal;color:var(--acc);font-weight:800}
 .gsec{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:20px 4px 8px;display:flex;align-items:center;gap:8px}.gsec:after{content:'';flex:1;height:1px;background:var(--line)}
 .gc{display:flex;gap:12px;background:var(--sh);border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:8px;box-shadow:0 2px 10px rgba(40,20,90,.08)}body.dark .gc{background:#1b1730;box-shadow:0 2px 12px rgba(0,0,0,.35)}body.dark .gfl span{background:#1b1730}
 .gic{width:44px;height:44px;border-radius:12px;flex:none;display:grid;place-items:center;color:#fff;font-size:20px;font-weight:800}.gic svg{width:22px;height:22px;fill:currentColor}
@@ -149,6 +149,7 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 #bq.qon{background:#fff;color:#3a1d6e;box-shadow:0 0 0 2px rgba(255,255,255,.35),0 0 16px rgba(201,182,255,.9)}.logolink{display:block;width:max-content;margin:0 auto}
 .nsep{flex:none;align-self:center;width:1.5px;height:20px;border-radius:1px;background:var(--mut);opacity:.45;margin:0 1px}
 .sheet.drag{transition:none}.shbg{position:fixed;inset:0;background:rgba(10,6,24,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:19}.shbg.on{opacity:1;pointer-events:auto}
+.gimp{color:#c04fd0;margin-top:4px}body.dark .gimp{color:#ff9bd8}.gimp:after{background:linear-gradient(90deg,#c04fd0,transparent)}
 </style></head><body>
 <div class="iab" id="iab"><span>Tap <b>•••</b> then <b>Open in browser</b> for the best experience</span><span class="arr">↗</span><button id="iabx" aria-label="Dismiss">✕</button></div>
 <header><nav class="nav"><a href="#" data-v="playlists">Playlists</a><span class="nsep" aria-hidden="true"></span><a href="#settimes" data-v="settimes">Set Times</a><a href="#map" data-v="map">Map</a><a href="#guide" data-v="guide">How to use</a></nav>
@@ -177,6 +178,10 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 <div class="wrap" id="w"><img src="map.jpg" alt="Dreamstate SoCal 2026 festival map: Sequence stage by the festival entrance, then Void, Vision, and Dream stage by the Queen Mary"></div></section>
 <section class="view" id="v-guide"><div class="gd">
 <p class="glead">A fan-made companion for Dreamstate SoCal 2026. Hear the sets before you get there, plan your weekend, and find your way around the Queen Mary.</p>
+<div class="gsec gimp">Important · Save it to your phone</div>
+<div class="gc ghl"><div class="gic" style="background:linear-gradient(135deg,#7b4dff,#c04fd0)">📶</div><div><b>Works offline at the festival</b><p>Cell service dies in big crowds. Once it’s on your home screen, set times, your starred plan and the map open with <b>no signal</b>. Open it from there once before you go so everything’s saved.</p></div></div>
+<div class="gc"><div class="gic" style="background:#5b2fc9">⊕</div><div><b>Add to Home Screen</b><p><b>iPhone:</b> in Safari tap Share (the square with the arrow) → Add to Home Screen.<br><b>Android:</b> in Chrome tap ⋮ → Add to Home screen.<br>It opens full screen like an app, with its own icon. Star your sets in the home screen app, since iPhone keeps its picks separate from Safari’s.</p></div></div>
+<div class="gc"><div class="gic" style="background:#3a6fd8">♫</div><div><b>What needs a signal</b><p>Song previews stream, so they need a connection. Everything else is built to keep working.</p></div></div>
 <div class="gfl"><span>🎧 Listen</span><i>→</i><span>⭐ Plan</span><i>→</i><span>📍 Go</span></div>
 <div class="gsec">1 · Listen</div>
 <div class="gc"><div class="gic" style="background:#f0525f"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div><b>Preview any track</b><p>Tap ▶ for a 30-second preview. The player stays docked at the bottom while you browse.</p></div></div>
@@ -191,10 +196,6 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 <div class="gc"><div class="gic" style="background:#ff3b5c">●</div><div><b>Live now</b><p>During the festival a red line shows the current time, and sets that are on now get a LIVE badge and progress bar.</p></div></div>
 <div class="gsec">4 · Get around</div>
 <div class="gc"><div class="gic" style="background:#2fb3d1">📍</div><div><b>Festival map</b><p>Open the <a href="#map">Map</a>. Tap to zoom, drag to move around the Queen Mary Waterfront.</p></div></div>
-<div class="gsec">5 · Save it to your phone</div>
-<div class="gc ghl"><div class="gic" style="background:linear-gradient(135deg,#7b4dff,#c04fd0)">📶</div><div><b>Works offline at the festival</b><p>Cell service dies in big crowds. Once it’s on your home screen, set times, your starred plan and the map open with <b>no signal</b>. Open it from there once before you go so everything’s saved.</p></div></div>
-<div class="gc"><div class="gic" style="background:#5b2fc9">⊕</div><div><b>Add to Home Screen</b><p><b>iPhone:</b> in Safari tap Share (the square with the arrow) → Add to Home Screen.<br><b>Android:</b> in Chrome tap ⋮ → Add to Home screen.<br>It opens full screen like an app, with its own icon. Star your sets in the home screen app, since iPhone keeps its picks separate from Safari’s.</p></div></div>
-<div class="gc"><div class="gic" style="background:#3a6fd8">♫</div><div><b>What needs a signal</b><p>Song previews stream, so they need a connection. Everything else is built to keep working.</p></div></div>
 <div class="gnote">Fan-made, not affiliated with Dreamstate or Insomniac.</div>
 </div></section>
 
