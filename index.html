@@ -191,7 +191,7 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 </div></section>
 
 
-<footer>Previews and artwork provided by Apple Music. Links open Apple Music or Spotify. Set times and map from the official Dreamstate SoCal 2026 materials. Fan-made page, not affiliated with Dreamstate or Insomniac.<div style="margin-top:10px">Questions? Contact me at <a href="mailto:william@thegameday.zone" style="color:var(--acc)">william@thegameday.zone</a></div><div style="margin-top:8px">William A.</div></footer>
+<footer>Previews and artwork from Apple Music, Spotify and my own MP3s. Links open Apple Music or Spotify. Set times and map from the official Dreamstate SoCal 2026 materials. Fan-made page, not affiliated with Dreamstate or Insomniac.<div style="margin-top:10px">Questions? Contact me at <a href="mailto:william@thegameday.zone" style="color:var(--acc)">william@thegameday.zone</a></div><div style="margin-top:8px">William A.</div></footer>
 
 <div class="sheet" id="sh"><div class="shd"><div class="grab"></div><button class="xb" id="sx" aria-label="Close"><svg class="i" viewBox="0 0 24 24"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6 10.6 12 5 6.4z"/></svg></button><h3 id="stt"></h3><div class="meta" id="stm"></div><button class="fv" id="sfv">☆ I want to see this</button></div><div class="slist" id="sl"></div></div>
 
@@ -231,7 +231,8 @@ Sat:[
 const STG=['Dream','Sequence','Void','Vision'];
 const $=id=>document.getElementById(id),au=$('au');
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
-function art(r,z){return r&&r[10]?(r[10].startsWith('http')?r[10]:IM+r[10]+'/'+z+'x'+z+'bb.jpg'):''}
+const NOART="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233a1d6e'/%3E%3Cstop offset='.55' stop-color='%236b2fa8'/%3E%3Cstop offset='1' stop-color='%23c04fd0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='url%28%23g%29'/%3E%3Cpath d='M42 30v30.5a9 9 0 1 0 5 8V42h16V30z' fill='%23fff' fill-opacity='.78'/%3E%3Cpath d='M26 24l50 52' stroke='%23fff' stroke-opacity='.85' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E";
+function art(r,z){return r&&r[10]?(/^(https?:|art\/)/.test(r[10])?r[10]:IM+r[10]+'/'+z+'x'+z+'bb.jpg'):NOART}
 function sq(r){let t=r[4].replace(/\s*[\(\[](mixed|abgt\d+)[\)\]]/ig,'');return encodeURIComponent(r[3].split(/,| & | x /)[0]+' '+t)}
 function amU(r){return r[8]?AM+r[8]:AM+'search?term='+sq(r)}
 function spU(r){return r[11]?'https://open.spotify.com/track/'+r[11]:'https://open.spotify.com/search/'+sq(r)}
@@ -240,7 +241,7 @@ function links(r){if(mp3o(r))return '<span class="mp3">MP3 only</span>';return '
 function fmt(s){s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
 function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>e.classList.remove('on'),1400)}
 function songRow(i,ctx){const r=R[i],on=i===cur&&!au.paused;
- return '<div class="song" id="s'+ctx+'-'+i+'">'+(r[10]?'<img class="art" loading="lazy" src="'+art(r,120)+'" alt="">':'<div class="art"></div>')+'<div class="mid"><div class="ti">'+esc(r[4])+(r[5]==='r'?' <span class="tag r">remix</span>':r[5]==='f'?' <span class="tag r">feat</span>':'')+(r[6]?' <span class="tag b">MP3</span>':'')+'</div><div class="ar">'+esc(r[3])+(r[7]?' · also: '+esc(r[7].split('|').join(', ')):'')+'</div><div class="lk">'+links(r)+'</div></div><button class="addq" data-q="'+i+'" aria-label="Add to queue"'+(r[9]?'':' disabled')+'>'+I.queue+'</button><button class="play'+(on?' on':'')+'" data-p="'+i+'" data-ctx="'+ctx+'"'+(r[9]?'':' disabled')+' aria-label="Preview">'+(on?I.pause:I.play)+'</button></div>'}
+ return '<div class="song" id="s'+ctx+'-'+i+'">'+'<img class="art" loading="lazy" src="'+art(r,120)+'" alt="" onerror="this.onerror=null;this.src=NOART">'+'<div class="mid"><div class="ti">'+esc(r[4])+(r[5]==='r'?' <span class="tag r">remix</span>':r[5]==='f'?' <span class="tag r">feat</span>':'')+(r[6]?' <span class="tag b">MP3</span>':'')+'</div><div class="ar">'+esc(r[3])+(r[7]?' · also: '+esc(r[7].split('|').join(', ')):'')+'</div><div class="lk">'+links(r)+'</div></div><button class="addq" data-q="'+i+'" aria-label="Add to queue"'+(r[9]?'':' disabled')+'>'+I.queue+'</button><button class="play'+(on?' on':'')+'" data-p="'+i+'" data-ctx="'+ctx+'"'+(r[9]?'':' disabled')+' aria-label="Preview">'+(on?I.pause:I.play)+'</button></div>'}
 
 /* ---------- theme / in-app hint ---------- */
 document.body.classList.add('dark');try{if(localStorage.getItem('ds26dark')==='0')document.body.classList.remove('dark')}catch(e){}
@@ -375,7 +376,7 @@ function openBP(q){const bp=$('bp');bp.classList.toggle('q',!!q);$('bpt').textCo
 function closeBP(){const bp=$('bp');bp.style.transform='';bp.classList.remove('on');document.body.classList.remove('lock')}
 $('bclose').onclick=closeBP;
 const tq=()=>{const on=!$('bp').classList.contains('q');openBP(on)};$('bq').onclick=tq;$('bq2').onclick=tq;
-function qRow(i,cls,rm){const r=R[i];return '<div class="qi '+cls+'" data-qi="'+i+'"'+(rm!=null?' data-qpos="'+rm+'"':'')+'>'+(r[10]?'<img src="'+art(r,100)+'" alt="">':'<div class="ph"></div>')+'<div class="mid"><div class="ti">'+esc(r[4])+'</div><div class="ar">'+esc(r[3])+(r[3]!==r[2]?' · '+esc(r[2]):'')+'</div></div>'+(rm!=null?'<button class="rm" data-rm="'+rm+'" aria-label="Remove">'+I.x+'</button>':'')+'</div>'}
+function qRow(i,cls,rm){const r=R[i];return '<div class="qi '+cls+'" data-qi="'+i+'"'+(rm!=null?' data-qpos="'+rm+'"':'')+'>'+'<img src="'+art(r,100)+'" alt="">'+'<div class="mid"><div class="ti">'+esc(r[4])+'</div><div class="ar">'+esc(r[3])+(r[3]!==r[2]?' · '+esc(r[2]):'')+'</div></div>'+(rm!=null?'<button class="rm" data-rm="'+rm+'" aria-label="Remove">'+I.x+'</button>':'')+'</div>'}
 function upNext(){if(shf||!cont)return[];const out=[];let k=ctx.indexOf(cur);for(k++;k<ctx.length&&out.length<25;k++)if(R[ctx[k]][9])out.push(ctx[k]);return out}
 function drawQ(){let h='';
  h+='<div class="qh">History</div>'+(hist.length?hist.map(i=>qRow(i,'past')).join(''):'<div class="qhint">Songs you play show up here.</div>');
