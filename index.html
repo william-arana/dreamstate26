@@ -148,6 +148,7 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 .fmc{display:block;text-align:center;margin:0 0 12px;font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#6b5fa0}body.dark .fmc{color:#c9b6ff;text-shadow:0 0 10px rgba(169,139,255,.45)}
 #bq.qon{background:#fff;color:#3a1d6e;box-shadow:0 0 0 2px rgba(255,255,255,.35),0 0 16px rgba(201,182,255,.9)}.logolink{display:block;width:max-content;margin:0 auto}
 .nsep{flex:none;align-self:center;width:1.5px;height:20px;border-radius:1px;background:var(--mut);opacity:.45;margin:0 1px}
+.sheet.drag{transition:none}.shbg{position:fixed;inset:0;background:rgba(10,6,24,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:19}.shbg.on{opacity:1;pointer-events:auto}
 </style></head><body>
 <div class="iab" id="iab"><span>Tap <b>•••</b> then <b>Open in browser</b> for the best experience</span><span class="arr">↗</span><button id="iabx" aria-label="Dismiss">✕</button></div>
 <header><nav class="nav"><a href="#" data-v="playlists">Playlists</a><span class="nsep" aria-hidden="true"></span><a href="#settimes" data-v="settimes">Set Times</a><a href="#map" data-v="map">Map</a><a href="#guide" data-v="guide">How to use</a></nav>
@@ -200,7 +201,7 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 
 <footer>Previews and artwork from Apple Music, Spotify and my own MP3s. Links open Apple Music or Spotify. Set times and map from the official Dreamstate SoCal 2026 materials. Fan-made page, not affiliated with Dreamstate or Insomniac.<div style="margin-top:10px">Questions? Contact me at <a href="mailto:william@thegameday.zone" style="color:var(--acc)">william@thegameday.zone</a></div><div style="margin-top:8px">William A.</div></footer>
 
-<div class="sheet" id="sh"><div class="shd"><div class="grab"></div><button class="xb" id="sx" aria-label="Close"><svg class="i" viewBox="0 0 24 24"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6 10.6 12 5 6.4z"/></svg></button><h3 id="stt"></h3><div class="meta" id="stm"></div><button class="fv" id="sfv">☆ I want to see this</button></div><div class="slist" id="sl"></div></div>
+<div class="shbg" id="shbg"></div><div class="sheet" id="sh"><div class="shd"><div class="grab"></div><button class="xb" id="sx" aria-label="Close"><svg class="i" viewBox="0 0 24 24"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6 10.6 12 5 6.4z"/></svg></button><h3 id="stt"></h3><div class="meta" id="stm"></div><button class="fv" id="sfv">☆ I want to see this</button></div><div class="slist" id="sl"></div></div>
 
 <div class="mini" id="mini"><img id="mimg" alt=""><div class="mt"><div class="t1" id="mt1"></div><div class="t2" id="mt2"></div></div><button class="ib" id="mpp" aria-label="Play or pause"></button><button class="ib" id="mnx" aria-label="Next"><svg class="i" viewBox="0 0 24 24"><path d="M4 6.2v11.6c0 .8.9 1.3 1.6.8L14 13v4.8c0 .8.9 1.3 1.6.8L23 13.2c.6-.4.6-1.3 0-1.7l-7.4-5.4c-.7-.5-1.6 0-1.6.8V11L5.6 5.4C4.9 4.9 4 5.4 4 6.2z" transform="translate(-1.5 0)"/></svg></button><div class="mprog"><i id="mpg"></i></div></div>
 
@@ -310,12 +311,13 @@ function drawPlan(){$('pd').textContent=sday==='Fri'?'Friday':'Saturday';
  $('pl').innerHTML=h}
 let setCtx=[];
 function openSet(i){const s=S[sday][i];openS=i;$('stt').textContent=s[3]+(s[4]?' '+s[4]:'');$('stm').textContent=(sday==='Fri'?'Friday 11/20':'Saturday 11/21')+' · '+range(s)+' · The '+s[0];favBtn();
- setCtx=stracks(sday,s);$('sl').innerHTML=setCtx.length?setCtx.map(i=>songRow(i,'s')).join(''):'<p class="empty" style="padding:16px">No tracks from this artist in the library yet.</p>';$('sl').scrollTop=0;$('sh').classList.add('on')}
+ setCtx=stracks(sday,s);$('sl').innerHTML=setCtx.length?setCtx.map(i=>songRow(i,'s')).join(''):'<p class="empty" style="padding:16px">No tracks from this artist in the library yet.</p>';$('sl').scrollTop=0;$('sh').style.transform='';$('sh').classList.add('on');$('shbg').classList.add('on');document.body.classList.add('lock')}
+function closeSheet(){const sh=$('sh');sh.style.transform='';sh.classList.remove('on');$('shbg').classList.remove('on');openS=null;if(!$('bp').classList.contains('on'))document.body.classList.remove('lock')}
 function favBtn(){const f=fav.has(skey(sday,S[sday][openS]));$('sfv').classList.toggle('on',f);$('sfv').textContent=f?'★ On my plan':'☆ I want to see this'}
 function togFav(i){const k=skey(sday,S[sday][i]);fav.has(k)?fav.delete(k):fav.add(k);saveFav();drawGrid()}
 $('g').addEventListener('click',e=>{const b=e.target.closest('.set');if(!b)return;if(e.target.closest('.st')){togFav(+b.dataset.i);return}openSet(+b.dataset.i)});
 $('pl').addEventListener('click',e=>{const b=e.target.closest('.pi');if(b)openSet(+b.dataset.i)});
-$('sx').onclick=()=>{$('sh').classList.remove('on');openS=null};
+$('sx').onclick=closeSheet;$('shbg').onclick=closeSheet;
 $('sfv').onclick=()=>{togFav(openS);favBtn()};
 document.querySelectorAll('[data-sd]').forEach(b=>b.onclick=()=>{sday=b.dataset.sd;try{history.replaceState(null,'','#settimes-'+sday.toLowerCase())}catch(e){}drawGrid()});
 $('lt').classList.toggle('on',liveOn);$('lt').onclick=()=>{liveOn=!liveOn;$('lt').classList.toggle('on',liveOn);try{localStorage.setItem('ds26live',liveOn?'1':'0')}catch(e){}drawGrid()};
@@ -397,6 +399,13 @@ $('qv').addEventListener('click',e=>{const rm=e.target.closest('[data-rm]');if(r
  const it=e.target.closest('.qi');if(!it||it.classList.contains('now'))return;const i=+it.dataset.qi;
  if(it.dataset.qpos!=null){queue.splice(+it.dataset.qpos,1);play(i);return}
  if(it.classList.contains('past')){const k=hist.lastIndexOf(i);if(k>=0)hist.splice(k,1)}play(i)});
+/* set sheet: swipe down to close */
+(function(){const sh=$('sh'),sl=$('sl');let y0=null,dy=0,t0=0,armed=false;
+ sh.addEventListener('touchstart',e=>{const inList=e.target.closest('.slist');if(inList&&sl.scrollTop>0)return;y0=e.touches[0].clientY;dy=0;t0=Date.now();armed=!inList},{passive:true});
+ sh.addEventListener('touchmove',e=>{if(y0==null)return;const d=e.touches[0].clientY-y0;if(!armed){if(d>6&&sl.scrollTop<=0){armed=true;y0=e.touches[0].clientY-d}else{if(d<0)y0=null;return}}
+  dy=Math.max(0,e.touches[0].clientY-y0);sh.classList.add('drag');sh.style.transform='translateY('+dy+'px)';$('shbg').style.opacity=Math.max(0,1-dy/400);if(dy>4)e.preventDefault()},{passive:false});
+ const end=()=>{if(y0==null)return;sh.classList.remove('drag');$('shbg').style.opacity='';const v=dy/Math.max(1,Date.now()-t0);if(dy>120||v>.6&&dy>40)closeSheet();else sh.style.transform='';y0=null;armed=false};
+ sh.addEventListener('touchend',end);sh.addEventListener('touchcancel',end)})();
 /* swipe down to close */
 (function(){const bp=$('bp');let y0=null,dy=0,t0=0;
  bp.addEventListener('touchstart',e=>{const z=e.target.closest('[data-drag]');if(!z||e.target.closest('.bprog'))return;y0=e.touches[0].clientY;dy=0;t0=Date.now();bp.classList.add('drag')},{passive:true});
