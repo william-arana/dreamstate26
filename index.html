@@ -14,7 +14,7 @@ body.lock{overflow:hidden}
 button{font:inherit;cursor:pointer}
 svg.i{width:22px;height:22px;fill:currentColor;display:block}
 header{position:relative;padding:calc(16px + env(safe-area-inset-top)) 14px 6px}
-.nav{display:flex;gap:6px;margin:0 0 14px}.nav a{font-size:13.5px;font-weight:700;text-decoration:none;color:var(--fg);padding:7px 13px;border-radius:16px;border:1px solid var(--line);background:var(--sh)}.nav a.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.nav{display:flex;gap:6px;margin:0 0 14px;overflow-x:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{white-space:nowrap;flex:none}.nav a{font-size:13.5px;font-weight:700;text-decoration:none;color:var(--fg);padding:7px 10px;border-radius:16px;border:1px solid var(--line);background:var(--sh)}.nav a.on{background:var(--acc);border-color:var(--acc);color:#fff}
 .logo{height:52px;width:auto;display:block;margin:0 auto 8px}body.dark .logo{filter:invert(1)}
 h1{font-size:21px;margin:0 0 6px;text-align:center}.sub{color:var(--mut);font-size:13px}
 .vsub{color:var(--mut);font-size:13px;padding:0 14px 4px}
@@ -133,9 +133,19 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 .qi.past{opacity:.55}.qi.now{background:rgba(255,255,255,.08)}.qi .rm{background:none;border:0;color:#fff;opacity:.6;width:32px;height:32px;display:grid;place-items:center}.qi .rm svg.i{width:16px;height:16px}
 .qhint{font-size:12px;opacity:.5;text-align:center;padding:4px 0 2px}
 .toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:#fff;color:#111;font-weight:600;font-size:13.5px;padding:9px 14px;border-radius:20px;opacity:0;transition:.2s;z-index:50;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.3)}.toast.on{opacity:1;transform:translateX(-50%)}
+/* how-to-use guide */
+.gd{padding:4px 14px 20px}.glead{color:var(--mut);font-size:14px;margin:0 0 14px}
+.gfl{display:flex;align-items:center;gap:6px;margin:0 0 6px;font-size:12.5px;font-weight:600}.gfl span{flex:1;text-align:center;padding:8px 2px;border-radius:12px;background:var(--sh);border:1px solid var(--line)}.gfl i{font-style:normal;color:var(--acc);font-weight:800}
+.gsec{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:20px 4px 8px;display:flex;align-items:center;gap:8px}.gsec:after{content:'';flex:1;height:1px;background:var(--line)}
+.gc{display:flex;gap:12px;background:var(--sh);border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:8px;box-shadow:0 2px 10px rgba(40,20,90,.08)}body.dark .gc{background:#1b1730;box-shadow:0 2px 12px rgba(0,0,0,.35)}body.dark .gfl span{background:#1b1730}
+.gic{width:44px;height:44px;border-radius:12px;flex:none;display:grid;place-items:center;color:#fff;font-size:20px;font-weight:800}.gic svg{width:22px;height:22px;fill:currentColor}
+.gc b{display:block;font-size:15px}.gc p{margin:2px 0 0;color:var(--mut);font-size:13px;line-height:1.35}.gc a{color:var(--acc);font-weight:700}
+.gp{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:9px;color:#fff;vertical-align:1px}
+.gst{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0 0 8px}.gst div{border-radius:10px;padding:9px 2px;text-align:center;color:#fff;font-size:11px;font-weight:800;text-transform:uppercase}
+.gnote{font-size:12px;color:var(--mut);text-align:center;margin-top:18px}
 </style></head><body>
 <div class="iab" id="iab"><span>Tap <b>•••</b> then <b>Open in browser</b> for the best experience</span><span class="arr">↗</span><button id="iabx" aria-label="Dismiss">✕</button></div>
-<header><nav class="nav"><a href="#" data-v="playlists">Playlists</a><a href="#settimes" data-v="settimes">Set Times</a><a href="#map" data-v="map">Map</a></nav>
+<header><nav class="nav"><a href="#" data-v="playlists">Playlists</a><a href="#settimes" data-v="settimes">Set Times</a><a href="#map" data-v="map">Map</a><a href="#guide" data-v="guide">How to use</a></nav>
 <img class="logo" src="logo.png" alt="Dreamstate"><h1 id="ttl">Dreamstate SoCal 2026</h1></header>
 
 <section class="view" id="v-playlists"><div style="padding:0 14px 6px">
@@ -159,6 +169,26 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 <div class="vsub">Queen Mary Waterfront, Long Beach. Tap the map to zoom in, then drag to move around.</div>
 <div class="tabs" style="padding-top:8px"><button class="btn" id="zb">Zoom in</button><a class="btn" href="map.jpg" target="_blank" rel="noopener" style="text-decoration:none">Open full image</a><button class="btn dmb">Light</button></div>
 <div class="wrap" id="w"><img src="map.jpg" alt="Dreamstate SoCal 2026 festival map: Sequence stage by the festival entrance, then Void, Vision, and Dream stage by the Queen Mary"></div></section>
+<section class="view" id="v-guide"><div class="gd">
+<p class="glead">A fan-made companion for Dreamstate SoCal 2026. Hear the sets before you get there, plan your weekend, and find your way around the Queen Mary.</p>
+<div class="gfl"><span>🎧 Listen</span><i>→</i><span>⭐ Plan</span><i>→</i><span>📍 Go</span></div>
+<div class="gsec">1 · Listen</div>
+<div class="gc"><div class="gic" style="background:#f0525f"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div><b>Preview any track</b><p>Tap ▶ for a 30-second preview. The player stays docked at the bottom while you browse.</p></div></div>
+<div class="gc"><div class="gic" style="background:linear-gradient(135deg,#7b4dff,#c04fd0)"><svg viewBox="0 0 24 24"><path d="M3 5.5h13v2H3zM3 10.5h13v2H3zM3 15.5h8v2H3zM17 13h2v3.5h3.5v2H19V22h-2v-3.5h-3.5v-2H17z"/></svg></div><div><b>Build a queue</b><p>Tap the queue button to line songs up. Open the player to see what’s up next or remove songs.</p></div></div>
+<div class="gc"><div class="gic" style="background:#3a6fd8">⇄</div><div><b>Autoplay &amp; shuffle</b><p>Turn on Autoplay to roll through a whole set hands-free. Shuffle mixes it up.</p></div></div>
+<div class="gc"><div class="gic" style="background:#1db954">♫</div><div><b>Save the full song</b><p>Hit <span class="gp" style="background:#fa2d48">Apple Music</span> or <span class="gp" style="background:#1db954;color:#0b2414">Spotify</span> on any track, or grab the full Friday, Saturday or both-days playlist up top.</p></div></div>
+<div class="gsec">2 · Find your sets</div>
+<div class="gst"><div class="Dream">Dream</div><div class="Sequence">Sequence</div><div class="Void">Void</div><div class="Vision">Vision</div></div>
+<div class="gc"><div class="gic" style="background:#e3962e">⌕</div><div><b>Filter &amp; search</b><p>Pick a day and a stage together, like Friday + Void. Search by artist or song title. Each stage keeps its color everywhere on the site.</p></div></div>
+<div class="gsec">3 · Plan</div>
+<div class="gc"><div class="gic" style="background:#ffd84d;color:#222">★</div><div><b>Star sets for your plan</b><p>On <a href="#settimes">Set Times</a>, tap ☆ on a set. My Plan lists your picks in order and flags any overlaps. Saved on your phone.</p></div></div>
+<div class="gc"><div class="gic" style="background:#ff3b5c">●</div><div><b>Live now</b><p>During the festival a red line shows the current time, and sets that are on now get a LIVE badge and progress bar.</p></div></div>
+<div class="gsec">4 · Get around</div>
+<div class="gc"><div class="gic" style="background:#2fb3d1">📍</div><div><b>Festival map</b><p>Open the <a href="#map">Map</a>. Tap to zoom, drag to move around the Queen Mary Waterfront.</p></div></div>
+<div class="gc"><div class="gic" style="background:#5b2fc9">⊕</div><div><b>Add to Home Screen</b><p>In Safari tap Share → Add to Home Screen so it opens like an app.</p></div></div>
+<div class="gnote">Fan-made, not affiliated with Dreamstate or Insomniac.</div>
+</div></section>
+
 
 <footer>Previews and artwork provided by Apple Music. Links open Apple Music or Spotify. Set times and map from the official Dreamstate SoCal 2026 materials. Fan-made page, not affiliated with Dreamstate or Insomniac.<div style="margin-top:10px">Questions? Contact me at <a href="mailto:william@thegameday.zone" style="color:var(--acc)">william@thegameday.zone</a></div><div style="margin-top:8px">William A.</div></footer>
 
@@ -217,8 +247,8 @@ document.querySelectorAll('.dmb').forEach(b=>b.onclick=()=>{const d=document.bod
 if(/Instagram|FBAN|FBAV|Snapchat|TikTok|musical_ly|Line\//i.test(navigator.userAgent))$('iab').classList.add('on');$('iabx').onclick=()=>$('iab').classList.remove('on');
 
 /* ---------- router ---------- */
-const TT={playlists:'Dreamstate SoCal 2026',settimes:'Set Times',map:'Festival Map'};
-function route(){let h=location.hash.replace('#','').toLowerCase();let v=h.startsWith('settimes')||h==='fri'||h==='sat'?'settimes':h==='map'?'map':'playlists';
+const TT={playlists:'Dreamstate SoCal 2026',settimes:'Set Times',map:'Festival Map',guide:'How to use'};
+function route(){let h=location.hash.replace('#','').toLowerCase();let v=h.startsWith('settimes')||h==='fri'||h==='sat'?'settimes':h==='map'?'map':h==='guide'?'guide':'playlists';
  if(h.endsWith('sat'))sday='Sat';else if(h.endsWith('fri'))sday='Fri';else if(!route.v&&liveOn&&festHour('Fri')===99)sday='Sat';
  document.querySelectorAll('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
  $('ttl').textContent=TT[v];document.title=(v==='playlists'?'':TT[v]+' · ')+'Dreamstate SoCal 2026';if(v==='settimes')drawGrid();if(route.v&&route.v!==v)scrollTo(0,0);route.v=v}
