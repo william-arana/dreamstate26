@@ -1,0 +1,459 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dreamstate SoCal 2026</title><meta name="robots" content="noindex">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Dreamstate SoCal 2026">
+<meta property="og:title" content="Dreamstate SoCal 2026 Companion – Fan-Made Playlists & Set Times"><meta property="og:description" content="Tracks from my own Apple Music and MP3 libraries by artists playing Dreamstate SoCal 2026, sorted by set time. With previews, interactive set times and the festival map.">
+<meta property="og:image" content="https://dreamstate26.thegameday.zone/og-fanmade.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="628"><meta property="og:url" content="https://dreamstate26.thegameday.zone/">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://dreamstate26.thegameday.zone/og-fanmade.jpg"><meta name="theme-color" content="#121217">
+<link rel="apple-touch-icon" sizes="180x180" href="icon-180.png?v=2"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"><link rel="manifest" href="manifest.json"><meta name="apple-mobile-web-app-title" content="Dreamstate">
+<style>
+:root{--bg:#f6f3fd;--fg:#14111f;--mut:#4b4660;--line:#ddd5f0;--sh:#fff;--acc:#5b2fc9;--grid:#d6cdee}
+body.dark{--bg:#0f0c1d;--fg:#f4f1ff;--mut:#b9b2d6;--line:#2f2a4a;--sh:#1b1730;--acc:#a98bff;--grid:#2c2745}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.4 -apple-system,system-ui,sans-serif;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+body.lock{overflow:hidden}
+button{font:inherit;cursor:pointer}
+svg.i{width:22px;height:22px;fill:currentColor;display:block}
+header{position:relative;padding:calc(30px + env(safe-area-inset-top)) 14px 6px}
+.nav{display:flex;gap:6px;margin:-16px -14px -2px;padding:16px 14px;overflow-x:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{white-space:nowrap;flex:none}.nav a{font-size:13.5px;font-weight:700;text-decoration:none;color:var(--fg);padding:7px 10px;border-radius:16px;border:1px solid var(--line);background:var(--sh)}.nav a.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.logo{height:52px;width:auto;display:block;margin:0 auto 8px}body.dark .logo{filter:invert(1)}
+h1{font-size:21px;margin:0 0 6px;text-align:center}.sub{color:var(--mut);font-size:13px}
+.vsub{color:var(--mut);font-size:13px;padding:0 14px 4px}
+.view{display:none}.view.on{display:block}
+.iab{display:none;position:fixed;top:calc(6px + env(safe-area-inset-top));right:8px;z-index:60;align-items:center;gap:8px;max-width:270px;background:#f0525f;color:#fff;font-size:13px;line-height:1.3;padding:9px 10px 9px 12px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.35)}.iab.on{display:flex}.iab .arr{font-size:28px;font-weight:800;line-height:1;animation:bob 1s ease-in-out infinite}.iab button{background:none;border:0;color:#fff;font-size:15px;opacity:.85;padding:2px}@keyframes bob{50%{transform:translate(3px,-4px)}}
+.desc{margin:4px 0 10px;font-size:14px;line-height:1.45;background:var(--sh);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.lk{display:flex;gap:6px;margin-top:5px;flex-wrap:wrap}.lk a{font-size:11.5px;font-weight:600;text-decoration:none;padding:2px 9px;border-radius:10px;color:#fff}.am{background:#fa2d48}.sp{background:#1db954;color:#0b2414!important}
+.pls{justify-content:center;align-items:center;flex-wrap:nowrap;margin:8px 0 4px}.plsl{font-size:12.5px;font-weight:600;color:var(--mut);width:86px;flex:none;line-height:1.2}.pls a{font-size:13px;padding:5px 12px;border-radius:14px}
+.bar{position:sticky;top:0;background:var(--bg);padding:8px 14px;border-bottom:1px solid var(--line);display:flex;gap:8px;z-index:3}
+input{flex:1;min-width:0;padding:9px 10px;border:1px solid var(--line);border-radius:10px;font-size:16px;background:var(--bg);color:var(--fg)}
+.btn{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--sh);color:var(--fg);font-size:13px;display:inline-flex;align-items:center;gap:6px}.btn svg.i{width:16px;height:16px}
+.tabs{display:flex;gap:6px;padding:4px 14px;flex-wrap:wrap;align-items:center}.tabs .on,.btn.on{background:var(--acc);color:#fff;border-color:var(--acc)}.grow{flex:1}
+.legend{font-size:12.5px;color:var(--mut);padding:4px 14px 10px}
+h2{font-size:17px;margin:16px 14px 6px}.sgh{margin:12px 14px 4px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);display:flex;align-items:center;gap:8px}.sgh:before{content:'';width:10px;height:10px;border-radius:50%;background:var(--mut)}.Dreamb:before{background:#2fb3d1}.Sequenceb:before{background:#e3962e}.Voidb:before{background:#3a6fd8}.Visionb:before{background:#d062d6}details{border-top:1px solid var(--line)}summary{padding:11px 14px;display:flex;justify-content:space-between;gap:8px;background:var(--sh);list-style:none;cursor:pointer}
+summary::-webkit-details-marker{display:none}.t{color:var(--mut);font-size:12px;min-width:54px;display:inline-block}.n{color:var(--mut);font-size:13px}.stg{color:var(--mut);font-weight:400;font-size:13px}
+.song{display:flex;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line)}
+.art{width:56px;height:56px;border-radius:8px;background:var(--sh);flex:none;object-fit:cover;color:transparent}
+.mid{flex:1;min-width:0}.ti{font-weight:600;font-size:14.5px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.ar{color:var(--mut);font-size:12.5px;margin-top:1px}
+.tag{font-size:11px;padding:1px 6px;border-radius:9px;border:1px solid var(--line);color:var(--mut);white-space:nowrap;margin-left:2px}.tag.r{border-color:var(--acc);color:var(--acc)}.tag.b{border-color:#1f8a4c;color:#1f8a4c}
+.play{width:44px;height:44px;border-radius:50%;border:0;background:#f0525f;color:#fff;flex:none;display:grid;place-items:center}.play svg.i{width:18px;height:18px}.play[disabled]{background:var(--line)}.play.on{background:var(--acc)}
+.addq{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--fg);flex:none;display:grid;place-items:center}.addq svg.i{width:18px;height:18px}.addq[disabled]{opacity:.3}
+footer{color:var(--mut);font-size:12px;padding:24px 14px}
+
+/* light theme: dreamy sky, white cards, stronger ink */
+body:not(.dark){background:linear-gradient(180deg,#e9e1ff 0,#f8e6f4 260px,#f6f3fd 620px) no-repeat,#f6f3fd}
+body:not(.dark) header h1{background:linear-gradient(90deg,#3d1fa3,#a3329a);-webkit-background-clip:text;background-clip:text;color:transparent}
+body:not(.dark) .logo{filter:drop-shadow(0 2px 6px rgba(91,47,201,.25))}
+body:not(.dark) .nav a{background:rgba(255,255,255,.7);border-color:#d6ccf2;color:#2a2340}
+body:not(.dark) .nav a.on,body:not(.dark) .tabs .on,body:not(.dark) .btn.on{background:linear-gradient(135deg,#5b2fc9,#9a3fc7);border-color:transparent;color:#fff;box-shadow:0 4px 12px rgba(91,47,201,.3)}
+body:not(.dark) .desc{background:rgba(255,255,255,.85);border-color:#e2d9f7;box-shadow:0 6px 20px rgba(91,47,201,.08);color:#1c1830}
+body:not(.dark) .btn{background:#fff;border-color:#d6ccf2;color:#2a2340;box-shadow:0 1px 2px rgba(40,20,90,.06)}
+body:not(.dark) input{background:#fff;border-color:#cfc3ef}
+body:not(.dark) .bar{background:rgba(246,243,253,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+body:not(.dark) h2{color:#3d1fa3;font-size:18px}
+body:not(.dark) details{border-top:0;margin:6px 10px;border-radius:12px;background:#fff;box-shadow:0 1px 3px rgba(40,20,90,.08);overflow:hidden}
+body:not(.dark) summary{background:#fff}
+body:not(.dark) .song{border-bottom-color:#efeaf8}
+body:not(.dark) .hd{background:rgba(246,243,253,.92)}
+body:not(.dark) .sheet{background:#fbfaff}
+body:not(.dark) footer{color:#4b4660}
+/* dark theme: night sky over the Queen Mary, glassy cards, glowing accents */
+body.dark{background:radial-gradient(120% 420px at 50% 0,#3a1d6e 0,#22134a 45%,transparent 100%) no-repeat,linear-gradient(180deg,#1a1236 0,#0f0c1d 620px) no-repeat,#0f0c1d}
+body.dark header h1{background:linear-gradient(90deg,#c9b6ff,#ff9bd8);-webkit-background-clip:text;background-clip:text;color:transparent}
+body.dark .logo{filter:invert(1) drop-shadow(0 0 10px rgba(169,139,255,.55))}
+body.dark .nav a{background:rgba(255,255,255,.06);border-color:#3a3360;color:#ece7ff}
+body.dark .nav a.on,body.dark .tabs .on,body.dark .btn.on{background:linear-gradient(135deg,#7b4dff,#c04fd0);border-color:transparent;color:#fff;box-shadow:0 0 16px rgba(160,100,255,.45)}
+body.dark .desc{background:rgba(32,26,58,.8);border-color:#3a3360;box-shadow:0 6px 24px rgba(0,0,0,.35);color:#ece7ff}
+body.dark .btn{background:#1f1a38;border-color:#3a3360;color:#ece7ff}
+body.dark input{background:#17132b;border-color:#3a3360;color:#fff}
+body.dark .bar{background:rgba(15,12,29,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+body.dark h2{color:#d8c9ff;font-size:18px}
+body.dark .sgh{color:#d4ccf2}
+body.dark details{border-top:0;margin:6px 10px;border-radius:12px;background:#1b1730;box-shadow:0 2px 10px rgba(0,0,0,.35);overflow:hidden}
+body.dark summary{background:#221d3d}
+body.dark summary b{color:#fff}
+body.dark .stg,body.dark .t,body.dark .n{color:#bfb7e0}
+body.dark .song{border-bottom-color:#2a2545}
+body.dark .ti{color:#fff}
+body.dark .ar{color:#c4bce6}
+body.dark .addq{border-color:#4a4275;color:#ece7ff}
+body.dark .tag.r{border-color:#b49cff;color:#cbb9ff}
+body.dark .tag.b{border-color:#3ddc84;color:#5ef0a0}
+body.dark .hd{background:rgba(15,12,29,.92)}
+body.dark .sheet{background:#141026}
+body.dark .legend,body.dark footer{color:#b3acd2}
+details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2fb3d1}details.Sequence{border-left-color:#e3962e}details.Void{border-left-color:#3a6fd8}details.Vision{border-left-color:#d062d6}
+/* set times */
+.grid{position:relative;margin:8px 10px 0 0;display:grid;grid-template-columns:44px repeat(4,1fr);column-gap:3px}
+.hd{font-size:10.5px;font-weight:800;text-align:center;letter-spacing:.3px;padding:6px 0;position:sticky;top:0;background:var(--bg);z-index:3}
+.axis,.col{margin-top:8px}.axis{position:relative}.col{position:relative;background:repeating-linear-gradient(to bottom,var(--grid) 0 1px,transparent 1px 78px);border-bottom:1px solid var(--grid)}
+.tl{position:absolute;right:4px;font-size:10px;color:var(--mut);transform:translateY(-50%);white-space:nowrap}
+.set{position:absolute;left:0;right:0;border-radius:8px;padding:14px 3px 6px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;border:0;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.set b{font-size:11px;line-height:1.15;font-weight:800;text-transform:uppercase;word-break:break-word}.set small{font-size:9.5px;opacity:.9;margin-top:2px;font-weight:600}
+.set .n{position:absolute;bottom:3px;right:5px;font-size:9px;opacity:.85;font-weight:700;color:#fff}
+.set .st{position:absolute;top:0;right:0;padding:3px 5px 8px 8px;font-size:15px;line-height:1;color:rgba(255,255,255,.85)}
+.set.fav{box-shadow:inset 0 0 0 3px #ffd84d}.set.fav .st{color:#ffd84d;text-shadow:0 0 6px rgba(0,0,0,.35)}.set.dim{opacity:.28}
+.set.past{filter:grayscale(.85);opacity:.32}.set.live{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 0 0 2px #fff;z-index:2}.set.live.fav{box-shadow:inset 0 0 0 3px #ffd84d,0 0 0 2px #fff}
+.lv{position:absolute;left:4px;top:3px;font-size:8.5px;font-weight:800;background:#fff;color:#111;border-radius:6px;padding:1px 5px;display:none;white-space:nowrap}.lpb{position:absolute;left:6px;right:6px;bottom:4px;height:4px;border-radius:2px;background:rgba(255,255,255,.3);display:none}.lpb i{display:block;height:100%;width:0;background:#fff;border-radius:2px}.set.live .lv,.set.live .lpb{display:block}.set.live .n{bottom:10px}
+.nowl{position:absolute;left:40px;right:0;height:2px;background:#ff3b5c;z-index:4;box-shadow:0 0 8px #ff3b5c;pointer-events:none;display:none}.nowp{position:absolute;left:0;z-index:5;background:#ff3b5c;color:#fff;font-size:10px;font-weight:800;border-radius:8px;padding:3px 5px;pointer-events:none;display:none;font-variant-numeric:tabular-nums}
+.Dream{background:#2fb3d1}.Sequence{background:#e3962e}.Void{background:#3a6fd8}.Vision{background:#d062d6}
+.plan{margin:22px 14px 0}.plan h2{margin:0 0 8px}.pi{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.peh{margin:18px 0 2px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}.pi.ended{opacity:.45}.pi.ended .ptt{text-decoration:line-through}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}.ptt{font-weight:650}.pm{color:var(--mut);font-size:12.5px}.warn{color:#ff7a59;font-size:12px;font-weight:600}.empty{color:var(--mut);font-size:13.5px}
+.sheet{position:fixed;left:0;right:0;bottom:0;top:calc(70px + env(safe-area-inset-top));background:var(--bg);border-radius:20px 20px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.4);z-index:20;transform:translateY(105%);transition:transform .25s ease;display:flex;flex-direction:column}
+.sheet.on{transform:none}.shd{padding:16px 16px 10px;border-bottom:1px solid var(--line);position:relative}.grab{height:5px;width:40px;border-radius:3px;background:var(--line);margin:-6px auto 10px}
+.shd h3{margin:0;font-size:20px;padding-right:44px}.shd .meta{color:var(--mut);font-size:13px;margin-top:3px}
+.xb{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:var(--sh);color:var(--fg);display:grid;place-items:center}.xb svg.i{width:18px;height:18px}
+.fv{margin-top:10px;padding:9px 14px;border-radius:18px;border:1px solid #e6b800;background:transparent;color:var(--fg);font-weight:700;font-size:14px}.fv.on{background:#ffd84d;color:#222;border-color:#ffd84d}
+.slist{overflow-y:auto;padding:0 0 120px;-webkit-overflow-scrolling:touch}
+/* map */
+.wrap{margin:10px 8px;overflow:auto;border-radius:14px;-webkit-overflow-scrolling:touch}.wrap img{display:block;width:100%;border-radius:14px;cursor:zoom-in}.wrap.z img{width:220%;max-width:none;cursor:zoom-out}
+/* mini player */
+.mini{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));background:#2b1630;color:#fff;border-radius:16px;padding:9px 10px 12px;display:none;gap:10px;align-items:center;z-index:30;box-shadow:0 8px 24px rgba(0,0,0,.3);overflow:hidden;cursor:pointer}
+.mini.on{display:flex}.mini img{width:44px;height:44px;border-radius:8px;object-fit:cover;background:rgba(255,255,255,.1);color:transparent}.mini .mt{flex:1;min-width:0}.mini .t1{font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mini .t2{font-size:12px;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini .ib{background:none;border:0;color:#fff;width:40px;height:40px;display:grid;place-items:center;flex:none}.mini .ib svg.i{width:24px;height:24px}
+.mprog{position:absolute;left:12px;right:12px;bottom:5px;height:3px;border-radius:2px;background:rgba(255,255,255,.18)}.mprog i{display:block;height:100%;width:0;background:#f0525f;border-radius:2px}
+/* big player */
+.bp{position:fixed;left:0;right:0;bottom:0;top:calc(10px + env(safe-area-inset-top));z-index:40;border-radius:22px 22px 0 0;background:linear-gradient(170deg,#3a1d5c,#1a1030 60%,#120b22);color:#fff;transform:translateY(105%);transition:transform .28s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:0 -20px 60px rgba(0,0,0,.5);touch-action:none}
+.bp.on{transform:none}.bp.drag{transition:none}
+.bph{display:flex;align-items:center;justify-content:space-between;padding:8px 14px 0}.bph .grab{background:rgba(255,255,255,.35);margin:6px auto 4px}
+.bpt{font-size:13px;font-weight:700;opacity:.8;letter-spacing:.3px;text-transform:uppercase}
+.cb{background:rgba(255,255,255,.12);border:0;color:#fff;width:38px;height:38px;border-radius:50%;display:grid;place-items:center}.cb.on{background:#f0525f}
+.bpv{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;padding:12px 22px calc(18px + env(safe-area-inset-bottom));overflow:hidden}
+#bimg{width:min(74vw,330px,38vh);aspect-ratio:1;border-radius:14px;object-fit:cover;background:rgba(255,255,255,.08);box-shadow:0 14px 40px rgba(0,0,0,.45);color:transparent;margin-top:6px}
+.bti{font-size:20px;font-weight:700;text-align:center;margin-top:18px;line-height:1.25;max-width:100%}.bar2{font-size:15px;opacity:.8;text-align:center;margin-top:3px}.bse{font-size:13px;opacity:.6;text-align:center;margin-top:5px}
+.bprog{width:100%;max-width:380px;height:6px;margin-top:18px;background:rgba(255,255,255,.2);border-radius:3px;cursor:pointer;position:relative}.bprog i{display:block;height:100%;width:0;background:#f0525f;border-radius:3px}
+.btime{width:100%;max-width:380px;display:flex;justify-content:space-between;font-size:12px;opacity:.6;margin-top:6px}
+.bctl{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:12px}.bctl .cb2{background:none;border:0;color:#fff;width:48px;height:48px;display:grid;place-items:center}.bctl .cb2 svg.i{width:30px;height:30px}.bctl .cb2.sm svg.i{width:26px;height:26px}
+.bctl .play{width:70px;height:70px}.bctl .play svg.i{width:30px;height:30px}
+.brow{display:flex;gap:10px;margin-top:14px}.brow .pill{background:rgba(255,255,255,.12);border:0;color:#fff;border-radius:16px;padding:8px 13px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px}.brow .pill svg.i{width:16px;height:16px}.brow .pill.on{background:#f0525f}
+.bp .lk{justify-content:center;margin-top:14px}
+.qv{display:none;flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px 0 calc(30px + env(safe-area-inset-bottom));touch-action:pan-y}
+.bp.q .qv{display:block}.bp.q .bpv{display:none}
+.qh{font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;opacity:.6;padding:14px 16px 6px}
+.qi{display:flex;gap:10px;align-items:center;padding:7px 16px;cursor:pointer}.qi img,.qi .ph{width:42px;height:42px;border-radius:6px;object-fit:cover;background:rgba(255,255,255,.1);color:transparent;flex:none}.qi .mid .ti{font-size:14px}.qi .ar{color:rgba(255,255,255,.65)}
+.qi.past{opacity:.55}.qi.now{background:rgba(255,255,255,.08)}.qi .rm{background:none;border:0;color:#fff;opacity:.6;width:32px;height:32px;display:grid;place-items:center}.qi .rm svg.i{width:16px;height:16px}
+.qhint{font-size:12px;opacity:.5;text-align:center;padding:4px 0 2px}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:#fff;color:#111;font-weight:600;font-size:13.5px;padding:9px 14px;border-radius:20px;opacity:0;transition:.2s;z-index:50;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.3)}.toast.on{opacity:1;transform:translateX(-50%)}
+/* how-to-use guide */
+.gd{padding:4px 14px 20px}.glead{color:var(--mut);font-size:14px;margin:0 0 14px}
+.gfl{display:flex;align-items:center;gap:6px;margin:18px 0 6px;font-size:12.5px;font-weight:600}.gfl span{flex:1;text-align:center;padding:8px 2px;border-radius:12px;background:var(--sh);border:1px solid var(--line)}.gfl i{font-style:normal;color:var(--acc);font-weight:800}
+.gsec{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:20px 4px 8px;display:flex;align-items:center;gap:8px}.gsec:after{content:'';flex:1;height:1px;background:var(--line)}
+.gc{display:flex;gap:12px;background:var(--sh);border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:8px;box-shadow:0 2px 10px rgba(40,20,90,.08)}body.dark .gc{background:#1b1730;box-shadow:0 2px 12px rgba(0,0,0,.35)}body.dark .gfl span{background:#1b1730}
+.gic{width:44px;height:44px;border-radius:12px;flex:none;display:grid;place-items:center;color:#fff;font-size:20px;font-weight:800}.gic svg{width:22px;height:22px;fill:currentColor}
+.gc b{display:block;font-size:15px}.gc p b{display:inline;font-size:inherit}.gc p{margin:2px 0 0;color:var(--mut);font-size:13px;line-height:1.35}.gc a{color:var(--acc);font-weight:700}
+.gp{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:9px;color:#fff;vertical-align:1px}
+.gst{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0 0 8px}.gst div{border-radius:10px;padding:9px 2px;text-align:center;color:#fff;font-size:11px;font-weight:800;text-transform:uppercase}
+.ghl{border:2px solid transparent;background:linear-gradient(var(--sh),var(--sh)) padding-box,linear-gradient(135deg,#7b4dff,#c04fd0,#ff9bd8) border-box;box-shadow:0 0 18px rgba(160,100,255,.25)}body.dark .ghl{background:linear-gradient(#1b1730,#1b1730) padding-box,linear-gradient(135deg,#7b4dff,#c04fd0,#ff9bd8) border-box}.gk{display:inline-block;font-size:11px;padding:0 4px;border:1px solid var(--line);border-radius:4px}
+.gnote{font-size:12px;color:var(--mut);text-align:center;margin-top:18px}
+.lk .mp3{font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:10px;background:#1f8a4c;color:#fff}.bp .lk .mp3{font-size:13px;padding:5px 12px}
+.fmc{display:block;text-align:center;margin:0 0 12px;font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#6b5fa0}body.dark .fmc{color:#c9b6ff;text-shadow:0 0 10px rgba(169,139,255,.45)}
+#bq.qon{background:#fff;color:#3a1d6e;box-shadow:0 0 0 2px rgba(255,255,255,.35),0 0 16px rgba(201,182,255,.9)}.logolink{display:block;width:max-content;margin:0 auto}
+.nsep{flex:none;align-self:center;width:1.5px;height:20px;border-radius:1px;background:var(--mut);opacity:.45;margin:0 1px}
+.sheet.drag{transition:none}.shbg{position:fixed;inset:0;background:rgba(10,6,24,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:19}.shbg.on{opacity:1;pointer-events:auto}
+.gimp{color:#c04fd0;margin-top:4px}body.dark .gimp{color:#ff9bd8}.gimp:after{background:linear-gradient(90deg,#c04fd0,transparent)}
+.shr{display:flex;gap:8px;margin-top:4px}.shr input{flex:1;min-width:0;font-size:16px}.shh{color:var(--mut);font-size:12.5px;margin:6px 0 10px}
+.frh{display:flex;align-items:center;justify-content:space-between;gap:8px}.frh h2{margin:0}.xb2{border:0;background:var(--sh);color:var(--fg);width:32px;height:32px;border-radius:50%;flex:none}
+#frp{border:2px solid transparent;border-radius:16px;padding:12px 14px;background:linear-gradient(var(--sh),var(--sh)) padding-box,linear-gradient(135deg,#7b4dff,#c04fd0,#ff9bd8) border-box}body.dark #frp{background:linear-gradient(#1b1730,#1b1730) padding-box,linear-gradient(135deg,#7b4dff,#c04fd0,#ff9bd8) border-box}
+.frs{color:var(--mut);font-size:13px;margin:2px 0 4px}#fradd{margin-top:10px}.both{color:#e6b800;font-size:12px;font-weight:700}
+.set.fr{outline:2px dashed rgba(255,255,255,.95);outline-offset:-5px}.set .frb{position:absolute;left:4px;bottom:3px;font-size:10px;line-height:1}
+</style></head><body><div style="position:sticky;top:0;z-index:99;background:#ff3b5c;color:#fff;font:700 13px system-ui;text-align:center;padding:6px calc(8px + env(safe-area-inset-top)) 6px">TEST PAGE · Fri set times moved to tonight (Nov 17→18) · not linked anywhere</div>
+<div class="iab" id="iab"><span>Tap <b>•••</b> then <b>Open in browser</b> for the best experience</span><span class="arr">↗</span><button id="iabx" aria-label="Dismiss">✕</button></div>
+<header><nav class="nav"><a href="#" data-v="playlists">Playlists</a><span class="nsep" aria-hidden="true"></span><a href="#settimes" data-v="settimes">Set Times</a><a href="#map" data-v="map">Map</a><a href="#guide" data-v="guide">How to use</a></nav>
+<a href="#" class="logolink" aria-label="Go to Playlists"><img class="logo" src="logo.png" alt="Dreamstate"></a><span class="fmc">Fan-made companion app</span><h1 id="ttl">Dreamstate SoCal 2026</h1></header>
+
+<section class="view" id="v-playlists"><div style="padding:0 14px 6px">
+<p class="desc">Every song in my Apple Music and MP3 libraries by artists playing Dreamstate SoCal 2026 (Queen Mary Waterfront, Long Beach, Fri 11/20 and Sat 11/21), sorted by set time. Tap ▶ for a 30-second preview, or open the song in Apple Music or Spotify. Filter by day and stage to prep for the sets you're catching.</p>
+<div class="lk pls"><span class="plsl">Apple Music playlist</span><a class="am" target="_blank" rel="noopener" href="https://music.apple.com/us/playlist/dreamstate-socal-2026/pl.u-11zBYDmU84mqB5r">Full</a><a class="am" target="_blank" rel="noopener" href="https://music.apple.com/us/playlist/dreamstate-socal-2026-friday/pl.u-d2b0LK0TMxEoAYq">Friday</a><a class="am" target="_blank" rel="noopener" href="https://music.apple.com/us/playlist/dreamstate-socal-2026-saturday/pl.u-e98l5yDSzgqVp7R">Saturday</a></div><div class="lk pls"><span class="plsl">Spotify playlist</span><a class="sp" target="_blank" rel="noopener" href="https://open.spotify.com/playlist/3yazpoLsznU5wnaViymJqW">Full</a><a class="sp" target="_blank" rel="noopener" href="https://open.spotify.com/playlist/3dwR1nfAGGplmAhUXpX1XD">Friday</a><a class="sp" target="_blank" rel="noopener" href="https://open.spotify.com/playlist/6ca7I1IGqRL6YQSwyTFBY5">Saturday</a></div>
+<div class="sub"><span id="tot"></span> tracks · <span id="nn"></span> from Apple Music vs. <span id="nm"></span> from my MP3 library · fan-made, not affiliated with Dreamstate or Insomniac</div></div>
+<div class="bar"><input id="q" placeholder="Search artist or title" autocomplete="off"><button class="btn" id="ex">Expand all</button><button class="btn dmb">Light</button></div>
+<div class="tabs"><button class="btn on" data-d="all">Both days</button><button class="btn" data-d="Fri">Friday</button><button class="btn" data-d="Sat">Saturday</button><span class="grow"></span><button class="btn on" id="bst">By stage</button></div>
+<div class="tabs"><button class="btn on" data-s="all">All</button><button class="btn" data-s="The Dream">Dream</button><button class="btn" data-s="The Sequence">Sequence</button><button class="btn" data-s="The Void">Void</button><button class="btn" data-s="The Vision">Vision</button></div>
+<div class="tabs"><button class="btn tgc"><svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg><span>Autoplay: off</span></button><button class="btn tgs"><svg class="i" viewBox="0 0 24 24"><path d="M17 3l4 4-4 4V8h-2.2c-1 0-1.9.5-2.5 1.3l-5.1 6.9C6.5 17.3 5.3 18 4 18H2v-2h2c.6 0 1.2-.3 1.6-.8l5.1-6.9C11.6 7 13.2 6 14.8 6H17V3zm-11.4 6.8L5.6 8.8C5.2 8.3 4.6 8 4 8H2V6h2c1.3 0 2.5.6 3.3 1.7l.6.8-1.3 1.3h0zM17 13l4 4-4 4v-3h-2.2c-1.6 0-3.2-1-4.1-2.3l-.4-.6 1.3-1.6.7.9c.6.8 1.5 1.6 2.5 1.6H17v-3z"/></svg><span>Shuffle: off</span></button></div>
+<div class="legend">▶ plays a 30-second preview, <svg class="i" style="display:inline;width:14px;height:14px;vertical-align:-2px" viewBox="0 0 24 24"><path d="M3 5.5h13v2H3zM3 10.5h13v2H3zM3 15.5h8v2H3zM17 13h2v3.5h3.5v2H19V22h-2v-3.5h-3.5v-2H17z"/></svg> adds a song to your queue. <span class="tag r">remix</span>/<span class="tag r">feat</span> means the set artist is the remixer or a featured artist. <span class="tag b">MP3</span> means the track is in William's MP3 library.</div>
+<main id="m"></main></section>
+
+<section class="view" id="v-settimes">
+<div class="vsub">Tap a set to hear its tracks. Tap ☆ to add it to your plan; your picks stay saved on this phone.</div>
+<div class="tabs" style="padding-top:10px"><button class="btn on" data-sd="Fri">Fri 11/20</button><button class="btn" data-sd="Sat">Sat 11/21</button><span class="grow"></span><button class="btn" id="lt">Live timing</button><button class="btn" id="mine">★ My sets only</button><button class="btn dmb">Light</button></div>
+<div class="grid" id="g"></div>
+<section class="plan" id="frp" hidden><div class="frh"><h2 id="frt"></h2><button class="xb2" id="frx" aria-label="Hide shared plan">✕</button></div><div class="frs" id="frs"></div><div id="frl"></div><button class="btn on" id="fradd">★ Add their sets to my plan</button></section>
+<section class="plan"><h2>My plan · <span id="pd"></span></h2>
+<div class="shr"><input id="shn" maxlength="24" placeholder="Your name (optional)" autocomplete="given-name"><button class="btn on" id="shb">Share my plan</button></div>
+<div class="shh">Sends a link with your starred sets for both days. Friends see your picks next to theirs.</div><div id="pl"></div></section></section>
+
+<section class="view" id="v-map">
+<div class="vsub">Queen Mary Waterfront, Long Beach. Tap the map to zoom in, then drag to move around.</div>
+<div class="tabs" style="padding-top:8px"><button class="btn" id="zb">Zoom in</button><a class="btn" href="map.jpg" target="_blank" rel="noopener" style="text-decoration:none">Open full image</a><button class="btn dmb">Light</button></div>
+<div class="wrap" id="w"><img src="map.jpg" alt="Dreamstate SoCal 2026 festival map: Sequence stage by the festival entrance, then Void, Vision, and Dream stage by the Queen Mary"></div></section>
+<section class="view" id="v-guide"><div class="gd">
+<p class="glead">A fan-made companion for Dreamstate SoCal 2026. Hear the sets before you get there, plan your weekend, and find your way around the Queen Mary.</p>
+<div class="gsec gimp">Important · Save it to your phone</div>
+<div class="gc ghl"><div class="gic" style="background:linear-gradient(135deg,#7b4dff,#c04fd0)">📶</div><div><b>Works offline at the festival</b><p>Cell service dies in big crowds. Once it’s on your home screen, set times, your starred plan and the map open with <b>no signal</b>. Open it from there once before you go so everything’s saved.</p></div></div>
+<div class="gc"><div class="gic" style="background:#5b2fc9">⊕</div><div><b>Add to Home Screen</b><p><b>iPhone:</b> in Safari tap Share (the square with the arrow) → Add to Home Screen.<br><b>Android:</b> in Chrome tap ⋮ → Add to Home screen.<br>It opens full screen like an app, with its own icon. Star your sets in the home screen app, since iPhone keeps its picks separate from Safari’s.</p></div></div>
+<div class="gc"><div class="gic" style="background:#3a6fd8">♫</div><div><b>What needs a signal</b><p>Song previews stream, so they need a connection. Everything else is built to keep working.</p></div></div>
+<div class="gfl"><span>🎧 Listen</span><i>→</i><span>⭐ Plan</span><i>→</i><span>📍 Go</span></div>
+<div class="gsec">1 · Listen</div>
+<div class="gc"><div class="gic" style="background:#f0525f"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div><b>Preview any track</b><p>Tap ▶ for a 30-second preview. The player stays docked at the bottom while you browse.</p></div></div>
+<div class="gc"><div class="gic" style="background:linear-gradient(135deg,#7b4dff,#c04fd0)"><svg viewBox="0 0 24 24"><path d="M3 5.5h13v2H3zM3 10.5h13v2H3zM3 15.5h8v2H3zM17 13h2v3.5h3.5v2H19V22h-2v-3.5h-3.5v-2H17z"/></svg></div><div><b>Build a queue</b><p>Tap the queue button to line songs up. Open the player to see what’s up next or remove songs.</p></div></div>
+<div class="gc"><div class="gic" style="background:#3a6fd8">⇄</div><div><b>Autoplay &amp; shuffle</b><p>Turn on Autoplay to roll through a whole set hands-free. Shuffle mixes it up.</p></div></div>
+<div class="gc"><div class="gic" style="background:#1db954">♫</div><div><b>Save the full song</b><p>Hit <span class="gp" style="background:#fa2d48">Apple Music</span> or <span class="gp" style="background:#1db954;color:#0b2414">Spotify</span> on any track, or grab the full Friday, Saturday or both-days playlist up top.</p></div></div>
+<div class="gsec">2 · Find your sets</div>
+<div class="gst"><div class="Dream">Dream</div><div class="Sequence">Sequence</div><div class="Void">Void</div><div class="Vision">Vision</div></div>
+<div class="gc"><div class="gic" style="background:#e3962e">⌕</div><div><b>Filter &amp; search</b><p>Pick a day and a stage together, like Friday + Void. Search by artist or song title. Each stage keeps its color everywhere on the site.</p></div></div>
+<div class="gsec">3 · Plan</div>
+<div class="gc"><div class="gic" style="background:#ffd84d;color:#222">★</div><div><b>Star sets for your plan</b><p>On <a href="#settimes">Set Times</a>, tap ☆ on a set. My Plan lists your picks in order and flags any overlaps. Saved on your phone.</p></div></div>
+<div class="gc"><div class="gic" style="background:linear-gradient(135deg,#7b4dff,#c04fd0)">👥</div><div><b>Share your plan</b><p>Under My plan, add your name and tap Share my plan to text your picks to friends. Their link shows your sets with a dashed outline and which ones you’re both going to, and they can add them in one tap.</p></div></div>
+<div class="gc"><div class="gic" style="background:#ff3b5c">●</div><div><b>Live now</b><p>During the festival a red line shows the current time, and sets that are on now get a LIVE badge and progress bar.</p></div></div>
+<div class="gsec">4 · Get around</div>
+<div class="gc"><div class="gic" style="background:#2fb3d1">📍</div><div><b>Festival map</b><p>Open the <a href="#map">Map</a>. Tap to zoom, drag to move around the Queen Mary Waterfront.</p></div></div>
+<div class="gnote">Fan-made, not affiliated with Dreamstate or Insomniac.</div>
+</div></section>
+
+
+<footer>Previews and artwork from Apple Music, Spotify and my own MP3s. Links open Apple Music or Spotify. Set times and map from the official Dreamstate SoCal 2026 materials. Fan-made page, not affiliated with Dreamstate or Insomniac.<div style="margin-top:10px">Questions? Contact me at <a href="mailto:william@thegameday.zone" style="color:var(--acc)">william@thegameday.zone</a></div><div style="margin-top:8px">William A.</div></footer>
+
+<div class="shbg" id="shbg"></div><div class="sheet" id="sh"><div class="shd"><div class="grab"></div><button class="xb" id="sx" aria-label="Close"><svg class="i" viewBox="0 0 24 24"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6 10.6 12 5 6.4z"/></svg></button><h3 id="stt"></h3><div class="meta" id="stm"></div><button class="fv" id="sfv">☆ I want to see this</button></div><div class="slist" id="sl"></div></div>
+
+<div class="mini" id="mini"><img id="mimg" alt=""><div class="mt"><div class="t1" id="mt1"></div><div class="t2" id="mt2"></div></div><button class="ib" id="mpp" aria-label="Play or pause"></button><button class="ib" id="mnx" aria-label="Next"><svg class="i" viewBox="0 0 24 24"><path d="M4 6.2v11.6c0 .8.9 1.3 1.6.8L14 13v4.8c0 .8.9 1.3 1.6.8L23 13.2c.6-.4.6-1.3 0-1.7l-7.4-5.4c-.7-.5-1.6 0-1.6.8V11L5.6 5.4C4.9 4.9 4 5.4 4 6.2z" transform="translate(-1.5 0)"/></svg></button><div class="mprog"><i id="mpg"></i></div></div>
+
+<div class="bp" id="bp">
+ <div class="bph" data-drag><button class="cb" id="bclose" aria-label="Close player"><svg class="i" viewBox="0 0 24 24"><path d="M5.3 8.3 12 15l6.7-6.7 1.4 1.4L12 17.8 3.9 9.7z"/></svg></button><div style="text-align:center"><div class="grab"></div><div class="bpt" id="bpt">Now Playing</div></div><button class="cb" id="bq" aria-label="Queue"><svg class="i" viewBox="0 0 24 24"><path d="M3 5h13v2H3zm0 5h13v2H3zm0 5h8v2H3zm11 0v6l5-3z"/></svg></button></div>
+ <div class="bpv" data-drag>
+  <img id="bimg" alt="">
+  <div class="bti" id="bti"></div><div class="bar2" id="bar2"></div><div class="bse" id="bse"></div>
+  <div class="bprog" id="bpb"><i id="bpg"></i></div><div class="btime"><span id="bc">0:00</span><span id="bd">0:30</span></div>
+  <div class="bctl"><button class="cb2 sm" id="bb10" aria-label="Back 10 seconds"><svg class="i" viewBox="0 0 24 24"><path d="M12 4V1L7.5 5 12 9V6a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z"/><text x="12" y="15.6" text-anchor="middle" font-size="7.2" font-weight="800" font-family="-apple-system,system-ui,sans-serif">10</text></svg></button><button class="cb2" id="bprev" aria-label="Previous"><svg class="i" viewBox="0 0 24 24"><g transform="translate(25.5 0) scale(-1 1)"><path d="M4 6.2v11.6c0 .8.9 1.3 1.6.8L14 13v4.8c0 .8.9 1.3 1.6.8L23 13.2c.6-.4.6-1.3 0-1.7l-7.4-5.4c-.7-.5-1.6 0-1.6.8V11L5.6 5.4C4.9 4.9 4 5.4 4 6.2z"/></g></svg></button><button class="play" id="bpp" aria-label="Play or pause"></button><button class="cb2" id="bnext" aria-label="Next"><svg class="i" viewBox="0 0 24 24"><path d="M4 6.2v11.6c0 .8.9 1.3 1.6.8L14 13v4.8c0 .8.9 1.3 1.6.8L23 13.2c.6-.4.6-1.3 0-1.7l-7.4-5.4c-.7-.5-1.6 0-1.6.8V11L5.6 5.4C4.9 4.9 4 5.4 4 6.2z" transform="translate(-1.5 0)"/></svg></button><button class="cb2 sm" id="bf10" aria-label="Forward 10 seconds"><svg class="i" viewBox="0 0 24 24"><path d="M12 4V1l4.5 4L12 9V6a6 6 0 1 0 6 6h2a8 8 0 1 1-8-8z"/><text x="12" y="15.6" text-anchor="middle" font-size="7.2" font-weight="800" font-family="-apple-system,system-ui,sans-serif">10</text></svg></button></div>
+  <div class="brow"><button class="pill tgs"><svg class="i" viewBox="0 0 24 24"><path d="M17 3l4 4-4 4V8h-2.2c-1 0-1.9.5-2.5 1.3l-5.1 6.9C6.5 17.3 5.3 18 4 18H2v-2h2c.6 0 1.2-.3 1.6-.8l5.1-6.9C11.6 7 13.2 6 14.8 6H17V3zm-11.4 6.8L5.6 8.8C5.2 8.3 4.6 8 4 8H2V6h2c1.3 0 2.5.6 3.3 1.7l.6.8-1.3 1.3h0zM17 13l4 4-4 4v-3h-2.2c-1.6 0-3.2-1-4.1-2.3l-.4-.6 1.3-1.6.7.9c.6.8 1.5 1.6 2.5 1.6H17v-3z"/></svg><span>Shuffle</span></button><button class="pill tgc"><svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg><span>Autoplay</span></button><button class="pill" id="bq2"><svg class="i" viewBox="0 0 24 24"><path d="M3 5h13v2H3zm0 5h13v2H3zm0 5h8v2H3zm11 0v6l5-3z"/></svg><span>Queue</span></button></div>
+  <div class="lk" id="blk"></div>
+ </div>
+ <div class="qv" id="qv"></div>
+</div>
+<div class="toast" id="toast"></div>
+<audio id="au" preload="none"></audio>
+<script src="data.js"></script>
+<script>
+const AM='https://music.apple.com/us/',AU='https://audio-ssl.itunes.apple.com/',IM='https://is1-ssl.mzstatic.com/image/thumb/';
+const I={
+play:'<svg class="i" viewBox="0 0 24 24"><path d="M7 4.6v14.8c0 .8.9 1.3 1.6.8l11.3-7.4c.6-.4.6-1.3 0-1.7L8.6 3.8C7.9 3.3 7 3.8 7 4.6z"/></svg>',
+pause:'<svg class="i" viewBox="0 0 24 24"><rect x="6" y="4" width="4.2" height="16" rx="1.2"/><rect x="13.8" y="4" width="4.2" height="16" rx="1.2"/></svg>',
+next:'<svg class="i" viewBox="0 0 24 24"><path d="M4 6.2v11.6c0 .8.9 1.3 1.6.8L14 13v4.8c0 .8.9 1.3 1.6.8L23 13.2c.6-.4.6-1.3 0-1.7l-7.4-5.4c-.7-.5-1.6 0-1.6.8V11L5.6 5.4C4.9 4.9 4 5.4 4 6.2z" transform="translate(-1.5 0)"/></svg>',prev:'<svg class="i" viewBox="0 0 24 24"><g transform="translate(25.5 0) scale(-1 1)"><path d="M4 6.2v11.6c0 .8.9 1.3 1.6.8L14 13v4.8c0 .8.9 1.3 1.6.8L23 13.2c.6-.4.6-1.3 0-1.7l-7.4-5.4c-.7-.5-1.6 0-1.6.8V11L5.6 5.4C4.9 4.9 4 5.4 4 6.2z"/></g></svg>',plus:'<svg class="i" viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/></svg>',queue:'<svg class="i" viewBox="0 0 24 24"><path d="M3 5.5h13v2H3zM3 10.5h13v2H3zM3 15.5h8v2H3zM17 13h2v3.5h3.5v2H19V22h-2v-3.5h-3.5v-2H17z"/></svg>',x:'<svg class="i" viewBox="0 0 24 24"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6 10.6 12 5 6.4z"/></svg>'};
+const S={Fri:[
+['Dream',25,26,'Matty Ralph','TEST 1–2am','Matty Ralph'],['Void',25,26,'BK','TEST 1–2am','BK'],['Dream',16,17,'VisionV','','VisionV'],['Dream',17,18,'Matty Ralph','','Matty Ralph'],['Dream',18,19,'David Rust + Olly James','','David Rust + Olly James'],['Dream',19,20,'The Rocketman','','The Rocketman'],['Dream',20,21,'Marlo','','Marlo'],['Dream',21,22,'Andrew Rayel','pres Extasia','Andrew Rayel'],['Dream',22,23,'Dash Berlin','','Dash Berlin'],['Dream',23,24,'Hannah Laing + Marie Vaunt','','Hannah Laing + Marie Vaunt'],['Dream',24,25,'ARTBAT','','ARTBAT'],
+['Sequence',16,17,'Maximizer','','Maximizer'],['Sequence',17,18,'Terra','','Terra'],['Sequence',18,19,'Kaufmann','','Kaufmann'],['Sequence',19,20,'Burn In Noise','','Burn In Noise'],['Sequence',20,21,'GMS','','GMS'],['Sequence',21,22,'Phaxe','','Phaxe'],['Sequence',22,23,'Astrix','','Astrix'],['Sequence',23,24,'Neelix','','Neelix'],['Sequence',24,25,'Infected Mushroom','','Infected Mushroom'],
+['Void',16,17,'Shay De Castro','','Shay De Castro'],['Void',17,18,'BK','','BK'],['Void',18,19,'Lee Ann Roberts','','Lee Ann Roberts'],['Void',19,20,'A.N.I.','','A.N.I.'],['Void',20,21,'Schrotthagen','','Schrotthagen'],['Void',21,22,'Panteros666','','Panteros666'],['Void',22,23,'Pegassi','','Pegassi'],['Void',23,24,'Enrico Sangiuliano','','Enrico Sangiuliano'],['Void',24,25,'Reinier Zonneveld','(live)','Reinier Zonneveld'],
+['Vision',16,17,'Karmå','','Karmå'],['Vision',17,18,'Steve Dekay','','Steve Dekay'],['Vision',18,19,'Frankyeffe','','Frankyeffe'],['Vision',19,20,'Mirage','(live)','Mirage'],['Vision',20,21,'NRG2000','','NRG2000'],['Vision',21,22,'Warp Brothers','','Warp Brothers'],['Vision',22,23,'Mauro Picotto','','Mauro Picotto'],['Vision',23,24,'BT','','BT'],['Vision',24,25,'Marco V','','Marco V']],
+Sat:[
+['Dream',16,17,'Das Pharaoh','','Das Pharaoh'],['Dream',17,18,'TH;EN','','TH;EN'],['Dream',18,19,'Nu Aspect','','Nu Aspect'],['Dream',19,20,'JOA','','JOA'],['Dream',20,21,'Aaron Hibell','(live)','Aaron Hibell'],['Dream',21,22,'Alpha 9 + Ilan Bluestone','','Alpha 9 + Ilan Bluestone'],['Dream',22,23,'Ferry Corsten + Marsh','','Ferry Corsten + Marsh'],['Dream',23,25,'Above & Beyond','Anjunabeats Classics','Above & Beyond'],
+['Sequence',16,17,'Barakuda','','Barakuda'],['Sequence',17,18,'Perfect Stranger','','Perfect Stranger'],['Sequence',18,19,'Rising Dust','','Rising Dust'],['Sequence',19,20,'Sighter','','Sighter'],['Sequence',20,21,'John 00 Fleming','','John 00 Fleming'],['Sequence',21,22,'Giorgia Angiuli','','Giorgia Angiuli'],['Sequence',22,23,'Vini Vici','','Vini Vici'],['Sequence',23,24,'Ace Ventura','','Ace Ventura'],['Sequence',24,25,'Animato','','Animato'],
+['Void',16,17,'Hausman','Discovery Project','Hausman'],['Void',17,18,'Roman Messer','','Roman Messer'],['Void',18,19,'Parallel Worlds','','Parallel Worlds'],['Void',19,20,'Eddie Halliwell + Judge Jules','','Eddie Halliwell + Judge Jules'],['Void',20,21.25,'David Forbes + John Askew','','David Forbes + John Askew'],['Void',21.25,22.5,'Bryan Kearney + John O\'Callaghan','pres KEY4050','KEY4050'],['Void',22.5,23.75,'Aly & Fila + Billy Gillies','','Aly & Fila + Billy Gillies'],['Void',23.75,25,'Paul van Dyk','pres The Essence of Acid','Paul van Dyk'],
+['Vision',16,17,'Sequence Six','','Sequence Six'],['Vision',17,18,'Maria Healy','','Maria Healy'],['Vision',18,19,'Chris Metcalfe','','Chris Metcalfe'],['Vision',19,20,'Andy Moor','','Andy Moor'],['Vision',20,21,'Allen Watts + Talla 2XLC','','Allen Watts + Talla 2XLC'],['Vision',21,22,'Darren Porter + Sean Tyas','','Darren Porter + Sean Tyas'],['Vision',22,23,'Cold Blue','','Cold Blue'],['Vision',23,24,'4 Strings','Classics set','4 Strings'],['Vision',24,25,'Solarstone','','Solarstone']]};
+const STG=['Dream','Sequence','Void','Vision'];
+const $=id=>document.getElementById(id),au=$('au');
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+const NOART="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233a1d6e'/%3E%3Cstop offset='.55' stop-color='%236b2fa8'/%3E%3Cstop offset='1' stop-color='%23c04fd0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='url%28%23g%29'/%3E%3Cpath d='M42 30v30.5a9 9 0 1 0 5 8V42h16V30z' fill='%23fff' fill-opacity='.78'/%3E%3Cpath d='M26 24l50 52' stroke='%23fff' stroke-opacity='.85' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E";
+function art(r,z){return r&&r[10]?(/^(https?:|art\/)/.test(r[10])?r[10]:IM+r[10]+'/'+z+'x'+z+'bb.jpg'):NOART}
+function sq(r){let t=r[4].replace(/\s*[\(\[](mixed|abgt\d+)[\)\]]/ig,'');return encodeURIComponent(r[3].split(/,| & | x /)[0]+' '+t)}
+function amU(r){return r[8]?AM+r[8]:AM+'search?term='+sq(r)}
+function spU(r){return r[11]?'https://open.spotify.com/track/'+r[11]:'https://open.spotify.com/search/'+sq(r)}
+const mp3o=r=>r[6]&&(!r[9]||r[9].startsWith('mp3/'));
+function links(r){if(mp3o(r))return '<span class="mp3">MP3 only</span>';return '<a class="am" target="_blank" rel="noopener" href="'+amU(r)+'">Apple Music</a><a class="sp" target="_blank" rel="noopener" href="'+spU(r)+'">Spotify</a>'}
+function fmt(s){s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function toast(t,ms){const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>e.classList.remove('on'),ms||1400)}
+function songRow(i,ctx){const r=R[i],on=i===cur&&!au.paused;
+ return '<div class="song" id="s'+ctx+'-'+i+'">'+'<img class="art" loading="lazy" src="'+art(r,120)+'" alt="" onerror="this.onerror=null;this.src=NOART">'+'<div class="mid"><div class="ti">'+esc(r[4])+(r[5]==='r'?' <span class="tag r">remix</span>':r[5]==='f'?' <span class="tag r">feat</span>':'')+(r[6]?' <span class="tag b">MP3</span>':'')+'</div><div class="ar">'+esc(r[3])+(r[7]?' · also: '+esc(r[7].split('|').join(', ')):'')+'</div><div class="lk">'+links(r)+'</div></div><button class="addq" data-q="'+i+'" aria-label="Add to queue"'+(r[9]?'':' disabled')+'>'+I.queue+'</button><button class="play'+(on?' on':'')+'" data-p="'+i+'" data-ctx="'+ctx+'"'+(r[9]?'':' disabled')+' aria-label="Preview">'+(on?I.pause:I.play)+'</button></div>'}
+
+/* ---------- theme / in-app hint ---------- */
+document.body.classList.add('dark');try{if(localStorage.getItem('ds26testdark')==='0')document.body.classList.remove('dark')}catch(e){}
+function dmLabel(){document.querySelectorAll('.dmb').forEach(b=>b.textContent=document.body.classList.contains('dark')?'Light':'Dark')}dmLabel();
+document.querySelectorAll('.dmb').forEach(b=>b.onclick=()=>{const d=document.body.classList.toggle('dark');dmLabel();try{localStorage.setItem('ds26testdark',d?'1':'0')}catch(x){}});
+if(/Instagram|FBAN|FBAV|Snapchat|TikTok|musical_ly|Line\//i.test(navigator.userAgent))$('iab').classList.add('on');$('iabx').onclick=()=>$('iab').classList.remove('on');
+
+/* ---------- router ---------- */
+const TT={playlists:'Dreamstate SoCal 2026',settimes:'Set Times',map:'Festival Map',guide:'How to use'};
+function route(){let h=location.hash.replace('#','').toLowerCase();let v=h.startsWith('settimes')||h==='fri'||h==='sat'?'settimes':h==='map'?'map':h==='guide'?'guide':'playlists';
+ if(h.endsWith('sat'))sday='Sat';else if(h.endsWith('fri'))sday='Fri';else if(!route.v&&liveOn&&festHour('Fri')===99)sday='Sat';
+ document.querySelectorAll('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
+ $('ttl').textContent=TT[v];document.title=(v==='playlists'?'':TT[v]+' · ')+'Dreamstate SoCal 2026';if(v==='settimes')drawGrid();if(route.v&&route.v!==v)scrollTo(0,0);route.v=v}
+window.addEventListener('hashchange',()=>{readShare();route()});
+
+/* ---------- playlists view ---------- */
+let day='all',stg='all',q='',ex=false,vis=[],bySt=true;
+$('tot').textContent=R.length;$('nn').textContent=R.filter(r=>!r[6]).length;$('nm').textContent=R.filter(r=>r[6]).length;
+function draw(){let h='',cd='',cs=null,g=null,gs=[];vis=[];
+ R.forEach((r,i)=>{if(day!=='all'&&r[0]!==day)return;if(stg!=='all'&&ST[r[0]+'|'+r[2]]!==stg)return;if(q&&!(r[3]+' '+r[4]+' '+r[2]).toLowerCase().includes(q))return;const k=r[0]+r[2];if(!g||g.k!==k){g={k,d:r[0],t:r[1],s:r[2],it:[]};gs.push(g)}g.it.push(i)});
+ if(bySt){const O=['The Dream','The Sequence','The Void','The Vision'],oi=g=>{const x=O.indexOf(ST[g.d+'|'+g.s]);return x<0?9:x};gs=gs.map((g,j)=>[g,j]).sort((a,b)=>(a[0].d===b[0].d?0:a[0].d==='Fri'?-1:1)||oi(a[0])-oi(b[0])||a[1]-b[1]).map(x=>x[0])}
+ for(const g of gs){if(g.d!==cd){cd=g.d;h+='<h2>'+(cd==='Fri'?'Friday 11/20':'Saturday 11/21')+'</h2>';cs=null}
+  if(bySt&&(ST[g.d+'|'+g.s]||'Other')!==cs){cs=ST[g.d+'|'+g.s]||'Other';h+='<div class="sgh '+cs.replace('The ','')+'b">'+esc(cs)+'</div>'}
+  h+='<details class="sd '+(ST[g.d+'|'+g.s]||'').replace('The ','')+'"'+(ex||q?' open':'')+'><summary><span><span class="t">'+g.t+'</span><b>'+esc(g.s)+'</b>'+(ST[g.d+'|'+g.s]?'<span class="stg"> – '+ST[g.d+'|'+g.s]+'</span>':'')+'</span><span class="n">'+g.it.length+'</span></summary>';
+  for(const i of g.it){vis.push(i);h+=songRow(i,'p')}h+='</details>'}
+ $('m').innerHTML=h||'<p style="padding:14px">No matches.</p>'}
+$('bst').onclick=e=>{bySt=!bySt;e.target.classList.toggle('on',bySt);draw()};
+$('q').oninput=e=>{q=e.target.value.trim().toLowerCase();draw()};
+$('ex').onclick=e=>{ex=!ex;e.target.textContent=ex?'Collapse all':'Expand all';draw()};
+document.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-d]').forEach(x=>x.classList.remove('on'));b.classList.add('on');day=b.dataset.d;draw()});
+document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-s]').forEach(x=>x.classList.remove('on'));b.classList.add('on');stg=b.dataset.s;draw()});
+
+/* ---------- set times view ---------- */
+const PX=78;let liveOn=true;try{liveOn=localStorage.getItem('ds26testlive')!=='0'}catch(e){}
+let sday='Fri',mine=false,openS=null,fav=new Set();
+try{fav=new Set(JSON.parse(localStorage.getItem('ds26testfav')||'[]'))}catch(e){}
+function saveFav(){try{localStorage.setItem('ds26testfav',JSON.stringify([...fav]))}catch(e){}}
+function hh(h){const H=Math.floor(h),m=Math.round((h-H)*60),x=H%12||12;return x+(m?':'+String(m).padStart(2,'0'):'')}
+function ap(h){return Math.floor(h)%24<12?'am':'pm'}
+function range(s){return hh(s[1])+(ap(s[1])!==ap(s[2])?ap(s[1]):'')+'–'+hh(s[2])+ap(s[2])}
+const skey=(d,s)=>d+'|'+s[5];
+const stracks=(d,s)=>R.map((r,i)=>i).filter(i=>R[i][0]===d&&R[i][2]===s[5]);
+function drawGrid(){document.querySelectorAll('[data-sd]').forEach(b=>b.classList.toggle('on',b.dataset.sd===sday));
+ let g='<div class="hd"></div>'+STG.map(s=>'<div class="hd">THE '+s.toUpperCase()+'</div>').join('');const H=10*PX;
+ g+='<div class="axis" style="height:'+H+'px">';for(let t=16;t<=26;t+=.5)g+='<div class="tl" style="top:'+((t-16)*PX)+'px">'+hh(t)+(t%1?'':ap(t))+'</div>';g+='</div>';
+ for(const st of STG){g+='<div class="col" style="height:'+H+'px">';
+  S[sday].forEach((s,i)=>{if(s[0]!==st)return;const k=skey(sday,s),n=stracks(sday,s).length,f=fav.has(k);
+   g+='<div role="button" tabindex="0" class="set '+st+(f?' fav':'')+(mine&&!f?' dim':'')+'" data-i="'+i+'" style="top:'+((s[1]-16)*PX+2)+'px;height:'+((s[2]-s[1])*PX-4)+'px"><span class="st" role="button" aria-label="Favorite">'+(f?'★':'☆')+'</span><b'+(s[3].length>20?' style="font-size:9.5px"':'')+'>'+esc(s[3])+'</b>'+(s[4]?'<small>'+esc(s[4])+'</small>':'')+'<small>'+range(s)+'</small>'+(n?'<span class="n">♪'+n+'</span>':'')+'<span class="lv"></span><span class="lpb"><i></i></span></div>'});
+  g+='</div>'}
+ $('g').innerHTML=g+'<div class="nowl" id="nowl"></div><div class="nowp" id="nowp"></div>';if(shared)$('g').querySelectorAll('.set').forEach(b=>{if(shared.keys.includes(skey(sday,S[sday][+b.dataset.i]))){b.classList.add('fr');b.insertAdjacentHTML('beforeend','<span class="frb">👥</span>')}});drawPlan();drawFriend();tick()}
+let planKey=null;
+function drawPlan(){$('pd').textContent=sday==='Fri'?'Friday':'Saturday';
+ const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>fav.has(skey(sday,s))).sort((a,b)=>a[0][1]-b[0][1]);planKey=null;
+ if(!L.length){$('pl').innerHTML='<div class="empty">No sets starred yet. Tap ☆ on a set to add it.</div>';return}
+ const now=liveOn?festHour(sday):-1,U=L.filter(([s])=>s[2]>now),E=L.filter(([s])=>s[2]<=now);planKey=sday+E.length;
+ const row=([s,i],live,clash)=>'<div class="pi'+(live?'':' ended')+'" data-i="'+i+'"><span class="dot '+s[0]+'"></span><div><div class="ptt">'+esc(s[3])+'</div><div class="pm">'+range(s)+' · The '+s[0]+(s[4]?' · '+esc(s[4]):'')+'</div>'+(clash?'<div class="warn">Overlaps another set you starred</div>':'')+'</div></div>';
+ let h=U.length?U.map((x,j)=>row(x,1,U.some(([o],k)=>k!==j&&o[1]<x[0][2]&&x[0][1]<o[2]))).join(''):'<div class="empty">All your starred sets for today have ended.</div>';
+ if(E.length)h+='<div class="peh">Ended · '+E.length+'</div>'+E.map(x=>row(x,0,0)).join('');
+ $('pl').innerHTML=h}
+let setCtx=[];
+function openSet(i){const s=S[sday][i];openS=i;$('stt').textContent=s[3]+(s[4]?' '+s[4]:'');$('stm').textContent=(sday==='Fri'?'Friday 11/20':'Saturday 11/21')+' · '+range(s)+' · The '+s[0];favBtn();
+ setCtx=stracks(sday,s);$('sl').innerHTML=setCtx.length?setCtx.map(i=>songRow(i,'s')).join(''):'<p class="empty" style="padding:16px">No tracks from this artist in the library yet.</p>';$('sl').scrollTop=0;$('sh').style.transform='';$('sh').classList.add('on');$('shbg').classList.add('on');document.body.classList.add('lock')}
+function closeSheet(){const sh=$('sh');sh.style.transform='';sh.classList.remove('on');$('shbg').classList.remove('on');openS=null;if(!$('bp').classList.contains('on'))document.body.classList.remove('lock')}
+function favBtn(){const f=fav.has(skey(sday,S[sday][openS]));$('sfv').classList.toggle('on',f);$('sfv').textContent=f?'★ On my plan':'☆ I want to see this'}
+/* ---- share my plan ---- */
+const DAYS=['Fri','Sat'];let shared=null;
+try{shared=JSON.parse(localStorage.getItem('ds26testshared')||'null')}catch(e){}
+try{$('shn').value=localStorage.getItem('ds26testname')||''}catch(e){}
+function planCode(){return DAYS.map(d=>d[0]+S[d].map((s,i)=>fav.has(skey(d,s))?i.toString(36):null).filter(x=>x!==null).join('.')).join('_')}
+function readShare(){const m=location.hash.match(/^#plan=([^&]*)(?:&from=(.*))?$/);if(!m)return false;
+ const sh={from:m[2]?decodeURIComponent(m[2]).slice(0,24):'',keys:[]};
+ m[1].split('_').forEach(p=>{const d=p[0]==='F'?'Fri':p[0]==='S'?'Sat':null;if(!d)return;p.slice(1).split('.').filter(Boolean).forEach(x=>{const s=S[d][parseInt(x,36)];if(s)sh.keys.push(skey(d,s))})});
+ shared=sh;try{localStorage.setItem('ds26testshared',JSON.stringify(sh))}catch(e){}
+ const first=DAYS.find(d=>sh.keys.some(k=>k.startsWith(d+'|')));if(first)sday=first;
+ try{history.replaceState(null,'',location.pathname+location.search+'#settimes-'+sday.toLowerCase())}catch(e){location.hash='settimes'}
+ setTimeout(()=>toast((sh.from?sh.from+'’s':'A friend’s')+' plan loaded 👥 Their sets have a dashed outline',3200),500);return true}
+function drawFriend(){const box=$('frp');if(!shared||!shared.keys.length){box.hidden=true;return}box.hidden=false;
+ const who=shared.from?esc(shared.from)+'’s':'A friend’s';$('frt').innerHTML=who+' plan · '+(sday==='Fri'?'Friday':'Saturday');
+ const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>shared.keys.includes(skey(sday,s))).sort((a,b)=>a[0][1]-b[0][1]);
+ const both=L.filter(([s])=>fav.has(skey(sday,s))).length,other=DAYS.find(d=>d!==sday),oc=shared.keys.filter(k=>k.startsWith(other+'|')).length;
+ $('frs').textContent=(L.length?L.length+' set'+(L.length>1?'s':'')+(both?' · '+both+' you’re both seeing':''):'Nothing starred this day')+(oc?' · '+oc+' on '+(other==='Fri'?'Friday':'Saturday'):'');
+ $('frl').innerHTML=L.map(([s,i])=>'<div class="pi" data-i="'+i+'"><span class="dot '+s[0]+'"></span><div><div class="ptt">'+esc(s[3])+'</div><div class="pm">'+range(s)+' · The '+s[0]+'</div>'+(fav.has(skey(sday,s))?'<div class="both">★ You’re both going</div>':'')+'</div></div>').join('');
+ const missing=shared.keys.filter(k=>!fav.has(k)).length;$('fradd').hidden=!missing;$('fradd').textContent='★ Add their '+missing+' set'+(missing>1?'s':'')+' to my plan'}
+$('frl').addEventListener('click',e=>{const b=e.target.closest('.pi');if(b)openSet(+b.dataset.i)});
+$('frx').onclick=()=>{shared=null;try{localStorage.removeItem('ds26testshared')}catch(e){}drawGrid()};
+$('fradd').onclick=()=>{shared.keys.forEach(k=>fav.add(k));saveFav();drawGrid();toast('Added to your plan')};
+$('shn').onchange=()=>{try{localStorage.setItem('ds26testname',$('shn').value.trim())}catch(e){}};
+$('shb').onclick=async()=>{if(!fav.size){toast('Star some sets first');return}
+ const n=$('shn').value.trim();try{localStorage.setItem('ds26testname',n)}catch(e){}
+ const url=location.origin+location.pathname+'?ref=SYP#plan='+planCode()+(n?'&from='+encodeURIComponent(n):'');
+ const text=(n?n+'’s':'My')+' Dreamstate SoCal 2026 plan 🌙';
+ if(navigator.share){try{await navigator.share({title:text,text:text,url:url});return}catch(e){if(e&&e.name==='AbortError')return}}
+ try{await navigator.clipboard.writeText(url);toast('Link copied')}catch(e){window.prompt('Copy your plan link:',url)}};
+function togFav(i){const k=skey(sday,S[sday][i]);fav.has(k)?fav.delete(k):fav.add(k);saveFav();drawGrid()}
+$('g').addEventListener('click',e=>{const b=e.target.closest('.set');if(!b)return;if(e.target.closest('.st')){togFav(+b.dataset.i);return}openSet(+b.dataset.i)});
+$('pl').addEventListener('click',e=>{const b=e.target.closest('.pi');if(b)openSet(+b.dataset.i)});
+$('sx').onclick=closeSheet;$('shbg').onclick=closeSheet;
+$('sfv').onclick=()=>{togFav(openS);favBtn()};
+document.querySelectorAll('[data-sd]').forEach(b=>b.onclick=()=>{sday=b.dataset.sd;try{history.replaceState(null,'','#settimes-'+sday.toLowerCase())}catch(e){}drawGrid()});
+$('lt').classList.toggle('on',liveOn);$('lt').onclick=()=>{liveOn=!liveOn;$('lt').classList.toggle('on',liveOn);try{localStorage.setItem('ds26testlive',liveOn?'1':'0')}catch(e){}drawGrid()};
+$('mine').onclick=e=>{mine=!mine;e.target.classList.toggle('on',mine);drawGrid()};
+
+/* ---------- live clock (phone time, Long Beach time zone) ---------- */
+const DD={Fri:'2026-11-17',Sat:'2026-11-18'};let OFF=0;
+try{const t=new URLSearchParams(location.search).get('now');if(t){const z=Date.parse(t+'-08:00');if(!isNaN(z))OFF=z-Date.now()}}catch(e){}
+const LAf=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'});
+function laNow(){const p={};LAf.formatToParts(new Date(Date.now()+OFF)).forEach(x=>p[x.type]=x.value);return{date:p.year+'-'+p.month+'-'+p.day,h:+p.hour,m:+p.minute,s:+p.second}}
+function festHour(d){const n=laNow(),base=DD[d];const t=n.h+n.m/60+n.s/3600;if(n.date===base)return t;
+ const nx=new Date(base+'T12:00:00Z');nx.setUTCDate(nx.getUTCDate()+1);if(n.date===nx.toISOString().slice(0,10)&&n.h<6)return t+24;return n.date<base?-1:99}
+function tick(){if(!$('v-settimes').classList.contains('on'))return;
+ if(!liveOn){document.querySelectorAll('#g .set').forEach(b=>b.classList.remove('past','live'));if($('nowl'))$('nowl').style.display=$('nowp').style.display='none';return}
+ const now=festHour(sday);
+ if(planKey!==null&&planKey!==sday+S[sday].filter(s=>fav.has(skey(sday,s))&&s[2]<=now).length)drawPlan();
+ document.querySelectorAll('#g .set').forEach(b=>{const s=S[sday][+b.dataset.i];const past=s[2]<=now,live=s[1]<=now&&now<s[2];b.classList.toggle('past',past);b.classList.toggle('live',live);
+  if(live){const left=Math.round((s[2]-now)*3600),p=(now-s[1])/(s[2]-s[1]);b.querySelector('.lv').textContent='LIVE · '+fmt(left)+' left';b.querySelector('.lpb i').style.width=(p*100)+'%'}});
+ const L=$('nowl'),P=$('nowp');if(!L)return;const col=document.querySelector('#g .col');
+ if(now>=16&&now<=25&&col){const y=col.offsetTop+(now-16)*PX;L.style.top=y+'px';P.style.top=(y-10)+'px';const n=laNow();P.textContent=((n.h%12)||12)+':'+String(n.m).padStart(2,'0')+':'+String(n.s).padStart(2,'0');L.style.display=P.style.display='block'}else{L.style.display=P.style.display='none'}}
+setInterval(tick,1000);
+
+/* ---------- map ---------- */
+function zm(){const on=$('w').classList.toggle('z');$('zb').textContent=on?'Zoom out':'Zoom in'}$('w').querySelector('img').onclick=zm;$('zb').onclick=zm;
+
+/* ---------- player ---------- */
+let cur=-1,ctx=[],queue=[],hist=[],shf=false,cont=false,played=new Set(),goingBack=false;
+function ctxList(c){return c==='s'?setCtx.slice():vis.slice()}
+function play(i,c){const r=R[i];if(!r||!r[9])return;
+ if(i===cur){au.paused?au.play().catch(()=>{}):au.pause();return}
+ if(c)ctx=ctxList(c);
+ if(cur>=0&&!goingBack){hist.push(cur);if(hist.length>200)hist.shift()}goingBack=false;
+ cur=i;played.add(i);au.src=(/^(mp3\/|https?:)/.test(r[9])?'':AU)+r[9];au.play().catch(()=>{});ui();ms()}
+function nextT(auto){
+ if(queue.length){play(queue.shift());return true}
+ const P=ctx.filter(i=>R[i][9]);
+ if(shf){let pool=P.filter(i=>!played.has(i)&&i!==cur);if(!pool.length){played.clear();pool=P.filter(i=>i!==cur)}if(pool.length){play(pool[Math.floor(Math.random()*pool.length)]);return true}return false}
+ if(auto&&!cont)return false;
+ let k=ctx.indexOf(cur);for(k++;k<ctx.length;k++)if(R[ctx[k]][9]){play(ctx[k]);return true}return false}
+function prevT(){if(au.currentTime>3||!hist.length){au.currentTime=0;return}if(cur>=0)queue.unshift(cur);goingBack=true;play(hist.pop())}
+function addQ(i){queue.push(i);toast('Added to queue');if($('bp').classList.contains('q'))drawQ()}
+function setShf(v){shf=v;document.querySelectorAll('.tgs').forEach(b=>{b.classList.toggle('on',shf);const s=b.querySelector('span');if(s)s.textContent=b.classList.contains('pill')?'Shuffle':'Shuffle: '+(shf?'on':'off')});if($('bp').classList.contains('q'))drawQ()}
+function setCont(v){cont=v;document.querySelectorAll('.tgc').forEach(b=>{b.classList.toggle('on',cont);const s=b.querySelector('span');if(s)s.textContent=b.classList.contains('pill')?'Autoplay':'Autoplay: '+(cont?'on':'off')});if($('bp').classList.contains('q'))drawQ()}
+document.querySelectorAll('.tgs').forEach(b=>b.onclick=e=>{e.stopPropagation();setShf(!shf);if(shf&&(cur<0||au.paused)&&!b.classList.contains('pill')){ctx=vis.slice();nextT()}});
+document.querySelectorAll('.tgc').forEach(b=>b.onclick=e=>{e.stopPropagation();setCont(!cont)});
+document.addEventListener('click',e=>{const p=e.target.closest('[data-p]');if(p){play(+p.dataset.p,p.dataset.ctx);return}const a=e.target.closest('[data-q]');if(a){addQ(+a.dataset.q)}});
+function ui(){const r=R[cur];if(!r)return;const pz=au.paused;
+ $('mini').classList.add('on');$('mimg').src=art(r,100);$('mt1').textContent=r[4];$('mt2').textContent=r[3];$('mpp').innerHTML=pz?I.play:I.pause;
+ $('bimg').src=art(r,600);$('bti').textContent=r[4];$('bar2').textContent=r[3];$('bse').textContent=(r[0]==='Fri'?'Friday':'Saturday')+' '+r[1]+' · '+r[2]+(ST[r[0]+'|'+r[2]]?' · '+ST[r[0]+'|'+r[2]]:'');$('blk').innerHTML=links(r);$('bpp').innerHTML=pz?I.play:I.pause;
+ document.querySelectorAll('.play[data-p]').forEach(b=>{const on=+b.dataset.p===cur&&!pz;b.classList.toggle('on',on);b.innerHTML=on?I.pause:I.play});
+ if('mediaSession' in navigator)navigator.mediaSession.playbackState=pz?'paused':'playing';
+ if($('bp').classList.contains('q'))drawQ()}
+['mimg','bimg'].forEach(id=>$(id).onerror=function(){this.removeAttribute('src')});
+function ms(){if(!('mediaSession' in navigator)||cur<0)return;const r=R[cur];try{navigator.mediaSession.metadata=new MediaMetadata({title:r[4],artist:r[3],album:'Dreamstate SoCal 2026 · '+r[2],artwork:r[10]?[{src:art(r,512),sizes:'512x512',type:'image/jpeg'},{src:art(r,256),sizes:'256x256',type:'image/jpeg'}]:[]})}catch(e){}}
+if('mediaSession' in navigator){const M=navigator.mediaSession;const sa=(a,f)=>{try{M.setActionHandler(a,f)}catch(e){}};sa('play',()=>au.play());sa('pause',()=>au.pause());sa('nexttrack',()=>nextT());sa('previoustrack',()=>prevT());sa('seekto',d=>{au.currentTime=d.seekTime});sa('seekbackward',()=>skip(-10));sa('seekforward',()=>skip(10))}
+function skip(d){if(au.duration)au.currentTime=Math.max(0,Math.min(au.duration-.5,au.currentTime+d))}
+au.onplay=au.onpause=ui;au.onended=()=>{if(!nextT(true))ui()};
+au.ontimeupdate=()=>{const p=(au.duration?au.currentTime/au.duration*100:0)+'%';$('mpg').style.width=p;$('bpg').style.width=p;$('bc').textContent=fmt(au.currentTime);$('bd').textContent='-'+fmt((au.duration||30)-au.currentTime);
+ try{if(au.duration&&'mediaSession' in navigator)navigator.mediaSession.setPositionState({duration:au.duration,position:Math.min(au.currentTime,au.duration),playbackRate:1})}catch(e){}};
+$('mpp').onclick=e=>{e.stopPropagation();if(cur>=0)play(cur)};$('mnx').onclick=e=>{e.stopPropagation();nextT()};
+$('mini').onclick=()=>openBP();
+$('bpp').onclick=()=>{if(cur>=0)play(cur)};$('bnext').onclick=()=>nextT();$('bprev').onclick=()=>prevT();$('bb10').onclick=()=>skip(-10);$('bf10').onclick=()=>skip(10);
+$('bpb').onclick=e=>{const b=$('bpb').getBoundingClientRect();if(au.duration)au.currentTime=(e.clientX-b.left)/b.width*au.duration};
+function openBP(q){const bp=$('bp');bp.classList.toggle('q',!!q);$('bq').classList.toggle('qon',!!q);$('bpt').textContent=q?'Up Next':'Now Playing';bp.style.transform='';bp.classList.add('on');document.body.classList.add('lock');if(q)drawQ()}
+function closeBP(){const bp=$('bp');bp.style.transform='';bp.classList.remove('on');document.body.classList.remove('lock')}
+$('bclose').onclick=closeBP;
+const tq=()=>{const on=!$('bp').classList.contains('q');openBP(on)};$('bq').onclick=tq;$('bq2').onclick=tq;
+function qRow(i,cls,rm){const r=R[i];return '<div class="qi '+cls+'" data-qi="'+i+'"'+(rm!=null?' data-qpos="'+rm+'"':'')+'>'+'<img src="'+art(r,100)+'" alt="">'+'<div class="mid"><div class="ti">'+esc(r[4])+'</div><div class="ar">'+esc(r[3])+(r[3]!==r[2]?' · '+esc(r[2]):'')+'</div></div>'+(rm!=null?'<button class="rm" data-rm="'+rm+'" aria-label="Remove">'+I.x+'</button>':'')+'</div>'}
+function upNext(){if(shf||!cont)return[];const out=[];let k=ctx.indexOf(cur);for(k++;k<ctx.length&&out.length<25;k++)if(R[ctx[k]][9])out.push(ctx[k]);return out}
+function drawQ(){let h='';
+ h+='<div class="qh">History</div>'+(hist.length?hist.map(i=>qRow(i,'past')).join(''):'<div class="qhint">Songs you play show up here.</div>');
+ h+='<div class="qh" id="qnow">Now Playing</div>'+(cur>=0?qRow(cur,'now'):'<div class="qhint">Nothing playing</div>');
+ h+='<div class="qh">Up Next</div>'+(queue.length?queue.map((i,k)=>qRow(i,'',k)).join(''):'<div class="qhint">Tap ＋ on any song to add it here.</div>');
+ const U=upNext();if(U.length)h+='<div class="qh">Autoplay from this list</div>'+U.map(i=>qRow(i,'')).join('');
+ if(shf)h+='<div class="qhint" style="padding-top:10px">Shuffle is on: after your queue, a random song from this list plays.</div>';
+ h+='<div class="qhint" style="padding:16px 0">Swipe down to see your history</div><div style="height:65vh"></div>';
+ const qv=$('qv');qv.innerHTML=h;requestAnimationFrame(()=>{const n=$('qnow');if(n)qv.scrollTop=n.offsetTop-4})}
+$('qv').addEventListener('click',e=>{const rm=e.target.closest('[data-rm]');if(rm){queue.splice(+rm.dataset.rm,1);drawQ();return}
+ const it=e.target.closest('.qi');if(!it||it.classList.contains('now'))return;const i=+it.dataset.qi;
+ if(it.dataset.qpos!=null){queue.splice(+it.dataset.qpos,1);play(i);return}
+ if(it.classList.contains('past')){const k=hist.lastIndexOf(i);if(k>=0)hist.splice(k,1)}play(i)});
+/* set sheet: swipe down to close */
+(function(){const sh=$('sh'),sl=$('sl');let y0=null,dy=0,t0=0,armed=false;
+ sh.addEventListener('touchstart',e=>{const inList=e.target.closest('.slist');if(inList&&sl.scrollTop>0)return;y0=e.touches[0].clientY;dy=0;t0=Date.now();armed=!inList},{passive:true});
+ sh.addEventListener('touchmove',e=>{if(y0==null)return;const d=e.touches[0].clientY-y0;if(!armed){if(d>6&&sl.scrollTop<=0){armed=true;y0=e.touches[0].clientY-d}else{if(d<0)y0=null;return}}
+  dy=Math.max(0,e.touches[0].clientY-y0);sh.classList.add('drag');sh.style.transform='translateY('+dy+'px)';$('shbg').style.opacity=Math.max(0,1-dy/400);if(dy>4)e.preventDefault()},{passive:false});
+ const end=()=>{if(y0==null)return;sh.classList.remove('drag');$('shbg').style.opacity='';const v=dy/Math.max(1,Date.now()-t0);if(dy>120||v>.6&&dy>40)closeSheet();else sh.style.transform='';y0=null;armed=false};
+ sh.addEventListener('touchend',end);sh.addEventListener('touchcancel',end)})();
+/* swipe down to close */
+(function(){const bp=$('bp');let y0=null,dy=0,t0=0;
+ bp.addEventListener('touchstart',e=>{const z=e.target.closest('[data-drag]');if(!z||e.target.closest('.bprog'))return;y0=e.touches[0].clientY;dy=0;t0=Date.now();bp.classList.add('drag')},{passive:true});
+ bp.addEventListener('touchmove',e=>{if(y0==null)return;dy=Math.max(0,e.touches[0].clientY-y0);bp.style.transform='translateY('+dy+'px)';if(dy>4)e.preventDefault()},{passive:false});
+ const end=()=>{if(y0==null)return;bp.classList.remove('drag');const v=dy/Math.max(1,Date.now()-t0);if(dy>120||v>.6&&dy>40)closeBP();else bp.style.transform='';y0=null};
+ bp.addEventListener('touchend',end);bp.addEventListener('touchcancel',end)})();
+document.querySelectorAll('.play#bpp,#mpp').forEach(b=>b.innerHTML=I.play);
+
+/* ---------- start ---------- */
+draw();readShare();route();
+if(false&&'serviceWorker' in navigator&&location.protocol==='https:'){navigator.serviceWorker.register('sw.js').catch(()=>{})}
+</script></body></html>
