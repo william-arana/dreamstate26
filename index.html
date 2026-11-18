@@ -6,7 +6,7 @@
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://dreamstate26.thegameday.zone/og.jpg"><meta name="theme-color" content="#121217">
 <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png?v=2"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"><link rel="manifest" href="manifest.json"><meta name="apple-mobile-web-app-title" content="Dreamstate">
 <style>
-:root{--bg:#fff;--fg:#141414;--mut:#5c5c66;--line:#e4e4ea;--sh:#f4f4f8;--acc:#6b3fd4;--grid:#d9d9e3}
+:root{--bg:#f6f3fd;--fg:#14111f;--mut:#4b4660;--line:#ddd5f0;--sh:#fff;--acc:#5b2fc9;--grid:#d6cdee}
 body.dark{--bg:#121217;--fg:#ececf1;--mut:#a0a0ad;--line:#2a2a33;--sh:#1c1c24;--acc:#b49cff;--grid:#2c2c38}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.4 -apple-system,system-ui,sans-serif;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
@@ -37,6 +37,25 @@ summary::-webkit-details-marker{display:none}.t{color:var(--mut);font-size:12px;
 .play{width:44px;height:44px;border-radius:50%;border:0;background:#f0525f;color:#fff;flex:none;display:grid;place-items:center}.play svg.i{width:18px;height:18px}.play[disabled]{background:var(--line)}.play.on{background:var(--acc)}
 .addq{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--fg);flex:none;display:grid;place-items:center}.addq svg.i{width:18px;height:18px}.addq[disabled]{opacity:.3}
 footer{color:var(--mut);font-size:12px;padding:24px 14px}
+
+/* light theme: dreamy sky, white cards, stronger ink */
+body:not(.dark){background:linear-gradient(180deg,#e9e1ff 0,#f8e6f4 260px,#f6f3fd 620px) no-repeat,#f6f3fd}
+body:not(.dark) header h1{background:linear-gradient(90deg,#3d1fa3,#a3329a);-webkit-background-clip:text;background-clip:text;color:transparent}
+body:not(.dark) .logo{filter:drop-shadow(0 2px 6px rgba(91,47,201,.25))}
+body:not(.dark) .nav a{background:rgba(255,255,255,.7);border-color:#d6ccf2;color:#2a2340}
+body:not(.dark) .nav a.on,body:not(.dark) .tabs .on,body:not(.dark) .btn.on{background:linear-gradient(135deg,#5b2fc9,#9a3fc7);border-color:transparent;color:#fff;box-shadow:0 4px 12px rgba(91,47,201,.3)}
+body:not(.dark) .desc{background:rgba(255,255,255,.85);border-color:#e2d9f7;box-shadow:0 6px 20px rgba(91,47,201,.08);color:#1c1830}
+body:not(.dark) .btn{background:#fff;border-color:#d6ccf2;color:#2a2340;box-shadow:0 1px 2px rgba(40,20,90,.06)}
+body:not(.dark) input{background:#fff;border-color:#cfc3ef}
+body:not(.dark) .bar{background:rgba(246,243,253,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+body:not(.dark) h2{color:#3d1fa3;font-size:18px}
+body:not(.dark) details{border-top:0;margin:6px 10px;border-radius:12px;background:#fff;box-shadow:0 1px 3px rgba(40,20,90,.08);overflow:hidden}
+body:not(.dark) summary{background:#fff}
+body:not(.dark) .song{border-bottom-color:#efeaf8}
+body:not(.dark) .hd{background:rgba(246,243,253,.92)}
+body:not(.dark) .sheet{background:#fbfaff}
+body:not(.dark) footer{color:#4b4660}
+details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2fb3d1}details.Sequence{border-left-color:#e3962e}details.Void{border-left-color:#3a6fd8}details.Vision{border-left-color:#d062d6}
 /* set times */
 .grid{position:relative;margin:8px 10px 0 0;display:grid;grid-template-columns:44px repeat(4,1fr);column-gap:3px}
 .hd{font-size:10.5px;font-weight:800;text-align:center;letter-spacing:.3px;padding:6px 0;position:sticky;top:0;background:var(--bg);z-index:3}
@@ -188,7 +207,7 @@ function draw(){let h='',cd='',cs=null,g=null,gs=[];vis=[];
  if(bySt){const O=['The Dream','The Sequence','The Void','The Vision'],oi=g=>{const x=O.indexOf(ST[g.d+'|'+g.s]);return x<0?9:x};gs=gs.map((g,j)=>[g,j]).sort((a,b)=>(a[0].d===b[0].d?0:a[0].d==='Fri'?-1:1)||oi(a[0])-oi(b[0])||a[1]-b[1]).map(x=>x[0])}
  for(const g of gs){if(g.d!==cd){cd=g.d;h+='<h2>'+(cd==='Fri'?'Friday 11/20':'Saturday 11/21')+'</h2>';cs=null}
   if(bySt&&(ST[g.d+'|'+g.s]||'Other')!==cs){cs=ST[g.d+'|'+g.s]||'Other';h+='<div class="sgh '+cs.replace('The ','')+'b">'+esc(cs)+'</div>'}
-  h+='<details'+(ex||q?' open':'')+'><summary><span><span class="t">'+g.t+'</span><b>'+esc(g.s)+'</b>'+(ST[g.d+'|'+g.s]?'<span class="stg"> – '+ST[g.d+'|'+g.s]+'</span>':'')+'</span><span class="n">'+g.it.length+'</span></summary>';
+  h+='<details class="sd '+(ST[g.d+'|'+g.s]||'').replace('The ','')+'"'+(ex||q?' open':'')+'><summary><span><span class="t">'+g.t+'</span><b>'+esc(g.s)+'</b>'+(ST[g.d+'|'+g.s]?'<span class="stg"> – '+ST[g.d+'|'+g.s]+'</span>':'')+'</span><span class="n">'+g.it.length+'</span></summary>';
   for(const i of g.it){vis.push(i);h+=songRow(i,'p')}h+='</details>'}
  $('m').innerHTML=h||'<p style="padding:14px">No matches.</p>'}
 $('bst').onclick=e=>{bySt=!bySt;e.target.classList.toggle('on',bySt);draw()};
