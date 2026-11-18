@@ -52,6 +52,7 @@ footer{color:var(--mut);font-size:12px;padding:24px 14px}
 .nowl{position:absolute;left:40px;right:0;height:2px;background:#ff3b5c;z-index:4;box-shadow:0 0 8px #ff3b5c;pointer-events:none;display:none}.nowp{position:absolute;left:0;z-index:5;background:#ff3b5c;color:#fff;font-size:10px;font-weight:800;border-radius:8px;padding:3px 5px;pointer-events:none;display:none;font-variant-numeric:tabular-nums}
 .Dream{background:#2fb3d1}.Sequence{background:#e3962e}.Void{background:#3a6fd8}.Vision{background:#d062d6}
 .plan{margin:22px 14px 0}.plan h2{margin:0 0 8px}.pi{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.peh{margin:18px 0 2px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}.pi.ended{opacity:.45}.pi.ended .ptt{text-decoration:line-through}
 .dot{width:10px;height:10px;border-radius:50%;flex:none}.ptt{font-weight:650}.pm{color:var(--mut);font-size:12.5px}.warn{color:#ff7a59;font-size:12px;font-weight:600}.empty{color:var(--mut);font-size:13.5px}
 .sheet{position:fixed;left:0;right:0;bottom:0;top:calc(70px + env(safe-area-inset-top));background:var(--bg);border-radius:20px 20px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.4);z-index:20;transform:translateY(105%);transition:transform .25s ease;display:flex;flex-direction:column}
 .sheet.on{transform:none}.shd{padding:16px 16px 10px;border-bottom:1px solid var(--line);position:relative}.grab{height:5px;width:40px;border-radius:3px;background:var(--line);margin:-6px auto 10px}
@@ -210,11 +211,15 @@ function drawGrid(){document.querySelectorAll('[data-sd]').forEach(b=>b.classLis
    g+='<div role="button" tabindex="0" class="set '+st+(f?' fav':'')+(mine&&!f?' dim':'')+'" data-i="'+i+'" style="top:'+((s[1]-16)*PX+2)+'px;height:'+((s[2]-s[1])*PX-4)+'px"><span class="st" role="button" aria-label="Favorite">'+(f?'★':'☆')+'</span><b'+(s[3].length>20?' style="font-size:9.5px"':'')+'>'+esc(s[3])+'</b>'+(s[4]?'<small>'+esc(s[4])+'</small>':'')+'<small>'+range(s)+'</small>'+(n?'<span class="n">♪'+n+'</span>':'')+'<span class="lv"></span><span class="lpb"><i></i></span></div>'});
   g+='</div>'}
  $('g').innerHTML=g+'<div class="nowl" id="nowl"></div><div class="nowp" id="nowp"></div>';drawPlan();tick()}
+let planKey=null;
 function drawPlan(){$('pd').textContent=sday==='Fri'?'Friday':'Saturday';
- const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>fav.has(skey(sday,s))).sort((a,b)=>a[0][1]-b[0][1]);
+ const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>fav.has(skey(sday,s))).sort((a,b)=>a[0][1]-b[0][1]);planKey=null;
  if(!L.length){$('pl').innerHTML='<div class="empty">No sets starred yet. Tap ☆ on a set to add it.</div>';return}
- $('pl').innerHTML=L.map(([s,i],j)=>{const clash=L.some(([o],k)=>k!==j&&o[1]<s[2]&&s[1]<o[2]);
-  return '<div class="pi" data-i="'+i+'"><span class="dot '+s[0]+'"></span><div><div class="ptt">'+esc(s[3])+'</div><div class="pm">'+range(s)+' · The '+s[0]+(s[4]?' · '+esc(s[4]):'')+'</div>'+(clash?'<div class="warn">Overlaps another set you starred</div>':'')+'</div></div>'}).join('')}
+ const now=festHour(sday),U=L.filter(([s])=>s[2]>now),E=L.filter(([s])=>s[2]<=now);planKey=sday+E.length;
+ const row=([s,i],live,clash)=>'<div class="pi'+(live?'':' ended')+'" data-i="'+i+'"><span class="dot '+s[0]+'"></span><div><div class="ptt">'+esc(s[3])+'</div><div class="pm">'+range(s)+' · The '+s[0]+(s[4]?' · '+esc(s[4]):'')+'</div>'+(clash?'<div class="warn">Overlaps another set you starred</div>':'')+'</div></div>';
+ let h=U.length?U.map((x,j)=>row(x,1,U.some(([o],k)=>k!==j&&o[1]<x[0][2]&&x[0][1]<o[2]))).join(''):'<div class="empty">All your starred sets for today have ended.</div>';
+ if(E.length)h+='<div class="peh">Ended · '+E.length+'</div>'+E.map(x=>row(x,0,0)).join('');
+ $('pl').innerHTML=h}
 let setCtx=[];
 function openSet(i){const s=S[sday][i];openS=i;$('stt').textContent=s[3]+(s[4]?' '+s[4]:'');$('stm').textContent=(sday==='Fri'?'Friday 11/20':'Saturday 11/21')+' · '+range(s)+' · The '+s[0];favBtn();
  setCtx=stracks(sday,s);$('sl').innerHTML=setCtx.length?setCtx.map(i=>songRow(i,'s')).join(''):'<p class="empty" style="padding:16px">No tracks from this artist in the library yet.</p>';$('sl').scrollTop=0;$('sh').classList.add('on')}
@@ -235,6 +240,7 @@ function laNow(){const p={};LAf.formatToParts(new Date(Date.now()+OFF)).forEach(
 function festHour(d){const n=laNow(),base=DD[d];const t=n.h+n.m/60+n.s/3600;if(n.date===base)return t;
  const nx=new Date(base+'T12:00:00Z');nx.setUTCDate(nx.getUTCDate()+1);if(n.date===nx.toISOString().slice(0,10)&&n.h<6)return t+24;return n.date<base?-1:99}
 function tick(){if(!$('v-settimes').classList.contains('on'))return;const now=festHour(sday);
+ if(planKey!==null&&planKey!==sday+S[sday].filter(s=>fav.has(skey(sday,s))&&s[2]<=now).length)drawPlan();
  document.querySelectorAll('#g .set').forEach(b=>{const s=S[sday][+b.dataset.i];const past=s[2]<=now,live=s[1]<=now&&now<s[2];b.classList.toggle('past',past);b.classList.toggle('live',live);
   if(live){const left=Math.round((s[2]-now)*3600),p=(now-s[1])/(s[2]-s[1]);b.querySelector('.lv').textContent='LIVE · '+fmt(left)+' left';b.querySelector('.lpb i').style.width=(p*100)+'%'}});
  const L=$('nowl'),P=$('nowp');if(!L)return;const col=document.querySelector('#g .col');
