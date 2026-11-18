@@ -172,6 +172,12 @@ body.dark .celm{background:linear-gradient(#17142b,#17142b) padding-box,linear-g
 .nnc:before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--sc)}.nns{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--sc)}
 .nna{font-size:14.5px;font-weight:800;line-height:1.2;margin-top:2px}.nnl{font-size:11.5px;color:var(--mut);margin-top:2px;min-height:14px}.nnb{height:3px;border-radius:2px;background:var(--line);margin:6px 0 7px}.nnb i{display:block;height:100%;border-radius:2px;background:var(--sc)}
 .nnx{margin-top:auto;font-size:11.5px;color:var(--mut);border-top:1px dashed var(--line);padding-top:6px}.nnx b{color:var(--fg);font-weight:700}.nnst{color:#e6b800}
+.btn.lti{width:36px;height:36px;min-width:36px;flex:none;display:inline-grid;place-items:center;font-size:17px;padding:0;font-weight:800;font-family:Georgia,serif;font-style:italic;border-radius:50%}
+.ltm{position:fixed;inset:0;z-index:80}.ltbg{position:absolute;inset:0;background:rgba(8,6,24,.5)}body:not(.dark) .ltbg{background:rgba(40,30,90,.25)}
+.ltc{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(90vw,380px);max-height:86vh;overflow:auto;border-radius:20px;padding:18px 16px 14px;border:2px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#7b4dff,#c04fd0,#ff9bd8) border-box;color:#14111f;box-shadow:0 18px 50px rgba(20,10,60,.4);animation:celin .3s ease-out}
+body.dark .ltc{background:linear-gradient(#17142b,#17142b) padding-box,linear-gradient(135deg,#7b4dff,#c04fd0,#ff9bd8) border-box;color:#f4f1ff}
+.ltc h3{margin:0 40px 10px 0;font-size:18px}.ltc img{display:block;width:100%;max-height:44vh;object-fit:contain;border-radius:12px;background:#0f0c1d;margin-bottom:10px}
+.ltc ul{margin:0 0 8px;padding-left:18px;font-size:13.5px;line-height:1.4}.ltc li{margin-bottom:4px}.ltc p{margin:0;font-size:13px;color:var(--mut)}
 </style></head><body>
 <div class="iab" id="iab"><span>Tap <b>•••</b> then <b>Open in browser</b> for the best experience</span><span class="arr">↗</span><button id="iabx" aria-label="Dismiss">✕</button></div>
 <header><nav class="nav"><a href="#" data-v="playlists">Playlists</a><span class="nsep" aria-hidden="true"></span><a href="#settimes" data-v="settimes">Set Times</a><a href="#map" data-v="map">Map</a><a href="#guide" data-v="guide">How to use</a></nav><div class="thxw" id="thxw" hidden><button class="thx" id="thx">💙 Thank you for coming</button></div>
@@ -190,7 +196,11 @@ body.dark .celm{background:linear-gradient(#17142b,#17142b) padding-box,linear-g
 
 <section class="view" id="v-settimes">
 <div class="vsub">Tap a set to hear its tracks. Tap ☆ to add it to your plan; your picks stay saved on this phone.</div>
-<div class="tabs" style="padding-top:10px"><button class="btn on" data-sd="Fri">Fri 11/20</button><button class="btn" data-sd="Sat">Sat 11/21</button><span class="grow"></span><button class="btn" id="lt">Live timing</button><button class="btn" id="mine">★ My sets only</button><button class="btn dmb">Light</button></div>
+<div class="tabs" style="padding-top:10px"><button class="btn on" data-sd="Fri">Fri 11/20</button><button class="btn" data-sd="Sat">Sat 11/21</button><span class="grow"></span><button class="btn" id="lt">Live timing</button><button class="btn lti" id="lti" aria-label="What is Live timing?">i</button><button class="btn" id="mine">★ My sets only</button><button class="btn dmb">Light</button></div>
+<div class="ltm" id="ltm" hidden><div class="ltbg"></div><div class="ltc" role="dialog" aria-modal="true" aria-labelledby="ltt"><button class="celx" id="ltx" aria-label="Close">✕</button><h3 id="ltt">What Live timing does</h3>
+<img src="live-timing.jpg" alt="Set Times during the festival: On now cards per stage, LIVE badges with time left, and a red line at the current time" loading="lazy">
+<ul><li><b>On now cards</b> show who's playing on each stage, minutes left and who's next. Tap one to hear their tracks.</li><li><b>Red line</b> marks the current time on the grid.</li><li><b>LIVE badges</b> count down each set with a progress bar. Finished sets fade out.</li><li>Your <b>★ picks</b> stay highlighted so you can spot them fast.</li></ul>
+<p>It runs off your phone's clock in Pacific time, so it works offline too. It turns on by itself during the festival; tap <b>Live timing</b> to turn it off.</p></div></div>
 <div id="onnow"></div><div class="grid" id="g"></div>
 <section class="plan" id="frp" hidden><div class="frh"><h2 id="frt"></h2><button class="xb2" id="frx" aria-label="Hide shared plan">✕</button></div><div class="frs" id="frs"></div><div id="frl"></div><button class="btn on" id="fradd">★ Add their sets to my plan</button></section>
 <section class="plan"><h2>My plan · <span id="pd"></span></h2>
@@ -409,6 +419,8 @@ function drawNN(force){const box=$('onnow');const now=festHour(sday);const last=
   return '<button class="nnc" data-i="'+tap+'" style="--sc:'+SC[st]+'"><div class="nns">THE '+st.toUpperCase()+'</div><div class="nna">'+(c?esc(c[3])+star(c):pre?'Doors soon':x?'Between sets':'Done for tonight')+'</div><div class="nnl">'+(c?lt:'')+'</div><div class="nnb"><i style="width:'+pc+'%"></i></div><div class="nnx">'+(x?'Next '+hh(x[1])+ap(x[1])+' · <b>'+esc(x[3])+'</b>'+star(x):c?'Last set of the night':'No more sets here tonight')+'</div></button>'}).join('')+'</div></div>'}
 $('onnow').addEventListener('click',e=>{const b=e.target.closest('.nnc');if(b&&b.dataset.i!=='')openSet(+b.dataset.i)});
 setInterval(tick,1000);
+$('lti').onclick=()=>{$('ltm').hidden=false;document.body.classList.add('lock')};
+const ltClose=()=>{$('ltm').hidden=true;if(!$('bp').classList.contains('on')&&!$('sh').classList.contains('on'))document.body.classList.remove('lock')};$('ltx').onclick=ltClose;$('ltm').querySelector('.ltbg').onclick=ltClose;
 
 /* ---------- map ---------- */
 function zm(){const on=$('w').classList.toggle('z');$('zb').textContent=on?'Zoom out':'Zoom in'}$('w').querySelector('img').onclick=zm;$('zb').onclick=zm;
