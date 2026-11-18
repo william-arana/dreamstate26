@@ -150,6 +150,11 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 .nsep{flex:none;align-self:center;width:1.5px;height:20px;border-radius:1px;background:var(--mut);opacity:.45;margin:0 1px}
 .sheet.drag{transition:none}.shbg{position:fixed;inset:0;background:rgba(10,6,24,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:19}.shbg.on{opacity:1;pointer-events:auto}
 .gimp{color:#c04fd0;margin-top:4px}body.dark .gimp{color:#ff9bd8}.gimp:after{background:linear-gradient(90deg,#c04fd0,transparent)}
+.shr{display:flex;gap:8px;margin-top:14px}.shr input{flex:1;min-width:0;font-size:16px}.shh{color:var(--mut);font-size:12.5px;margin-top:6px}
+.frh{display:flex;align-items:center;justify-content:space-between;gap:8px}.frh h2{margin:0}.xb2{border:0;background:var(--sh);color:var(--fg);width:32px;height:32px;border-radius:50%;flex:none}
+#frp{border:2px solid transparent;border-radius:16px;padding:12px 14px;background:linear-gradient(var(--sh),var(--sh)) padding-box,linear-gradient(135deg,#7b4dff,#c04fd0,#ff9bd8) border-box}body.dark #frp{background:linear-gradient(#1b1730,#1b1730) padding-box,linear-gradient(135deg,#7b4dff,#c04fd0,#ff9bd8) border-box}
+.frs{color:var(--mut);font-size:13px;margin:2px 0 4px}#fradd{margin-top:10px}.both{color:#e6b800;font-size:12px;font-weight:700}
+.set.fr{outline:2px dashed rgba(255,255,255,.95);outline-offset:-5px}.set .frb{position:absolute;left:4px;bottom:3px;font-size:10px;line-height:1}
 </style></head><body>
 <div class="iab" id="iab"><span>Tap <b>•••</b> then <b>Open in browser</b> for the best experience</span><span class="arr">↗</span><button id="iabx" aria-label="Dismiss">✕</button></div>
 <header><nav class="nav"><a href="#" data-v="playlists">Playlists</a><span class="nsep" aria-hidden="true"></span><a href="#settimes" data-v="settimes">Set Times</a><a href="#map" data-v="map">Map</a><a href="#guide" data-v="guide">How to use</a></nav>
@@ -170,7 +175,10 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 <div class="vsub">Tap a set to hear its tracks. Tap ☆ to add it to your plan; your picks stay saved on this phone.</div>
 <div class="tabs" style="padding-top:10px"><button class="btn on" data-sd="Fri">Fri 11/20</button><button class="btn" data-sd="Sat">Sat 11/21</button><span class="grow"></span><button class="btn" id="lt">Live timing</button><button class="btn" id="mine">★ My sets only</button><button class="btn dmb">Light</button></div>
 <div class="grid" id="g"></div>
-<section class="plan"><h2>My plan · <span id="pd"></span></h2><div id="pl"></div></section></section>
+<section class="plan" id="frp" hidden><div class="frh"><h2 id="frt"></h2><button class="xb2" id="frx" aria-label="Hide shared plan">✕</button></div><div class="frs" id="frs"></div><div id="frl"></div><button class="btn on" id="fradd">★ Add their sets to my plan</button></section>
+<section class="plan"><h2>My plan · <span id="pd"></span></h2><div id="pl"></div>
+<div class="shr"><input id="shn" maxlength="24" placeholder="Your name (optional)" autocomplete="given-name"><button class="btn on" id="shb">Share my plan</button></div>
+<div class="shh">Sends a link with your starred sets for both days. Friends see your picks next to theirs.</div></section></section>
 
 <section class="view" id="v-map">
 <div class="vsub">Queen Mary Waterfront, Long Beach. Tap the map to zoom in, then drag to move around.</div>
@@ -193,6 +201,7 @@ details.sd{border-left:4px solid transparent}details.Dream{border-left-color:#2f
 <div class="gc"><div class="gic" style="background:#e3962e">⌕</div><div><b>Filter &amp; search</b><p>Pick a day and a stage together, like Friday + Void. Search by artist or song title. Each stage keeps its color everywhere on the site.</p></div></div>
 <div class="gsec">3 · Plan</div>
 <div class="gc"><div class="gic" style="background:#ffd84d;color:#222">★</div><div><b>Star sets for your plan</b><p>On <a href="#settimes">Set Times</a>, tap ☆ on a set. My Plan lists your picks in order and flags any overlaps. Saved on your phone.</p></div></div>
+<div class="gc"><div class="gic" style="background:linear-gradient(135deg,#7b4dff,#c04fd0)">👥</div><div><b>Share your plan</b><p>Under My plan, add your name and tap Share my plan to text your picks to friends. Their link shows your sets with a dashed outline and which ones you’re both going to, and they can add them in one tap.</p></div></div>
 <div class="gc"><div class="gic" style="background:#ff3b5c">●</div><div><b>Live now</b><p>During the festival a red line shows the current time, and sets that are on now get a LIVE badge and progress bar.</p></div></div>
 <div class="gsec">4 · Get around</div>
 <div class="gc"><div class="gic" style="background:#2fb3d1">📍</div><div><b>Festival map</b><p>Open the <a href="#map">Map</a>. Tap to zoom, drag to move around the Queen Mary Waterfront.</p></div></div>
@@ -248,7 +257,7 @@ function spU(r){return r[11]?'https://open.spotify.com/track/'+r[11]:'https://op
 const mp3o=r=>r[6]&&(!r[9]||r[9].startsWith('mp3/'));
 function links(r){if(mp3o(r))return '<span class="mp3">MP3 only</span>';return '<a class="am" target="_blank" rel="noopener" href="'+amU(r)+'">Apple Music</a><a class="sp" target="_blank" rel="noopener" href="'+spU(r)+'">Spotify</a>'}
 function fmt(s){s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
-function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>e.classList.remove('on'),1400)}
+function toast(t,ms){const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>e.classList.remove('on'),ms||1400)}
 function songRow(i,ctx){const r=R[i],on=i===cur&&!au.paused;
  return '<div class="song" id="s'+ctx+'-'+i+'">'+'<img class="art" loading="lazy" src="'+art(r,120)+'" alt="" onerror="this.onerror=null;this.src=NOART">'+'<div class="mid"><div class="ti">'+esc(r[4])+(r[5]==='r'?' <span class="tag r">remix</span>':r[5]==='f'?' <span class="tag r">feat</span>':'')+(r[6]?' <span class="tag b">MP3</span>':'')+'</div><div class="ar">'+esc(r[3])+(r[7]?' · also: '+esc(r[7].split('|').join(', ')):'')+'</div><div class="lk">'+links(r)+'</div></div><button class="addq" data-q="'+i+'" aria-label="Add to queue"'+(r[9]?'':' disabled')+'>'+I.queue+'</button><button class="play'+(on?' on':'')+'" data-p="'+i+'" data-ctx="'+ctx+'"'+(r[9]?'':' disabled')+' aria-label="Preview">'+(on?I.pause:I.play)+'</button></div>'}
 
@@ -264,7 +273,7 @@ function route(){let h=location.hash.replace('#','').toLowerCase();let v=h.start
  if(h.endsWith('sat'))sday='Sat';else if(h.endsWith('fri'))sday='Fri';else if(!route.v&&liveOn&&festHour('Fri')===99)sday='Sat';
  document.querySelectorAll('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
  $('ttl').textContent=TT[v];document.title=(v==='playlists'?'':TT[v]+' · ')+'Dreamstate SoCal 2026';if(v==='settimes')drawGrid();if(route.v&&route.v!==v)scrollTo(0,0);route.v=v}
-window.addEventListener('hashchange',route);
+window.addEventListener('hashchange',()=>{readShare();route()});
 
 /* ---------- playlists view ---------- */
 let day='all',stg='all',q='',ex=false,vis=[],bySt=true;
@@ -300,7 +309,7 @@ function drawGrid(){document.querySelectorAll('[data-sd]').forEach(b=>b.classLis
   S[sday].forEach((s,i)=>{if(s[0]!==st)return;const k=skey(sday,s),n=stracks(sday,s).length,f=fav.has(k);
    g+='<div role="button" tabindex="0" class="set '+st+(f?' fav':'')+(mine&&!f?' dim':'')+'" data-i="'+i+'" style="top:'+((s[1]-16)*PX+2)+'px;height:'+((s[2]-s[1])*PX-4)+'px"><span class="st" role="button" aria-label="Favorite">'+(f?'★':'☆')+'</span><b'+(s[3].length>20?' style="font-size:9.5px"':'')+'>'+esc(s[3])+'</b>'+(s[4]?'<small>'+esc(s[4])+'</small>':'')+'<small>'+range(s)+'</small>'+(n?'<span class="n">♪'+n+'</span>':'')+'<span class="lv"></span><span class="lpb"><i></i></span></div>'});
   g+='</div>'}
- $('g').innerHTML=g+'<div class="nowl" id="nowl"></div><div class="nowp" id="nowp"></div>';drawPlan();tick()}
+ $('g').innerHTML=g+'<div class="nowl" id="nowl"></div><div class="nowp" id="nowp"></div>';if(shared)$('g').querySelectorAll('.set').forEach(b=>{if(shared.keys.includes(skey(sday,S[sday][+b.dataset.i]))){b.classList.add('fr');b.insertAdjacentHTML('beforeend','<span class="frb">👥</span>')}});drawPlan();drawFriend();tick()}
 let planKey=null;
 function drawPlan(){$('pd').textContent=sday==='Fri'?'Friday':'Saturday';
  const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>fav.has(skey(sday,s))).sort((a,b)=>a[0][1]-b[0][1]);planKey=null;
@@ -315,6 +324,35 @@ function openSet(i){const s=S[sday][i];openS=i;$('stt').textContent=s[3]+(s[4]?'
  setCtx=stracks(sday,s);$('sl').innerHTML=setCtx.length?setCtx.map(i=>songRow(i,'s')).join(''):'<p class="empty" style="padding:16px">No tracks from this artist in the library yet.</p>';$('sl').scrollTop=0;$('sh').style.transform='';$('sh').classList.add('on');$('shbg').classList.add('on');document.body.classList.add('lock')}
 function closeSheet(){const sh=$('sh');sh.style.transform='';sh.classList.remove('on');$('shbg').classList.remove('on');openS=null;if(!$('bp').classList.contains('on'))document.body.classList.remove('lock')}
 function favBtn(){const f=fav.has(skey(sday,S[sday][openS]));$('sfv').classList.toggle('on',f);$('sfv').textContent=f?'★ On my plan':'☆ I want to see this'}
+/* ---- share my plan ---- */
+const DAYS=['Fri','Sat'];let shared=null;
+try{shared=JSON.parse(localStorage.getItem('ds26shared')||'null')}catch(e){}
+try{$('shn').value=localStorage.getItem('ds26name')||''}catch(e){}
+function planCode(){return DAYS.map(d=>d[0]+S[d].map((s,i)=>fav.has(skey(d,s))?i.toString(36):null).filter(x=>x!==null).join('.')).join('_')}
+function readShare(){const m=location.hash.match(/^#plan=([^&]*)(?:&from=(.*))?$/);if(!m)return false;
+ const sh={from:m[2]?decodeURIComponent(m[2]).slice(0,24):'',keys:[]};
+ m[1].split('_').forEach(p=>{const d=p[0]==='F'?'Fri':p[0]==='S'?'Sat':null;if(!d)return;p.slice(1).split('.').filter(Boolean).forEach(x=>{const s=S[d][parseInt(x,36)];if(s)sh.keys.push(skey(d,s))})});
+ shared=sh;try{localStorage.setItem('ds26shared',JSON.stringify(sh))}catch(e){}
+ const first=DAYS.find(d=>sh.keys.some(k=>k.startsWith(d+'|')));if(first)sday=first;
+ try{history.replaceState(null,'',location.pathname+location.search+'#settimes-'+sday.toLowerCase())}catch(e){location.hash='settimes'}
+ setTimeout(()=>toast((sh.from?sh.from+'’s':'A friend’s')+' plan loaded 👥 Their sets have a dashed outline',3200),500);return true}
+function drawFriend(){const box=$('frp');if(!shared||!shared.keys.length){box.hidden=true;return}box.hidden=false;
+ const who=shared.from?esc(shared.from)+'’s':'A friend’s';$('frt').innerHTML=who+' plan · '+(sday==='Fri'?'Friday':'Saturday');
+ const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>shared.keys.includes(skey(sday,s))).sort((a,b)=>a[0][1]-b[0][1]);
+ const both=L.filter(([s])=>fav.has(skey(sday,s))).length,other=DAYS.find(d=>d!==sday),oc=shared.keys.filter(k=>k.startsWith(other+'|')).length;
+ $('frs').textContent=(L.length?L.length+' set'+(L.length>1?'s':'')+(both?' · '+both+' you’re both seeing':''):'Nothing starred this day')+(oc?' · '+oc+' on '+(other==='Fri'?'Friday':'Saturday'):'');
+ $('frl').innerHTML=L.map(([s,i])=>'<div class="pi" data-i="'+i+'"><span class="dot '+s[0]+'"></span><div><div class="ptt">'+esc(s[3])+'</div><div class="pm">'+range(s)+' · The '+s[0]+'</div>'+(fav.has(skey(sday,s))?'<div class="both">★ You’re both going</div>':'')+'</div></div>').join('');
+ const missing=shared.keys.filter(k=>!fav.has(k)).length;$('fradd').hidden=!missing;$('fradd').textContent='★ Add their '+missing+' set'+(missing>1?'s':'')+' to my plan'}
+$('frl').addEventListener('click',e=>{const b=e.target.closest('.pi');if(b)openSet(+b.dataset.i)});
+$('frx').onclick=()=>{shared=null;try{localStorage.removeItem('ds26shared')}catch(e){}drawGrid()};
+$('fradd').onclick=()=>{shared.keys.forEach(k=>fav.add(k));saveFav();drawGrid();toast('Added to your plan')};
+$('shn').onchange=()=>{try{localStorage.setItem('ds26name',$('shn').value.trim())}catch(e){}};
+$('shb').onclick=async()=>{if(!fav.size){toast('Star some sets first');return}
+ const n=$('shn').value.trim();try{localStorage.setItem('ds26name',n)}catch(e){}
+ const url=location.origin+location.pathname+'?ref=SYP#plan='+planCode()+(n?'&from='+encodeURIComponent(n):'');
+ const text=(n?n+'’s':'My')+' Dreamstate SoCal 2026 plan 🌙';
+ if(navigator.share){try{await navigator.share({title:text,text:text,url:url});return}catch(e){if(e&&e.name==='AbortError')return}}
+ try{await navigator.clipboard.writeText(url);toast('Link copied')}catch(e){window.prompt('Copy your plan link:',url)}};
 function togFav(i){const k=skey(sday,S[sday][i]);fav.has(k)?fav.delete(k):fav.add(k);saveFav();drawGrid()}
 $('g').addEventListener('click',e=>{const b=e.target.closest('.set');if(!b)return;if(e.target.closest('.st')){togFav(+b.dataset.i);return}openSet(+b.dataset.i)});
 $('pl').addEventListener('click',e=>{const b=e.target.closest('.pi');if(b)openSet(+b.dataset.i)});
@@ -416,7 +454,7 @@ $('qv').addEventListener('click',e=>{const rm=e.target.closest('[data-rm]');if(r
 document.querySelectorAll('.play#bpp,#mpp').forEach(b=>b.innerHTML=I.play);
 
 /* ---------- start ---------- */
-draw();route();
+draw();readShare();route();
 if('serviceWorker' in navigator&&location.protocol==='https:'){navigator.serviceWorker.register('sw.js').catch(()=>{})}
 </script><script data-goatcounter="https://dreamstate26.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body></html>
