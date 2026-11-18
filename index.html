@@ -107,7 +107,7 @@ footer{color:var(--mut);font-size:12px;padding:24px 14px}
 
 <section class="view" id="v-settimes">
 <div class="vsub">Tap a set to hear its tracks. Tap ☆ to add it to your plan; your picks stay saved on this phone.</div>
-<div class="tabs" style="padding-top:10px"><button class="btn on" data-sd="Fri">Fri 11/20</button><button class="btn" data-sd="Sat">Sat 11/21</button><span class="grow"></span><button class="btn" id="mine">★ My sets only</button><button class="btn dmb">Light</button></div>
+<div class="tabs" style="padding-top:10px"><button class="btn on" data-sd="Fri">Fri 11/20</button><button class="btn" data-sd="Sat">Sat 11/21</button><span class="grow"></span><button class="btn" id="lt">Live timing</button><button class="btn" id="mine">★ My sets only</button><button class="btn dmb">Light</button></div>
 <div class="grid" id="g"></div>
 <section class="plan"><h2>My plan · <span id="pd"></span></h2><div id="pl"></div></section></section>
 
@@ -175,7 +175,7 @@ if(/Instagram|FBAN|FBAV|Snapchat|TikTok|musical_ly|Line\//i.test(navigator.userA
 /* ---------- router ---------- */
 const TT={playlists:'Dreamstate SoCal 2026',settimes:'Set Times',map:'Festival Map'};
 function route(){let h=location.hash.replace('#','').toLowerCase();let v=h.startsWith('settimes')||h==='fri'||h==='sat'?'settimes':h==='map'?'map':'playlists';
- if(h.endsWith('sat'))sday='Sat';else if(h.endsWith('fri'))sday='Fri';else if(!route.v&&festHour('Fri')===99)sday='Sat';
+ if(h.endsWith('sat'))sday='Sat';else if(h.endsWith('fri'))sday='Fri';else if(!route.v&&liveOn&&festHour('Fri')===99)sday='Sat';
  document.querySelectorAll('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
  $('ttl').textContent=TT[v];document.title=(v==='playlists'?'':TT[v]+' · ')+'Dreamstate SoCal 2026';if(v==='settimes')drawGrid();if(route.v&&route.v!==v)scrollTo(0,0);route.v=v}
 window.addEventListener('hashchange',route);
@@ -195,7 +195,8 @@ document.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{document.querySe
 document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-s]').forEach(x=>x.classList.remove('on'));b.classList.add('on');stg=b.dataset.s;draw()});
 
 /* ---------- set times view ---------- */
-const PX=78;let sday='Fri',mine=false,openS=null,fav=new Set();
+const PX=78;let liveOn=true;try{liveOn=localStorage.getItem('ds26live')!=='0'}catch(e){}
+let sday='Fri',mine=false,openS=null,fav=new Set();
 try{fav=new Set(JSON.parse(localStorage.getItem('ds26fav')||'[]'))}catch(e){}
 function saveFav(){try{localStorage.setItem('ds26fav',JSON.stringify([...fav]))}catch(e){}}
 function hh(h){const H=Math.floor(h),m=Math.round((h-H)*60),x=H%12||12;return x+(m?':'+String(m).padStart(2,'0'):'')}
@@ -215,7 +216,7 @@ let planKey=null;
 function drawPlan(){$('pd').textContent=sday==='Fri'?'Friday':'Saturday';
  const L=S[sday].map((s,i)=>[s,i]).filter(([s])=>fav.has(skey(sday,s))).sort((a,b)=>a[0][1]-b[0][1]);planKey=null;
  if(!L.length){$('pl').innerHTML='<div class="empty">No sets starred yet. Tap ☆ on a set to add it.</div>';return}
- const now=festHour(sday),U=L.filter(([s])=>s[2]>now),E=L.filter(([s])=>s[2]<=now);planKey=sday+E.length;
+ const now=liveOn?festHour(sday):-1,U=L.filter(([s])=>s[2]>now),E=L.filter(([s])=>s[2]<=now);planKey=sday+E.length;
  const row=([s,i],live,clash)=>'<div class="pi'+(live?'':' ended')+'" data-i="'+i+'"><span class="dot '+s[0]+'"></span><div><div class="ptt">'+esc(s[3])+'</div><div class="pm">'+range(s)+' · The '+s[0]+(s[4]?' · '+esc(s[4]):'')+'</div>'+(clash?'<div class="warn">Overlaps another set you starred</div>':'')+'</div></div>';
  let h=U.length?U.map((x,j)=>row(x,1,U.some(([o],k)=>k!==j&&o[1]<x[0][2]&&x[0][1]<o[2]))).join(''):'<div class="empty">All your starred sets for today have ended.</div>';
  if(E.length)h+='<div class="peh">Ended · '+E.length+'</div>'+E.map(x=>row(x,0,0)).join('');
@@ -230,6 +231,7 @@ $('pl').addEventListener('click',e=>{const b=e.target.closest('.pi');if(b)openSe
 $('sx').onclick=()=>{$('sh').classList.remove('on');openS=null};
 $('sfv').onclick=()=>{togFav(openS);favBtn()};
 document.querySelectorAll('[data-sd]').forEach(b=>b.onclick=()=>{sday=b.dataset.sd;try{history.replaceState(null,'','#settimes-'+sday.toLowerCase())}catch(e){}drawGrid()});
+$('lt').classList.toggle('on',liveOn);$('lt').onclick=()=>{liveOn=!liveOn;$('lt').classList.toggle('on',liveOn);try{localStorage.setItem('ds26live',liveOn?'1':'0')}catch(e){}drawGrid()};
 $('mine').onclick=e=>{mine=!mine;e.target.classList.toggle('on',mine);drawGrid()};
 
 /* ---------- live clock (phone time, Long Beach time zone) ---------- */
@@ -239,7 +241,9 @@ const LAf=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',year:'
 function laNow(){const p={};LAf.formatToParts(new Date(Date.now()+OFF)).forEach(x=>p[x.type]=x.value);return{date:p.year+'-'+p.month+'-'+p.day,h:+p.hour,m:+p.minute,s:+p.second}}
 function festHour(d){const n=laNow(),base=DD[d];const t=n.h+n.m/60+n.s/3600;if(n.date===base)return t;
  const nx=new Date(base+'T12:00:00Z');nx.setUTCDate(nx.getUTCDate()+1);if(n.date===nx.toISOString().slice(0,10)&&n.h<6)return t+24;return n.date<base?-1:99}
-function tick(){if(!$('v-settimes').classList.contains('on'))return;const now=festHour(sday);
+function tick(){if(!$('v-settimes').classList.contains('on'))return;
+ if(!liveOn){document.querySelectorAll('#g .set').forEach(b=>b.classList.remove('past','live'));if($('nowl'))$('nowl').style.display=$('nowp').style.display='none';return}
+ const now=festHour(sday);
  if(planKey!==null&&planKey!==sday+S[sday].filter(s=>fav.has(skey(sday,s))&&s[2]<=now).length)drawPlan();
  document.querySelectorAll('#g .set').forEach(b=>{const s=S[sday][+b.dataset.i];const past=s[2]<=now,live=s[1]<=now&&now<s[2];b.classList.toggle('past',past);b.classList.toggle('live',live);
   if(live){const left=Math.round((s[2]-now)*3600),p=(now-s[1])/(s[2]-s[1]);b.querySelector('.lv').textContent='LIVE · '+fmt(left)+' left';b.querySelector('.lpb i').style.width=(p*100)+'%'}});
