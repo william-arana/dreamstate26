@@ -543,7 +543,7 @@ if('serviceWorker' in navigator&&location.protocol==='https:'){navigator.service
 // empty = one-time setup: set + confirm, then the page shows the hash to bake in.
 // The toggle uses GoatCounter's own 'skipgc' switch in this app's storage
 // (a home-screen app on iPhone doesn't share it with Safari).
-const ADMIN_HASH='';
+const ADMIN_HASH='1e0d1809561b070838386164579a73639c72df618eca4826c310faffd27b8aab';
 (function(){const b=$('gcx'),p=$('gcp');if(!b||!p)return;let n=0,tm=0;
  const ls={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}},del:k=>{try{localStorage.removeItem(k)}catch(e){}}};
  const target=()=>ADMIN_HASH||ls.get('ds26adminhash')||'';
