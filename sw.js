@@ -1,5 +1,5 @@
-const C='ds26-v10';const SHELL=['./','index.html','data.js','logo.png','icon-180.png','map.jpg','og-fanmade.jpg','live-timing.jpg'];
-self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
+const C='ds26-v11';const SHELL=['./','index.html','data.js','logo.png','icon-180.png','map.jpg','og-fanmade.jpg','live-timing.jpg'];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL.map(u=>new Request(u,{cache:'reload'})))).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C&&k!=='ds26-img').map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 
 // Tell open pages what happened: 'fresh' = network answered and nothing changed, 'updated' = a newer copy was saved.
@@ -15,7 +15,7 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
   const main=home||/\/(index\.html|data\.js)$/.test(u.pathname);
   e.respondWith(caches.open(C).then(c=>c.match(key,{ignoreSearch:true}).then(cached=>{
    const old=main&&cached?cached.clone():null; // copy before the saved one is handed to the page
-   const net=fetch(e.request).then(async r=>{
+   const net=fetch(nav?u.href:e.request,{cache:'no-cache'}).then(async r=>{
     if(r.ok){
      let changed=false;
      if(old){const [a,b]=await Promise.all([old.text(),r.clone().text()]);changed=a!==b}
